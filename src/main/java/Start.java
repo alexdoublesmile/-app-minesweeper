@@ -8,8 +8,8 @@ import java.awt.*;
 public class Start extends JFrame {
 
     private JPanel panel;
-    private final int COLS = 15;
-    private final int ROWS = 1;
+    private final int COLS = 9;
+    private final int ROWS = 9;
     private final int IMAGE_SIZE = 50;
 
     public static void main(String[] args) {
@@ -38,10 +38,13 @@ public class Start extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                for (Box box : Box.values()) {
-                    Coord coord = new Coord(IMAGE_SIZE * box.ordinal(), 0);
+                for (Coord coord : Ranges.getAllCoords()) {
                     g.drawImage(
-                            (Image) box.image, coord.getX(), coord.getY(), this);
+                            (Image) Box.BOMB.image,
+                            coord.getX()*IMAGE_SIZE,
+                            coord.getY()*IMAGE_SIZE,
+                            this
+                    );
                 }
             }
         };
