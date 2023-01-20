@@ -1,5 +1,6 @@
 package controller;
 
+import model.Bomb;
 import model.Box;
 import model.Coord;
 import model.Matrix;
@@ -8,21 +9,18 @@ import util.Ranges;
 import java.awt.*;
 
 public class Game {
-    private Matrix bombMap;
+    private Bomb bomb;
 
-    public Game(int cols, int rows) {
+    public Game(int cols, int rows, int bombs) {
         Ranges.setSize(new Coord(cols, rows));
+        bomb = new Bomb(bombs);
     }
 
     public void start() {
-        bombMap = new Matrix(Box.ZERO);
-        bombMap.set(new Coord(0, 0), Box.BOMB);
-        bombMap.set(new Coord(0, 1), Box.NUM1);
-        bombMap.set(new Coord(1, 0), Box.NUM1);
-        bombMap.set(new Coord(1, 1), Box.NUM1);
+        bomb.start();
     }
 
     public Box getBox(Coord coord) {
-        return bombMap.get(coord);
+        return bomb.get(coord);
     }
 }
