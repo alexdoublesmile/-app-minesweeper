@@ -1,12 +1,15 @@
 package model;
 
+import util.Ranges;
+
 public class Flag {
     private Matrix flagMap;
-    private int totalFlags;
     private int countOfClosedBoxes;
+    private int totalFlags;
 
     public void start() {
         flagMap = new Matrix(Box.CLOSED);
+        countOfClosedBoxes = Ranges.getSize().getX() * Ranges.getSize().getY();
     }
 
     public Box get(Coord coord) {
@@ -15,6 +18,7 @@ public class Flag {
 
     public void setOpenedToBox(Coord coord) {
         flagMap.set(coord, Box.OPENED);
+        countOfClosedBoxes--;
     }
 
     public void setFlaggedToBox(Coord coord) {
@@ -32,5 +36,9 @@ public class Flag {
 
     private void setClosedToBox(Coord coord) {
         flagMap.set(coord, Box.CLOSED);
+    }
+
+    public int getCountOfClosedBoxes() {
+        return countOfClosedBoxes;
     }
 }
