@@ -19,7 +19,7 @@ public class Start extends JFrame {
     }
 
     private Start() {
-        Game game = new Game(COLS, ROWS);
+        game = new Game(COLS, ROWS);
         setImages();
         initPanel();
         initFrame();
