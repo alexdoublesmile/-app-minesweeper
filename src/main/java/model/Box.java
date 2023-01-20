@@ -22,4 +22,8 @@ public enum Box {
     public Box nextNumberBox() {
         return values()[ordinal() + 1];
     }
+
+    public int getNumber() {
+        return 0;
+    }
 }
