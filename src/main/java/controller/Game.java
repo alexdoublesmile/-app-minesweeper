@@ -52,9 +52,16 @@ public class Game {
         }
     }
 
-    private void openBombs(Coord coord) {
+    private void openBombs(Coord bombed) {
         state = GameState.BOMBED;
-        flag.setBombToBox(coord);
+        flag.setBombToBox(bombed);
+        for (Coord coord : Ranges.getAllCoords()) {
+            if (bomb.get(coord) == Box.BOMB) {
+                flag.setOpenedToClosedBombBox(coord);
+            } else {
+                flag.setNoBombToFlaggedSafeBox(coord);
+            }
+        }
     }
 
     private void openBoxesAround(Coord coord) {
