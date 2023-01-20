@@ -27,12 +27,12 @@ public class Start extends JFrame {
     }
 
     private void initFrame() {
-        pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Minesweeper");
         setLocationRelativeTo(null);
         setResizable(false);
         setIconImage(getImage("icon"));
+        pack();
         setVisible(true);
     }
 
