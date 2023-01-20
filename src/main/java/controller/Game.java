@@ -54,6 +54,7 @@ public class Game {
 
     private void openBombs(Coord coord) {
         state = GameState.BOMBED;
+        flag.setBombToBox(coord);
     }
 
     private void openBoxesAround(Coord coord) {
