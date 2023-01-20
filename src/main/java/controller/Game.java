@@ -21,6 +21,6 @@ public class Game {
     }
 
     public Box getBox(Coord coord) {
-        return flag.get(coord);
+        return Box.OPENED == flag.get(coord) ? bomb.get(coord) : flag.get(coord);
     }
 }
