@@ -1,5 +1,6 @@
 import model.Box;
 import model.Coord;
+import util.Ranges;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,7 @@ public class Start extends JFrame {
     }
 
     private Start() {
+        Ranges.setSize(new Coord(COLS, ROWS));
         setImages();
         initPanel();
         initFrame();
@@ -43,7 +45,7 @@ public class Start extends JFrame {
                 }
             }
         };
-        panel.setPreferredSize(new Dimension(COLS*IMAGE_SIZE, ROWS*IMAGE_SIZE));
+        panel.setPreferredSize(new Dimension(Ranges.getSize().getX()*IMAGE_SIZE, Ranges.getSize().getY()*IMAGE_SIZE));
         add(panel);
     }
 
