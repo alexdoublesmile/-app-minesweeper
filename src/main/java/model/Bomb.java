@@ -18,7 +18,11 @@ public class Bomb {
     }
 
     private void placeBomb() {
-        final Coord randomCoord = Ranges.getRandomCoord();
+        Coord randomCoord;
+        do {
+            randomCoord = Ranges.getRandomCoord();
+        } while (Box.BOMB == bombMap.get(randomCoord));
+
         bombMap.set(randomCoord, Box.BOMB);
         incNumbersAroundBomb(randomCoord);
     }
