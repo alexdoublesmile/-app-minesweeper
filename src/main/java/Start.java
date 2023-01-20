@@ -1,4 +1,5 @@
 import model.Box;
+import model.Coord;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,8 +37,9 @@ public class Start extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 for (Box box : Box.values()) {
+                    Coord coord = new Coord(IMAGE_SIZE * box.ordinal(), 0);
                     g.drawImage(
-                            (Image) box.image, IMAGE_SIZE * box.ordinal(), 0, this);
+                            (Image) box.image, coord.getX(), coord.getY(), this);
                 }
             }
         };
