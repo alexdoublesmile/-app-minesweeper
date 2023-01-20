@@ -1,3 +1,5 @@
+import model.Box;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,6 +15,7 @@ public class Start extends JFrame {
     }
 
     private Start() {
+        setImages();
         initPanel();
         initFrame();
     }
@@ -31,8 +34,10 @@ public class Start extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.drawImage(getImage("bomb"), 0, 0, this);
-                g.drawImage(getImage("num1"), IMAGE_SIZE, 0, this);
+                for (Box box : Box.values()) {
+                    g.drawImage(
+                            (Image) box.image, IMAGE_SIZE * box.ordinal(), 0, this);
+                }
             }
         };
         panel.setPreferredSize(new Dimension(COLS*IMAGE_SIZE, ROWS*IMAGE_SIZE));
@@ -43,5 +48,11 @@ public class Start extends JFrame {
         final String fileName = "img/" + name.toLowerCase() + ".png";
         final ImageIcon icon = new ImageIcon(getClass().getResource(fileName));
         return icon.getImage();
+    }
+
+    private void setImages() {
+        for (Box box : model.Box.values()) {
+            box.image = getImage(box.name().toLowerCase());
+        }
     }
 }
