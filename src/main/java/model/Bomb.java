@@ -1,5 +1,7 @@
 package model;
 
+import util.Ranges;
+
 public class Bomb {
     private Matrix bombMap;
     private int totalBombs;
@@ -10,11 +12,13 @@ public class Bomb {
 
     public void start() {
         bombMap = new Matrix(Box.ZERO);
-        placeBomb();
+        for (int i = 0; i < totalBombs; i++) {
+            placeBomb();
+        }
     }
 
     private void placeBomb() {
-        bombMap.set(new Coord(4, 4), Box.BOMB);
+        bombMap.set(Ranges.getRandomCoord(), Box.BOMB);
     }
 
     public Box get(Coord coord) {
