@@ -1,26 +1,26 @@
 package controller;
 
-import model.Bomb;
-import model.Box;
-import model.Coord;
-import model.Matrix;
+import model.*;
 import util.Ranges;
 
 import java.awt.*;
 
 public class Game {
     private Bomb bomb;
+    private Flag flag;
 
     public Game(int cols, int rows, int bombs) {
         Ranges.setSize(new Coord(cols, rows));
         bomb = new Bomb(bombs);
+        flag = new Flag();
     }
 
     public void start() {
         bomb.start();
+        flag.start();
     }
 
     public Box getBox(Coord coord) {
-        return bomb.get(coord);
+        return flag.get(coord);
     }
 }
