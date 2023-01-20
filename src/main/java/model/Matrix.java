@@ -12,5 +12,11 @@ public class Matrix {
         }
     }
 
-    
+    public Box get(Coord coord) {
+        return matrix[coord.getX()][coord.getY()];
+    }
+
+    public void set(Coord coord, Box box) {
+        matrix[coord.getX()][coord.getY()] = box;
+    }
 }
