@@ -1,5 +1,6 @@
 package model;
 
+import org.w3c.dom.ranges.Range;
 import util.Ranges;
 
 public class Bomb {
@@ -8,6 +9,7 @@ public class Bomb {
 
     public Bomb(int totalBombs) {
         this.totalBombs = totalBombs;
+        fixBombsCount();
     }
 
     public void start() {
@@ -32,6 +34,13 @@ public class Bomb {
             if (Box.BOMB != bombMap.get(coord)) {
                 bombMap.set(coord, bombMap.get(coord).nextNumberBox());
             }
+        }
+    }
+
+    private void fixBombsCount() {
+        int maxBombs = Ranges.getSize().getX() * Ranges.getSize().getY() / 2;
+        if (totalBombs > maxBombs) {
+            totalBombs = maxBombs;
         }
     }
 
