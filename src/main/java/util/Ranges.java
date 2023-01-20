@@ -46,7 +46,7 @@ public class Ranges {
         for (int i = coord.getX() - 1; i <= coord.getX() + 1; i++) {
             for (int j = coord.getY() - 1; j <= coord.getY() + 1; j++) {
                 if (inRange(around = new Coord(i, j))) {
-                    if (around != coord) {
+                    if (!around.equals(coord)) {
                         coords.add(around);
                     }
                 }
