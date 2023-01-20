@@ -26,7 +26,7 @@ public class Bomb {
     private void incNumbersAroundBomb(Coord bombCoord) {
         for (Coord coord : Ranges.getCoordsAround(bombCoord)) {
             if (Box.BOMB != bombMap.get(coord)) {
-                bombMap.set(coord, Box.NUM1);
+                bombMap.set(coord, bombMap.get(coord).nextNumberBox());
             }
         }
     }
