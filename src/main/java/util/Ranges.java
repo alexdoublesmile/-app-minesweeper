@@ -39,4 +39,19 @@ public class Ranges {
     public static Coord getRandomCoord() {
         return new Coord(random.nextInt(size.getX()), random.nextInt(size.getY()));
     }
+
+    public List<Coord> getCoordsAround(Coord coord) {
+        Coord around;
+        List<Coord> coords = new ArrayList<>();
+        for (int i = coord.getX() - 1; i <= coord.getX() + 1; i++) {
+            for (int j = coord.getY() - 1; j <= coord.getY() + 1; j++) {
+                if (inRange(around = new Coord(i, j))) {
+                    if (around != coord) {
+                        coords.add(around);
+                    }
+                }
+            }
+        }
+        return coords;
+    }
 }
