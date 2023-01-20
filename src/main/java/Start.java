@@ -13,13 +13,14 @@ public class Start extends JFrame {
     private final int COLS = 9;
     private final int ROWS = 9;
     private final int IMAGE_SIZE = 50;
+    private final int BOMB_NUMBERS = 10;
 
     public static void main(String[] args) {
         new Start();
     }
 
     private Start() {
-        game = new Game(COLS, ROWS);
+        game = new Game(COLS, ROWS, BOMB_NUMBERS);
         setImages();
         initPanel();
         initFrame();
