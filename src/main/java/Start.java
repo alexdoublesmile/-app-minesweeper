@@ -31,4 +31,10 @@ public class Start extends JFrame {
         panel.setPreferredSize(new Dimension(COLS*IMAGE_SIZE, ROWS*IMAGE_SIZE));
         add(panel);
     }
+
+    private Image getImage(String name) {
+        final String fileName = "img/" + name.toLowerCase() + ".png";
+        final ImageIcon icon = new ImageIcon(getClass().getResource(fileName));
+        return icon.getImage();
+    }
 }
