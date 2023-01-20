@@ -40,7 +40,7 @@ public class Start extends JFrame {
                 super.paintComponent(g);
                 for (Coord coord : Ranges.getAllCoords()) {
                     g.drawImage(
-                            (Image) Box.BOMB.image,
+                            (Image) Box.values()[(coord.getX() + coord.getY()) % Box.values().length].image,
                             coord.getX()*IMAGE_SIZE,
                             coord.getY()*IMAGE_SIZE,
                             this
