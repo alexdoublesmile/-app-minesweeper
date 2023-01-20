@@ -26,6 +26,7 @@ public class Start extends JFrame {
         setTitle("Minesweeper");
         setLocationRelativeTo(null);
         setResizable(false);
+        setIconImage(getImage("icon"));
         setVisible(true);
     }
 
