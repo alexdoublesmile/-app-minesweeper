@@ -1,3 +1,4 @@
+import controller.Game;
 import model.Box;
 import model.Coord;
 import util.Ranges;
@@ -7,6 +8,7 @@ import java.awt.*;
 
 public class Start extends JFrame {
 
+    private Game game;
     private JPanel panel;
     private final int COLS = 9;
     private final int ROWS = 9;
@@ -17,6 +19,7 @@ public class Start extends JFrame {
     }
 
     private Start() {
+        Game game = new Game(COLS, ROWS);
         setImages();
         initPanel();
         initFrame();
@@ -39,7 +42,7 @@ public class Start extends JFrame {
                 super.paintComponent(g);
                 for (Coord coord : Ranges.getAllCoords()) {
                     g.drawImage(
-                            (Image) Box.values()[(coord.getX() + coord.getY()) % Box.values().length].image,
+                            (Image) game.getBox(coord).image,
                             coord.getX()*IMAGE_SIZE,
                             coord.getY()*IMAGE_SIZE,
                             this
