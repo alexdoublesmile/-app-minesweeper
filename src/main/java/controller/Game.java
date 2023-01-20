@@ -28,7 +28,7 @@ public class Game {
 
     public void pressLeftButton(Coord coord) {
         openBox(coord);
-
+        checkWinner();
     }
 
     private void checkWinner() {
