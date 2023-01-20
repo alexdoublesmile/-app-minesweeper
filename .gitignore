@@ -1,6 +1,7 @@
 # compiled files
 /out
 /target
+/build
 
 # IDEA files
 /.idea
