@@ -40,7 +40,7 @@ public class Ranges {
         return new Coord(random.nextInt(size.getX()), random.nextInt(size.getY()));
     }
 
-    public List<Coord> getCoordsAround(Coord coord) {
+    public static List<Coord> getCoordsAround(Coord coord) {
         Coord around;
         List<Coord> coords = new ArrayList<>();
         for (int i = coord.getX() - 1; i <= coord.getX() + 1; i++) {
