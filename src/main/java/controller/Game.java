@@ -49,7 +49,9 @@ public class Game {
             case CLOSED:
                 switch (bomb.get(coord)) {
                     case ZERO: openBoxesAround(coord);
+                    break;
                     case BOMB: openBombs(coord);
+                    break;
                     default: flag.setOpenedToBox(coord);
                 }
         }
