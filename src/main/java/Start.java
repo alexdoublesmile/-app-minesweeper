@@ -32,10 +32,10 @@ public class Start extends JFrame {
     private void initFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Minesweeper");
-        setLocationRelativeTo(null);
         setResizable(false);
         setIconImage(getImage("icon"));
         pack();
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
