@@ -23,4 +23,8 @@ public class Game {
     public Box getBox(Coord coord) {
         return Box.OPENED == flag.get(coord) ? bomb.get(coord) : flag.get(coord);
     }
+
+    public void pressLeftButton(Coord coord) {
+        flag.setOpenedToBox(coord);
+    }
 }

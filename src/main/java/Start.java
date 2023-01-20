@@ -67,7 +67,7 @@ public class Start extends JFrame {
                 panel.repaint();
             }
         });
-        
+
         panel.setPreferredSize(new Dimension(Ranges.getSize().getX()*IMAGE_SIZE, Ranges.getSize().getY()*IMAGE_SIZE));
         add(panel);
     }
