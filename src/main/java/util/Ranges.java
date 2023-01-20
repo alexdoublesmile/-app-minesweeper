@@ -27,4 +27,8 @@ public class Ranges {
     public static List<Coord> getAllCoords() {
         return allCoords;
     }
+
+    public static boolean inRange(Coord coord) {
+        return allCoords.contains(coord);
+    }
 }
