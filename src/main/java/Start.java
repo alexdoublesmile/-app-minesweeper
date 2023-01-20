@@ -77,12 +77,23 @@ public class Start extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON2) {
                     game.start();
                 }
+                label.setText(getMessage());
                 panel.repaint();
+
             }
         });
 
         panel.setPreferredSize(new Dimension(Ranges.getSize().getX()*IMAGE_SIZE, Ranges.getSize().getY()*IMAGE_SIZE));
         add(panel);
+    }
+
+    private String getMessage() {
+        switch (game.getState()) {
+            case PLAYED: return "Think twice!";
+            case BOMBED: return "BOOM!";
+            case WINNER: return "Congratulations!";
+            default: return "Welcome!";
+        }
     }
 
     private Image getImage(String name) {
