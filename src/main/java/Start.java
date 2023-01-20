@@ -23,6 +23,7 @@ public class Start extends JFrame {
         setImages();
         initPanel();
         initFrame();
+        game.start();
     }
 
     private void initFrame() {
