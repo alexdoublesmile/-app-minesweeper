@@ -13,10 +13,15 @@ public class Matrix {
     }
 
     public Box get(Coord coord) {
-        return matrix[coord.getX()][coord.getY()];
+        if (Ranges.inRange(coord)) {
+            return matrix[coord.getX()][coord.getY()];
+        }
+        return null;
     }
 
     public void set(Coord coord, Box box) {
-        matrix[coord.getX()][coord.getY()] = box;
+        if (Ranges.inRange(coord)) {
+            matrix[coord.getX()][coord.getY()] = box;
+        }
     }
 }
