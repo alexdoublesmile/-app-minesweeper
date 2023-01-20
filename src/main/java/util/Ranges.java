@@ -2,6 +2,7 @@ package util;
 
 import model.Coord;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ranges {
@@ -14,5 +15,16 @@ public class Ranges {
 
     public static void setSize(Coord size) {
         Ranges.size = size;
+        allCoords = new ArrayList<>();
+
+        for (int y = 0; y < size.getY(); y++) {
+            for (int x = 0; x < size.getX(); x++) {
+                allCoords.add(new Coord(x, y));
+            }
+        }
+    }
+
+    public static List<Coord> getAllCoords() {
+        return allCoords;
     }
 }
