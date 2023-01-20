@@ -4,10 +4,12 @@ import model.Coord;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Ranges {
     private static Coord size;
     private static List<Coord> allCoords;
+    private static Random random = new Random();
 
     public static Coord getSize() {
         return size;
@@ -32,5 +34,9 @@ public class Ranges {
 //        return coord.getX() >= 0 && coord.getX() < size.getX()
 //                && coord.getY() >= 0 && coord.getY() < size.getY();
         return allCoords.contains(coord);
+    }
+
+    public static Coord getRandomCoord() {
+        return new Coord(random.nextInt(size.getX()), random.nextInt(size.getY()));
     }
 }
