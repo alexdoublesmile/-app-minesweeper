@@ -46,10 +46,14 @@ public class Game {
             case CLOSED:
                 switch (bomb.get(coord)) {
                     case ZERO: openBoxesAround(coord);
-                    case BOMB: return;
+                    case BOMB: openBombs(coord);
                     default: flag.setOpenedToBox(coord);
                 }
         }
+    }
+
+    private void openBombs(Coord coord) {
+        state = GameState.BOMBED;
     }
 
     private void openBoxesAround(Coord coord) {
