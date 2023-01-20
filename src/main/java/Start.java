@@ -17,7 +17,6 @@ public class Start extends JFrame {
     }
 
     private Start() {
-        Ranges.setSize(new Coord(COLS, ROWS));
         setImages();
         initPanel();
         initFrame();
