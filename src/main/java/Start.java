@@ -8,9 +8,10 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Start extends JFrame {
+public class Start {
 
     private Game game;
+    private JFrame window;
     private JPanel panel;
     private JLabel label;
     private final int COLS = 9;
@@ -32,18 +33,18 @@ public class Start extends JFrame {
     }
 
     private void initLabel() {
+        window = new JFrame("Minesweeper");
         label = new JLabel("Welcome");
-        add(label, BorderLayout.SOUTH);
+        window.add(label, BorderLayout.SOUTH);
     }
 
     private void initFrame() {
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Minesweeper");
-        setResizable(false);
-        setIconImage(getImage("icon"));
-        pack();
-        setLocationRelativeTo(null);
-        setVisible(true);
+        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setIconImage(getImage("icon"));
+        window.pack();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
     }
 
     private void initPanel() {
@@ -84,7 +85,7 @@ public class Start extends JFrame {
         });
 
         panel.setPreferredSize(new Dimension(Ranges.getSize().getX()*IMAGE_SIZE, Ranges.getSize().getY()*IMAGE_SIZE));
-        add(panel);
+        window.add(panel);
     }
 
     private String getMessage() {
