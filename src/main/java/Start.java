@@ -2,6 +2,8 @@ import controller.Game;
 import model.Box;
 import model.Coord;
 import util.Ranges;
+import view.Panel;
+import view.Window;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +13,8 @@ import java.awt.event.MouseEvent;
 public class Start {
 
     private Game game;
-    private JFrame window;
-    private JPanel panel;
+    private Window window;
+    private Panel panel;
     private JLabel label;
     private final int COLS = 9;
     private final int ROWS = 9;
@@ -33,7 +35,7 @@ public class Start {
     }
 
     private void initLabel() {
-        window = new JFrame("Minesweeper");
+        window = new Window("Minesweeper");
         label = new JLabel("Welcome");
         window.add(label, BorderLayout.SOUTH);
     }
@@ -48,7 +50,7 @@ public class Start {
     }
 
     private void initPanel() {
-        panel = new JPanel() {
+        panel = new Panel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
