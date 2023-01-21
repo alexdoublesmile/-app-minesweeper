@@ -19,7 +19,7 @@ public class Start extends JFrame {
     private final int BOMB_NUMBERS = 10;
 
     public static void main(String[] args) {
-        new Start();
+        SwingUtilities.invokeLater(Start::new);
     }
 
     private Start() {
