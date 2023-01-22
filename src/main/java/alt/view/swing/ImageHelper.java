@@ -8,7 +8,7 @@ import java.awt.*;
 public class ImageHelper {
 
     public static Image getImageByType(CellImgType imgType) {
-        return getImageByName(imgType.name().toLowerCase());
+        return getImageByName(imgType.getImgName());
     }
 
     public static Image getImageByName(String name) {

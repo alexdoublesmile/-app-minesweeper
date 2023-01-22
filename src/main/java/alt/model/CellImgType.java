@@ -3,21 +3,30 @@ package alt.model;
 import alt.exception.IncorrectCellTypeException;
 
 public enum CellImgType {
-    ZERO,
-    NUM1,
-    NUM2,
-    NUM3,
-    NUM4,
-    NUM5,
-    NUM6,
-    NUM7,
-    NUM8,
-    BOMB,
-    OPENED,
-    CLOSED,
-    FLAGGED,
-    BOMBED,
-    NOBOMB;
+    EMPTY("zero"),
+    ONE("num1"),
+    TWO("num2"),
+    THREE("num3"),
+    FOUR("num4"),
+    FIVE("num5"),
+    SIX("num6"),
+    SEVEN("num7"),
+    EIGHT("num8"),
+    BOMB("bomb"),
+    CLOSED("closed"),
+    FLAGGED("flagged"),
+    BOMBED("bobed"),
+    FALSE_FLAG("nobomb");
+
+    CellImgType(String imgName) {
+        this.imgName = imgName;
+    }
+
+    private String imgName;
+
+    public String getImgName() {
+        return imgName;
+    }
 
     public static CellImgType getByCell(Cell cell) {
         if (!cell.isOpen()) {
@@ -28,7 +37,7 @@ public enum CellImgType {
             }
         } else {
             if (CellType.EMPTY == cell.getType() && !cell.isFlagged()) {
-                return OPENED;
+                return EMPTY;
             }
             if (CellType.NUMBER == cell.getType() && !cell.isFlagged()) {
                 final int numberOfBombsAround = (int) cell.getAroundCells()
@@ -37,14 +46,14 @@ public enum CellImgType {
                         .count();
 
                 switch (numberOfBombsAround) {
-                    case 1: return NUM1;
-                    case 2: return NUM2;
-                    case 3: return NUM3;
-                    case 4: return NUM4;
-                    case 5: return NUM5;
-                    case 6: return NUM6;
-                    case 7: return NUM7;
-                    case 8: return NUM8;
+                    case 1: return ONE;
+                    case 2: return TWO;
+                    case 3: return THREE;
+                    case 4: return FOUR;
+                    case 5: return FIVE;
+                    case 6: return SIX;
+                    case 7: return SEVEN;
+                    case 8: return EIGHT;
                     default: throw new IncorrectCellTypeException(cell);
                 }
             }
@@ -58,7 +67,7 @@ public enum CellImgType {
             }
 
             if (CellType.BOMB != cell.getType() && cell.isFlagged()) {
-                return NOBOMB;
+                return FALSE_FLAG;
             }
         }
         return null;
