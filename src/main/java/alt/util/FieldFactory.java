@@ -26,7 +26,6 @@ public final class FieldFactory {
                         .row(row)
                         .column(column)
                         .type(CellType.EMPTY)
-                        .isOpen(true)
                         .build();
             }
         }
