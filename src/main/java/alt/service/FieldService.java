@@ -15,7 +15,7 @@ public final class FieldService {
     public Field initStartField() {
         return FieldFactory.withSettings(settings)
                 .initEmptyField()
-                .addCellsAround()
+//                .addCellsAround()
                 .addBombs()
                 .addNumbers()
                 .buildField();
