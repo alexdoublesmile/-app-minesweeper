@@ -56,11 +56,14 @@ public final class FieldFactory {
 
         for (int row = currentCell.getRow() - 1; row <= currentCell.getRow() + 1; row++) {
             for (int column = currentCell.getColumn() - 1; column <= currentCell.getColumn() + 1; column++) {
-                final Cell aroundCell = field.getCells()[row][column];
 
-                if (CellUtil.isValid(aroundCell, field.getCells())
-                        && !aroundCell.equals(currentCell)) {
-                    aroundCells.add(aroundCell);
+
+                if (CellUtil.isValidCoords(row, column, field)) {
+
+                    final Cell aroundCell = field.getCells()[row][column];
+                    if (!aroundCell.equals(currentCell)) {
+                        aroundCells.add(aroundCell);
+                    }
                 }
             }
         }

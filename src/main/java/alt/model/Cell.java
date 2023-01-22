@@ -14,6 +14,7 @@ public class Cell {
     private CellType type;
     private boolean isOpen;
     private boolean isFlagged;
+    private boolean isLosing;
 
     @Builder.Default
     private List<Cell> aroundCells = new ArrayList<>();

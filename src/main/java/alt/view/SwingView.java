@@ -1,6 +1,7 @@
 package alt.view;
 
 import alt.model.Cell;
+import alt.model.CellImgType;
 import alt.model.Field;
 import alt.model.Game;
 import view.FieldView;
@@ -14,7 +15,7 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-public class SwingView implements View {
+public class SwingView implements View<Image> {
 
     private Window window;
     private FieldView fieldView;
@@ -35,6 +36,11 @@ public class SwingView implements View {
         window.setVisible(true);
     }
 
+    @Override
+    public Image getImageByType(CellImgType imgType) {
+        return getImage(imgType.name().toLowerCase());
+    }
+
     private void initPanel(Field field) {
         final List<Cell> cells = Stream.of(field.getCells())
                 .flatMap(Arrays::stream)
@@ -46,7 +52,7 @@ public class SwingView implements View {
                 super.paintComponent(g);
                 for (Cell cell : cells) {
                     g.drawImage(
-                            getImageByType(cell.getImgType()),
+                            getImageByType(CellImgType.getByCell(cell)),
                             cell.getRow() * field.getCellSize(),
                             cell.getColumn() * field.getCellSize(),
                             this
@@ -60,7 +66,7 @@ public class SwingView implements View {
     }
 
     private Image getImage(String name) {
-        final String fileName = "img/" + name.toLowerCase() + ".png";
+        final String fileName = "../../img/" + name.toLowerCase() + ".png";
         final ImageIcon icon = new ImageIcon(getClass().getResource(fileName));
         return icon.getImage();
     }
