@@ -37,8 +37,8 @@ public final class FieldService {
 
     public Field addCellsAround(Field field) {
         final Cell[][] cells = field.getCells();
-        for (int row = 0; row < cells.length; row++) {
-            for (int column = 0; column < cells[row].length; column++) {
+        for (int row = 0; row < field.getNumberOfRows(); row++) {
+            for (int column = 0; column < field.getNumberOfColumns(); column++) {
                 final Cell currentCell = cells[row][column];
 
                 currentCell.setAroundCells(cellService.addCellsAround(currentCell, cells));
@@ -57,5 +57,17 @@ public final class FieldService {
         return field;
     }
 
-    // TODO: 21.01.2023 add numbers
+    public Field addNumbers(Field field) {
+        final Cell[][] cells = field.getCells();
+        for (int row = 0; row < field.getNumberOfRows(); row++) {
+            for (int column = 0; column < field.getNumberOfColumns(); column++) {
+                final Cell currentCell = cells[row][column];
+
+                if (CellType.BOMB == currentCell.getType()) {
+                    currentCell.getAroundCells().forEach(cell -> cell.setType(CellType.NUMBER));
+                }
+            }
+        }
+        return field;
+    }
 }
