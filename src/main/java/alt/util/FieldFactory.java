@@ -10,13 +10,14 @@ import java.util.List;
 
 public final class FieldFactory {
     private static final FieldFactory INSTANCE = new FieldFactory();
+    private GameSettings settings;
 
     private FieldFactory() {
     }
 
     private Field field;
 
-    public FieldFactory initEmptyField(GameSettings settings) {
+    public FieldFactory initEmptyField() {
         Cell[][] cells = new Cell[settings.getNumberOfRows()][settings.getNumberOfColumns()];
 
         for (int row = 0; row < settings.getNumberOfRows(); row++) {
@@ -25,6 +26,7 @@ public final class FieldFactory {
                         .row(row)
                         .column(column)
                         .type(CellType.EMPTY)
+                        .isOpen(true)
                         .build();
             }
         }
@@ -98,7 +100,12 @@ public final class FieldFactory {
         return field;
     }
 
-    public static FieldFactory getINSTANCE() {
-        return INSTANCE;
+    public static FieldFactory withSettings(GameSettings settings) {
+        return INSTANCE.getInstanceWithSettings(settings);
+    }
+
+    private FieldFactory getInstanceWithSettings(GameSettings settings) {
+        this.settings = settings;
+        return this;
     }
 }

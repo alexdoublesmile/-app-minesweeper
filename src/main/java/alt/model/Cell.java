@@ -2,6 +2,7 @@ package alt.model;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Cell {
     private boolean isFlagged;
     private boolean isLosing;
 
+    @ToString.Exclude
     @Builder.Default
     private List<Cell> aroundCells = new ArrayList<>();
 }

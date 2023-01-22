@@ -5,27 +5,19 @@ import alt.model.Field;
 import alt.util.FieldFactory;
 
 public final class FieldService {
-    private static final FieldService INSTANCE = new FieldService();
-    private GameSettings settings;
 
-    private FieldService() {
+    private final GameSettings settings;
+
+    public FieldService(GameSettings settings) {
+        this.settings = settings;
     }
 
     public Field initStartField() {
-        return FieldFactory.getINSTANCE()
-                .initEmptyField(settings)
+        return FieldFactory.withSettings(settings)
+                .initEmptyField()
                 .addCellsAround()
                 .addBombs()
                 .addNumbers()
                 .buildField();
-    }
-
-    public static FieldService withSettings(GameSettings settings) {
-        return INSTANCE.getInstanceWithSettings(settings);
-    }
-
-    private FieldService getInstanceWithSettings(GameSettings settings) {
-        this.settings = settings;
-        return this;
     }
 }

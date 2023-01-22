@@ -8,13 +8,14 @@ import alt.view.View;
 
 public class Launcher {
     public static void main(String[] args) {
-        final FieldService fieldService = FieldService.withSettings(GameSettings.builder()
+        final GameSettings settings = GameSettings.builder()
                 .numberOfRows(9)
                 .numberOfColumns(9)
-                .numberOfBombs(10)
+                .numberOfBombs(81)
                 .cellSize(50)
-                .build());
+                .build();
 
+        final FieldService fieldService = new FieldService(settings);
         final GameController game = new GameController(fieldService);
         final View view = new SwingView();
 
