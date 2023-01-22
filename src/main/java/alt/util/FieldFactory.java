@@ -89,7 +89,10 @@ public final class FieldFactory {
                 final Cell currentCell = cells[row][column];
 
                 if (CellType.BOMB == currentCell.getType()) {
-                    currentCell.getAroundCells().forEach(cell -> cell.setType(CellType.NUMBER));
+                    currentCell.getAroundCells()
+                            .stream()
+                            .filter(cell -> CellType.BOMB != cell.getType())
+                            .forEach(cell -> cell.setType(CellType.NUMBER));
                 }
             }
         }
