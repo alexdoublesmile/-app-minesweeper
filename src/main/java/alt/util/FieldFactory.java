@@ -24,7 +24,6 @@ public final class FieldFactory {
                 cells[row][column] = Cell.builder()
                         .row(row)
                         .column(column)
-                        .size(settings.getCellSize())
                         .type(CellType.EMPTY)
                         .build();
             }
@@ -34,6 +33,7 @@ public final class FieldFactory {
                 .numberOfColumns(settings.getNumberOfColumns())
                 .activeBombsNumber(settings.getNumberOfBombs())
                 .cells(cells)
+                .cellSize(settings.getCellSize())
                 .build();
 
         return this;

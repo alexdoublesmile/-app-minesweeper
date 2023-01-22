@@ -13,7 +13,6 @@ import java.util.List;
 public class Cell {
     private int row;
     private int column;
-    private int size;
     private CellType type;
     private boolean isOpen;
     private boolean isFlagged;

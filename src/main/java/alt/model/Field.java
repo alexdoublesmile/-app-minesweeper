@@ -11,4 +11,5 @@ public class Field {
     private int numberOfColumns;
     private int activeBombsNumber;
     private Cell[][] cells;
+    private int cellSize;
 }
