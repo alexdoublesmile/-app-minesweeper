@@ -15,14 +15,15 @@ public class SwingView implements View {
     private FieldView fieldView;
 
     @Override
-    public void showWindow(Game game) {
-        final Field field = game.getField();
+    public void showWindow(Game model) {
+        final Field field = model.getField();
 
         window = new Window("Minesweeper");
 
-        fieldView = new FieldView(game);
-
-        fieldView.setPreferredSize(new Dimension(field.getNumberOfRows() * field.getCellSize(), field.getNumberOfColumns() * field.getCellSize()));
+        fieldView = new FieldView(model);
+        fieldView.setPreferredSize(new Dimension(
+                field.getNumberOfRows() * field.getCellSize(),
+                field.getNumberOfColumns() * field.getCellSize()));
         window.add(fieldView);
 
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
