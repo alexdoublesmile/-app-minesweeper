@@ -58,7 +58,7 @@ public final class FieldFactory {
             for (int column = currentCell.getColumn() - 1; column <= currentCell.getColumn() + 1; column++) {
                 final Cell aroundCell = field.getCells()[row][column];
 
-                if (FieldUtil.inRange(aroundCell, field.getCells())
+                if (CellUtil.isValid(aroundCell, field.getCells())
                         && !aroundCell.equals(currentCell)) {
                     aroundCells.add(aroundCell);
                 }
@@ -70,7 +70,7 @@ public final class FieldFactory {
     public FieldFactory addBombs() {
         for (int i = 0; i < field.getActiveBombsNumber(); i++) {
 
-            Cell randomCell = FieldUtil.getNoBombRandomCell(field);
+            Cell randomCell = CellUtil.getNoBombRandomCell(field);
 
             field.getCells()[randomCell.getRow()][randomCell.getColumn()].setType(CellType.BOMB);
         }

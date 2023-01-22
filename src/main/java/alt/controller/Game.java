@@ -11,7 +11,7 @@ public class Game {
     private final GameSettings settings;
     private final FieldService fieldService;
 
-    public void start() {
-        final Field startField = fieldService.initStartField(settings);
+    public Field start() {
+        return fieldService.initStartField(settings);
     }
 }

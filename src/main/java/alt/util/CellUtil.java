@@ -10,10 +10,10 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 @UtilityClass
-public class FieldUtil {
+public class CellUtil {
     final Random RANDOM = new Random();
 
-    public static boolean inRange(Cell cell, Cell[][] cells) {
+    public static boolean isValid(Cell cell, Cell[][] cells) {
         return Stream.of(cells)
                 .flatMap(Arrays::stream)
                 .anyMatch(cell::equals);
