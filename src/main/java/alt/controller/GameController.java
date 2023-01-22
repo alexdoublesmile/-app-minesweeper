@@ -1,7 +1,6 @@
 package alt.controller;
 
 import alt.model.Game;
-import alt.model.GameState;
 import alt.service.GameService;
 import lombok.RequiredArgsConstructor;
 
@@ -10,10 +9,7 @@ public class GameController {
     private final GameService fieldService;
 
     public Game start() {
-        return Game.builder()
-                .field(fieldService.initStartField())
-                .state(GameState.PLAYING)
-                .build();
+        return fieldService.initStartField();
     }
 
     public boolean isGoing() {
