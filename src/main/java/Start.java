@@ -2,7 +2,7 @@ import controller.Game;
 import model.Box;
 import model.Coord;
 import util.Ranges;
-import view.FieldView;
+import view.Panel;
 import view.Window;
 
 import javax.swing.*;
@@ -14,7 +14,7 @@ public class Start {
 
     private Game game;
     private Window window;
-    private FieldView panel;
+    private Panel panel;
     private JLabel label;
     private final int COLS = 9;
     private final int ROWS = 9;
@@ -50,7 +50,7 @@ public class Start {
     }
 
     private void initPanel() {
-        panel = new FieldView() {
+        panel = new Panel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);

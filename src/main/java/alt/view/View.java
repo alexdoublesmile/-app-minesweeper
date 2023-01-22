@@ -1,10 +1,7 @@
 package alt.view;
 
-import alt.model.CellImgType;
 import alt.model.Game;
 
-public interface View<I> {
-
+public interface View {
     void showWindow(Game game);
-    I getImageByType(CellImgType imgType);
 }
