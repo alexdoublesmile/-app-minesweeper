@@ -7,4 +7,5 @@ import lombok.Data;
 @Builder
 public class Game {
     private Field field;
+    private GameState state;
 }
