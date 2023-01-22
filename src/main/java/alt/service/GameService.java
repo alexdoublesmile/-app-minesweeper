@@ -4,11 +4,11 @@ import alt.config.GameSettings;
 import alt.model.Field;
 import alt.util.FieldFactory;
 
-public final class FieldService {
+public final class GameService {
 
     private final GameSettings settings;
 
-    public FieldService(GameSettings settings) {
+    public GameService(GameSettings settings) {
         this.settings = settings;
     }
 

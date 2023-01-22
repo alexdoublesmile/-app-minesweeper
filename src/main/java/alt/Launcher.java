@@ -2,7 +2,7 @@ package alt;
 
 import alt.config.GameSettings;
 import alt.controller.GameController;
-import alt.service.FieldService;
+import alt.service.GameService;
 import alt.view.SwingView;
 import alt.view.View;
 
@@ -15,7 +15,7 @@ public class Launcher {
                 .cellSize(50)
                 .build();
 
-        final FieldService fieldService = new FieldService(settings);
+        final GameService fieldService = new GameService(settings);
         final GameController game = new GameController(fieldService);
         final View view = new SwingView();
 
