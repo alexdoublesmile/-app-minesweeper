@@ -19,6 +19,7 @@ public class Launcher {
 
         final View view = new SwingView(game);
 
+        game.start();
         view.showWindow();
     }
 }

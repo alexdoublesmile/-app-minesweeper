@@ -23,7 +23,7 @@ public class GameController {
     }
 
     public Field getField() {
-        return isGoing() ? fieldService.getField() : start().getField();
+        return fieldService.getField();
     }
 
     public void makeChoice(int row, int col) {
