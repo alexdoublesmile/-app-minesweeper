@@ -13,4 +13,8 @@ public class Game {
         state = GameState.LOSING;
         cell.makeLosing();
     }
+
+    public void makeWinning() {
+        state = GameState.WINNING;
+    }
 }

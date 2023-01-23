@@ -38,7 +38,7 @@ public class SwingView implements View {
                 int row = e.getX() / cellSize;
                 int col = e.getY() / cellSize;
                 if (e.getButton() == MouseEvent.BUTTON1) {
-                    msg = controller.makeChoice(row, col);
+                    controller.makeChoice(row, col);
                 }
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     controller.makeMark(row, col);

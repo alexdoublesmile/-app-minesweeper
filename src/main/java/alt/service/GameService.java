@@ -2,9 +2,6 @@ package alt.service;
 
 import alt.config.GameSettings;
 import alt.model.*;
-import model.Box;
-import model.Coord;
-import util.Ranges;
 
 import static alt.util.FieldFactory.withSettings;
 import static java.util.Objects.nonNull;
@@ -50,7 +47,7 @@ public final class GameService {
             return;
         }
         if (cell.isOpen()) {
-            setOpenedToClosedBoxesAroundNumber(cell);
+//            setOpenedToClosedBoxesAroundNumber(cell);
         }
         if (!cell.isOpen() && cell.getType() == CellType.NUMBER) {
             game.getField().makeOpen(row, col);
@@ -72,7 +69,7 @@ public final class GameService {
             return;
         }
         if (cell.isOpen()) {
-            setOpenedToClosedBoxesAroundNumber(cell);
+//            setOpenedToClosedBoxesAroundNumber(cell);
         }
         if (!cell.isOpen() && cell.getType() == CellType.NUMBER) {
             game.getField().makeOpen(row, col);
@@ -113,5 +110,15 @@ public final class GameService {
 //                flag.setNoBombToFlaggedSafeBox(coord);
 //            }
 //        }
+    }
+
+    public void setWinning() {
+        game.makeWinning();
+    }
+
+    public void toggleFlagged(int row, int col) {
+        final Cell cell = game.getField().getCells()[row][col];
+
+        cell.toggleFlag();
     }
 }

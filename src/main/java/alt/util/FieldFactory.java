@@ -74,7 +74,7 @@ public final class FieldFactory {
 
             Cell randomCell = CellUtil.getNoBombRandomCell(field);
 
-            field.getCells()[randomCell.getRow()][randomCell.getColumn()].setType(CellType.BOMB);
+            field.getCells()[randomCell.getRow()][randomCell.getColumn()].makeBomb();
         }
         return this;
     }
@@ -89,7 +89,7 @@ public final class FieldFactory {
                     currentCell.getAroundCells()
                             .stream()
                             .filter(cell -> CellType.BOMB != cell.getType())
-                            .forEach(cell -> cell.setType(CellType.NUMBER));
+                            .forEach(cell -> cell.makeNumber());
                 }
             }
         }

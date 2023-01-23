@@ -35,4 +35,20 @@ public class Cell {
     public void makeLosing() {
         isLosing = true;
     }
+
+    public void toggleFlag() {
+        if (isFlagged) {
+            isFlagged = false;
+        } else {
+            isFlagged = true;
+        }
+    }
+
+    public void makeBomb() {
+        type = CellType.BOMB;
+    }
+
+    public void makeNumber() {
+        type = CellType.NUMBER;
+    }
 }

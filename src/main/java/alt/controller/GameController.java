@@ -21,7 +21,7 @@ public class GameController {
         return isGoing() ? fieldService.getField() : start().getField();
     }
 
-    public String makeChoice(int row, int col) {
+    public void makeChoice(int row, int col) {
         checkGameOver();
         openCell(row, col);
         checkWinner();
@@ -37,7 +37,7 @@ public class GameController {
 
     private void checkWinner() {
         if (isGoing() && fieldService.isOver()) {
-            fieldService.setWinner();
+            fieldService.setWinning();
         }
     }
 
