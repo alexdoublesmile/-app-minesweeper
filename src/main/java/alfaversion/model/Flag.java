@@ -1,6 +1,6 @@
-package dirtyversion.model;
+package alfaversion.model;
 
-import dirtyversion.util.Ranges;
+import alfaversion.util.Ranges;
 
 public class Flag {
     private Matrix flagMap;

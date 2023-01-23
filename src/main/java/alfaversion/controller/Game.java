@@ -1,7 +1,7 @@
-package dirtyversion.controller;
+package alfaversion.controller;
 
-import dirtyversion.model.*;
-import dirtyversion.util.Ranges;
+import alfaversion.model.*;
+import alfaversion.util.Ranges;
 
 public class Game {
     private Bomb bomb;

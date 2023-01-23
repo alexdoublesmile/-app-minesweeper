@@ -1,4 +1,4 @@
-package dirtyversion.model;
+package alfaversion.model;
 
 import java.util.Objects;
 

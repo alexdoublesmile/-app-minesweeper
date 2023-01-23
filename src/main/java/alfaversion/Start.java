@@ -1,11 +1,11 @@
-package dirtyversion;
+package alfaversion;
 
-import dirtyversion.controller.Game;
-import dirtyversion.model.Box;
-import dirtyversion.model.Coord;
-import dirtyversion.util.Ranges;
-import dirtyversion.view.Panel;
-import dirtyversion.view.Window;
+import alfaversion.controller.Game;
+import alfaversion.model.Box;
+import alfaversion.model.Coord;
+import alfaversion.util.Ranges;
+import alfaversion.view.Panel;
+import alfaversion.view.Window;
 
 import javax.swing.*;
 import java.awt.*;

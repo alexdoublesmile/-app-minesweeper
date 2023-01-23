@@ -1,4 +1,4 @@
-package dirtyversion.model;
+package alfaversion.model;
 
 public enum Box {
     ZERO,

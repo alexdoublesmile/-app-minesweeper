@@ -1,4 +1,4 @@
-package dirtyversion.view;
+package alfaversion.view;
 
 import javax.swing.*;
 
