@@ -1,7 +1,5 @@
 package alt.view.swing;
 
-import alt.model.CellImgType;
-
 import javax.swing.*;
 import java.awt.*;
 
