@@ -37,10 +37,12 @@ public class Cell {
     }
 
     public void toggleFlag() {
-        if (isFlagged) {
-            isFlagged = false;
-        } else {
-            isFlagged = true;
+        if (!isOpen) {
+            if (isFlagged) {
+                isFlagged = false;
+            } else {
+                isFlagged = true;
+            }
         }
     }
 
