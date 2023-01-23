@@ -21,7 +21,7 @@ public class GamePanel extends JPanel {
         super.paintComponent(g);
         field.getCellList().forEach(cell ->
                 g.drawImage(
-                        ImageHelper.getImageByType(CellImgType.getByCell(cell)),
+                        ImageHelper.getImageByType(ImageType.getByCell(cell)),
                         cell.getRow() * field.getCellSize(),
                         cell.getColumn() * field.getCellSize(), this));
     }

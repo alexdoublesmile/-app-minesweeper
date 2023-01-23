@@ -4,6 +4,7 @@ import controller.GameController;
 import view.swing.GamePanel;
 import view.swing.Window;
 import view.swing.listener.PanelListener;
+import view.util.ViewConstants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +28,7 @@ public class SwingView implements View {
     private void showWindowSeparateThread() {
         window = new Window();
         panel = new GamePanel(controller.getField());
-        label = new JLabel("Welcome");
+        label = new JLabel(ViewConstants.GREETING_LABEL);
         window.add(label, BorderLayout.SOUTH);
         window.add(panel);
         window.pack();

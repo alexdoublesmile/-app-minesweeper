@@ -53,4 +53,16 @@ public class Cell {
     public void makeNumber() {
         type = CellType.NUMBER;
     }
+
+    public boolean isClosed() {
+        return !isOpen;
+    }
+
+    public boolean isBomb() {
+        return CellType.BOMB == type;
+    }
+
+    public boolean isEmpty() {
+        return CellType.EMPTY == type;
+    }
 }

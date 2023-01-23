@@ -10,6 +10,10 @@ import java.awt.event.MouseEvent;
 import static view.swing.listener.PressType.*;
 
 public class PanelListener extends MouseAdapter {
+    private static final int LEFT_CLICK = MouseEvent.BUTTON1;
+    private static final int RIGHT_CLICK = MouseEvent.BUTTON3;
+    private static final int MIDDLE_CLICK = MouseEvent.BUTTON2;
+
     private GameController controller;
     private GamePanel panel;
     private JLabel label;
@@ -21,12 +25,12 @@ public class PanelListener extends MouseAdapter {
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public void mousePressed(MouseEvent click) {
         final int cellSize = controller.getField().getCellSize();
-        int row = e.getX() / cellSize;
-        int col = e.getY() / cellSize;
+        int row = click.getX() / cellSize;
+        int col = click.getY() / cellSize;
 
-        switch(pressedType(e)) {
+        switch(getPressedType(click)) {
             case CHOICE: controller.makeChoice(row, col);
                 break;
             case MARK: controller.makeMark(row, col);
@@ -35,38 +39,24 @@ public class PanelListener extends MouseAdapter {
                 break;
             default:
         }
-//        if (needRestart(e)) {
-//            controller.restart();
-//            panel.updateModel(controller.getField());
-//
-//        }
-//
-//        if (e.getButton() == MouseEvent.BUTTON1) {
-//            controller.makeChoice(row, col);
-//        }
-//        if (e.getButton() == MouseEvent.BUTTON3) {
-//            controller.makeMark(row, col);
-//        }
         label.setText(controller.getMessage());
         panel.repaint();
     }
 
-    private PressType pressedType(MouseEvent e) {
+    private PressType getPressedType(MouseEvent e) {
         if (needRestart(e)) {
             return RESET;
-        }
-        if (e.getButton() == MouseEvent.BUTTON1) {
+        } else if (LEFT_CLICK == e.getButton()) {
             return CHOICE;
-        }
-        if (e.getButton() == MouseEvent.BUTTON3) {
+        } else if (RIGHT_CLICK == e.getButton()) {
             return MARK;
         }
         return NO_ACTION;
     }
 
     private boolean needRestart(MouseEvent e) {
-        return (e.getButton() == MouseEvent.BUTTON1 && !controller.isGoing())
-                || (e.getButton() == MouseEvent.BUTTON3 && !controller.isGoing())
-                || e.getButton() == MouseEvent.BUTTON2;
+        return e.getButton() == LEFT_CLICK && !controller.isGoing()
+                || e.getButton() == RIGHT_CLICK && !controller.isGoing()
+                || e.getButton() == MIDDLE_CLICK;
     }
 }
