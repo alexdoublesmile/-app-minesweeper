@@ -8,4 +8,6 @@ public interface View {
     ViewAction getAction();
 
     void showAction(Game model);
+
+    void activateInteractions();
 }

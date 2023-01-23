@@ -5,6 +5,8 @@ import alt.model.Field;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -25,25 +27,7 @@ public class Panel extends JPanel {
     }
 
     private void initListeners() {
-//        addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//                int row = e.getX() / field.getCellSize();
-//                int col = e.getY() / field.getCellSize();
-//                if (e.getButton() == MouseEvent.BUTTON1) {
-//                    controller.pressLeftButton(row, col);
-//                }
-//                if (e.getButton() == MouseEvent.BUTTON3) {
-//                    controller.pressRightButton(row, col);
-//                }
-////                if (e.getButton() == MouseEvent.BUTTON2) {
-////                    controller.start();
-////                }
-////                label.setText(getMessage());
-//                repaint();
-//
-//            }
-//        });
+
     }
 
     @Override

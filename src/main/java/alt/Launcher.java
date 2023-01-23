@@ -22,6 +22,7 @@ public class Launcher {
         final View view = new SwingView(game);
 
         view.showWindow();
+        view.activateInteractions();
 
 //        while (game.isGoing()) {
 //            ViewAction action = view.getAction();

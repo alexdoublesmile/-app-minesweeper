@@ -5,6 +5,9 @@ import alt.model.Game;
 import alt.view.swing.Panel;
 import alt.view.swing.Window;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class SwingView implements View {
 
     private final GameController controller;
@@ -23,6 +26,29 @@ public class SwingView implements View {
         window.add(panel);
         window.pack();
         window.setLocationRelativeTo(null);
+    }
+
+    @Override
+    public void activateInteractions() {
+        final int cellSize = controller.getField().getCellSize();
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                int row = e.getX() / cellSize;
+                int col = e.getY() / cellSize;
+                if (e.getButton() == MouseEvent.BUTTON1) {
+                    controller.pressLeftButton(row, col);
+                }
+                if (e.getButton() == MouseEvent.BUTTON3) {
+                    controller.pressRightButton(row, col);
+                }
+//                if (e.getButton() == MouseEvent.BUTTON2) {
+//                    controller.start();
+//                }
+//                label.setText(getMessage());
+                panel.repaint();
+            }
+        });
     }
 
     @Override
