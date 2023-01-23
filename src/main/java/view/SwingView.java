@@ -13,7 +13,7 @@ public class SwingView implements View {
 
     private final GameController controller;
 
-    private view.swing.Window window;
+    private Window window;
     private GamePanel panel;
     private JLabel label;
 
@@ -43,11 +43,17 @@ public class SwingView implements View {
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     if (controller.isGoing()) {
                         controller.makeChoice(row, col);
+                    } else {
+                        controller.restart();
+                        panel.updateModel(controller.getField());
                     }
                 }
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     if (controller.isGoing()) {
                         controller.makeMark(row, col);
+                    } else {
+                        controller.restart();
+                        panel.updateModel(controller.getField());
                     }
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
