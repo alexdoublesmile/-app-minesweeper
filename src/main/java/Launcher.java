@@ -7,11 +7,6 @@ import view.View;
 public class Launcher {
 
     public static void main(String[] args) {
-
-        Launcher.start();
-    }
-
-    public static void start() {
         final GameSettings settings = GameSettings.builder()
                 .numberOfRows(9)
                 .numberOfColumns(9)
