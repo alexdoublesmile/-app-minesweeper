@@ -9,6 +9,11 @@ import alt.view.View;
 public class Launcher {
 
     public static void main(String[] args) {
+
+        Launcher.start();
+    }
+
+    public static void start() {
         final GameSettings settings = GameSettings.builder()
                 .numberOfRows(9)
                 .numberOfColumns(9)
@@ -18,6 +23,7 @@ public class Launcher {
 
         final GameService gameService = new GameService(settings);
         final GameController game = new GameController(gameService);
+
         final View view = new SwingView(game);
 
         view.showWindow();

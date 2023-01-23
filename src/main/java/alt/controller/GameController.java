@@ -1,8 +1,8 @@
 package alt.controller;
 
+import alt.Launcher;
 import alt.model.Field;
 import alt.model.Game;
-import alt.model.GameState;
 import alt.service.GameService;
 import lombok.RequiredArgsConstructor;
 
@@ -24,17 +24,24 @@ public class GameController {
     }
 
     public void makeChoice(int row, int col) {
-        checkGameOver();
+//        checkGameOver();
         openCell(row, col);
         checkWinner();
     }
 
-    private void checkGameOver() {
-        if (!isGoing()) start();
+    public void makeMark(int row, int col) {
+//        checkGameOver();
+        fieldService.toggleFlagged(row, col);
     }
 
-    private void openCell(int row, int col) {
-        fieldService.openCell(row, col);
+    public String getMessage() {
+        return fieldService.getMessageByState();
+    }
+
+
+
+    private void checkGameOver() {
+        if (!isGoing()) start();
     }
 
     private void checkWinner() {
@@ -43,12 +50,7 @@ public class GameController {
         }
     }
 
-    public void makeMark(int row, int col) {
-        checkGameOver();
-        fieldService.toggleFlagged(row, col);
-    }
-
-    public String getMessage() {
-        return fieldService.getMessageByState();
+    private void openCell(int row, int col) {
+        fieldService.openCell(row, col);
     }
 }

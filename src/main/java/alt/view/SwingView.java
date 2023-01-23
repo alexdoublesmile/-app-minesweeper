@@ -47,7 +47,7 @@ public class SwingView implements View {
                     controller.makeMark(row, col);
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
-                    controller.start();
+                    panel.updateModel(controller.start().getField());
                 }
                 label.setText(controller.getMessage());
                 panel.repaint();
