@@ -72,6 +72,6 @@ public enum CellImgType {
                 return FALSE_FLAG;
             }
         }
-        return null;
+        return EMPTY;
     }
 }

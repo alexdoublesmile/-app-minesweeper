@@ -22,7 +22,7 @@ public class Field {
         return Arrays.copyOf(cells, cells.length);
     }
 
-    public List<Cell> getCellsList() {
+    public List<Cell> getCellList() {
         return Stream.of(cells)
                 .flatMap(Arrays::stream)
                 .collect(toList());
