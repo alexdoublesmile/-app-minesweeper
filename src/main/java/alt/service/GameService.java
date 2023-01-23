@@ -47,7 +47,7 @@ public final class GameService {
             return;
         }
         if (cell.isOpen()) {
-//            setOpenedToClosedBoxesAroundNumber(cell);
+            setOpenedToClosedBoxesAroundNumber(cell);
         }
         if (!cell.isOpen() && cell.getType() == CellType.NUMBER) {
             game.getField().makeOpen(row, col);
@@ -69,7 +69,7 @@ public final class GameService {
             return;
         }
         if (cell.isOpen()) {
-//            setOpenedToClosedBoxesAroundNumber(cell);
+            setOpenedToClosedBoxesAroundNumber(cell);
         }
         if (!cell.isOpen() && cell.getType() == CellType.NUMBER) {
             game.getField().makeOpen(row, col);
@@ -83,18 +83,24 @@ public final class GameService {
         }
     }
 
-//    private void setOpenedToClosedBoxesAroundNumber(Coord coord) {
-//        if (bomb.get(coord) != Box.BOMB) {
-//            int flagCount = flag.getCountOfFlaggedBoxesAround(coord);
-//            if (flagCount == bomb.get(coord).ordinal()) {
-//                for (Coord aroundCoord : Ranges.getCoordsAround(coord)) {
-//                    if (flag.get(aroundCoord) == Box.CLOSED) {
-//                        openBox(aroundCoord);
-//                    }
-//                }
-//            }
-//        }
-//    }
+    private void setOpenedToClosedBoxesAroundNumber(Cell numberCell) {
+        final long flaggedCellsNumber = numberCell.getAroundCells()
+                .stream()
+                .filter(cell -> cell.isFlagged())
+                .count();
+
+        final long bombsNumber = numberCell.getAroundCells()
+                .stream()
+                .filter(cell -> CellType.BOMB == cell.getType())
+                .count();
+
+        if (flaggedCellsNumber == bombsNumber) {
+            numberCell.getAroundCells()
+                    .stream()
+                    .filter(cell -> !cell.isOpen())
+                    .forEach(this::openCell);
+        }
+    }
 
     private void openBombs(Cell losingCell) {
         game.makeLosing(losingCell);
@@ -102,14 +108,6 @@ public final class GameService {
                 .stream()
                 .filter(cell -> CellType.BOMB == cell.getType() && !cell.isFlagged() || cell.isFlagged() && CellType.BOMB != cell.getType())
                 .forEach(Cell::makeOpen);
-//        flag.setBombToBox(bombed);
-//        for (Coord coord : Ranges.getAllCoords()) {
-//            if (bomb.get(coord) == Box.BOMB) {
-//                flag.setOpenedToClosedBombBox(coord);
-//            } else {
-//                flag.setNoBombToFlaggedSafeBox(coord);
-//            }
-//        }
     }
 
     public void setWinning() {
