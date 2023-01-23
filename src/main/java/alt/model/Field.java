@@ -1,17 +1,18 @@
 package alt.model;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @Builder
 public class Field {
-
     private int numberOfRows;
     private int numberOfColumns;
     private int activeBombsNumber;
     private Cell[][] cells;
     private int cellSize;
 
-
+    public Cell[][] getCells() {
+        return cells;
+    }
 }

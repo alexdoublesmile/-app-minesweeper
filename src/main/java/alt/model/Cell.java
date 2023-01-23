@@ -1,14 +1,11 @@
 package alt.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
 @Builder
 @EqualsAndHashCode(of = {"row", "column"})
 public class Cell {
@@ -22,4 +19,8 @@ public class Cell {
     @ToString.Exclude
     @Builder.Default
     private List<Cell> aroundCells = new ArrayList<>();
+
+    public List<Cell> getAroundCells() {
+        return new ArrayList<>(aroundCells);
+    }
 }
