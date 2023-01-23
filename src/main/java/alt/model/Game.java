@@ -8,4 +8,9 @@ import lombok.Getter;
 public class Game {
     private Field field;
     private GameState state;
+
+    public void makeLosing(Cell cell) {
+        state = GameState.LOSING;
+        cell.makeLosing();
+    }
 }

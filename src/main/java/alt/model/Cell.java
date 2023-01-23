@@ -31,4 +31,8 @@ public class Cell {
     public void makeOpen() {
         isOpen = true;
     }
+
+    public void makeLosing() {
+        isLosing = true;
+    }
 }

@@ -99,8 +99,12 @@ public final class GameService {
 //        }
 //    }
 
-//    private void openBombs(Coord bombed) {
-//        state = model.GameState.BOMBED;
+    private void openBombs(Cell losingCell) {
+        game.makeLosing(losingCell);
+        game.getField().getCellList()
+                .stream()
+                .filter(cell -> CellType.BOMB == cell.getType() && !cell.isFlagged() || cell.isFlagged() && CellType.BOMB != cell.getType())
+                .forEach(Cell::makeOpen);
 //        flag.setBombToBox(bombed);
 //        for (Coord coord : Ranges.getAllCoords()) {
 //            if (bomb.get(coord) == Box.BOMB) {
@@ -109,5 +113,5 @@ public final class GameService {
 //                flag.setNoBombToFlaggedSafeBox(coord);
 //            }
 //        }
-//    }
+    }
 }
