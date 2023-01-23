@@ -1,11 +1,11 @@
-package alfaversion;
+package alphaversion;
 
-import alfaversion.controller.Game;
-import alfaversion.model.Box;
-import alfaversion.model.Coord;
-import alfaversion.util.Ranges;
-import alfaversion.view.Panel;
-import alfaversion.view.Window;
+import alphaversion.controller.Game;
+import alphaversion.model.Box;
+import alphaversion.model.Coord;
+import alphaversion.util.Ranges;
+import alphaversion.view.Panel;
+import alphaversion.view.Window;
 
 import javax.swing.*;
 import java.awt.*;

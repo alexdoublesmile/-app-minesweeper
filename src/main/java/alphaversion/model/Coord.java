@@ -1,4 +1,4 @@
-package alfaversion.model;
+package alphaversion.model;
 
 import java.util.Objects;
 

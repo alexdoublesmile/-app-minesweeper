@@ -1,4 +1,4 @@
-package alfaversion.model;
+package alphaversion.model;
 
 public enum GameState {
     PLAYED,

@@ -1,6 +1,6 @@
-package alfaversion.util;
+package alphaversion.util;
 
-import alfaversion.model.Coord;
+import alphaversion.model.Coord;
 
 import java.util.ArrayList;
 import java.util.List;

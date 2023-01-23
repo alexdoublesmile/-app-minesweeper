@@ -1,7 +1,7 @@
-package alfaversion.controller;
+package alphaversion.controller;
 
-import alfaversion.model.*;
-import alfaversion.util.Ranges;
+import alphaversion.model.*;
+import alphaversion.util.Ranges;
 
 public class Game {
     private Bomb bomb;

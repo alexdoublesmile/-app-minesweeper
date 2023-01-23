@@ -1,6 +1,6 @@
-package alfaversion.model;
+package alphaversion.model;
 
-import alfaversion.util.Ranges;
+import alphaversion.util.Ranges;
 
 public class Bomb {
     private Matrix bombMap;

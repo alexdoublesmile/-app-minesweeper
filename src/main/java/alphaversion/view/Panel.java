@@ -1,4 +1,4 @@
-package alfaversion.view;
+package alphaversion.view;
 
 import javax.swing.*;
 
