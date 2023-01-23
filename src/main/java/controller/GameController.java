@@ -14,6 +14,10 @@ public class GameController {
         return fieldService.initStartField();
     }
 
+    public Game restart() {
+        return start();
+    }
+
     public boolean isGoing() {
         return fieldService.isGoing();
     }

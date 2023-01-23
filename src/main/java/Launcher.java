@@ -6,7 +6,7 @@ import view.View;
 
 public class Launcher {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         final GameSettings settings = GameSettings.builder()
                 .numberOfRows(9)
                 .numberOfColumns(9)
@@ -21,5 +21,19 @@ public class Launcher {
 
         view.showWindow();
         view.activateInteractions();
+
+        gameLoop(game, view);
+    }
+
+    private static void gameLoop(GameController game, View view) throws InterruptedException {
+        while (game.isGoing()) {
+//            System.out.println("going...");
+//            Thread.sleep(1000);
+        }
+//        System.out.println("-------- restarting ---------...");
+//        System.out.println("-------- restarting ---------...");
+//        System.out.println("-------- restarting ---------...");
+        view.restartModel();
+        gameLoop(game, view);
     }
 }
