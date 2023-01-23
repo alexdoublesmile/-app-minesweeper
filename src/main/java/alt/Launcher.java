@@ -21,7 +21,7 @@ public class Launcher {
         final GameController game = new GameController(fieldService);
         final View view = new SwingView(game);
 
-        view.showWindow(game.getField());
+        view.showWindow();
 
 //        while (game.isGoing()) {
 //            ViewAction action = view.getAction();

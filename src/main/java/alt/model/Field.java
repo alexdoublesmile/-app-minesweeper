@@ -12,4 +12,6 @@ public class Field {
     private int activeBombsNumber;
     private Cell[][] cells;
     private int cellSize;
+
+
 }

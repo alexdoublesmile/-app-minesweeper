@@ -1,10 +1,9 @@
 package alt.view;
 
-import alt.model.Field;
 import alt.model.Game;
 
 public interface View {
-    void showWindow(Field field);
+    void showWindow();
 
     ViewAction getAction();
 

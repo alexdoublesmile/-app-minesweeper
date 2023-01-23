@@ -6,6 +6,7 @@ import alt.model.Game;
 import alt.model.GameState;
 
 import static alt.util.FieldFactory.withSettings;
+import static java.util.Objects.nonNull;
 
 public final class GameService {
 
@@ -31,7 +32,7 @@ public final class GameService {
     }
 
     public boolean isGoing() {
-        return GameState.PLAYING == game.getState();
+        return nonNull(game) && GameState.PLAYING == game.getState();
     }
 
     public Field getField() {
