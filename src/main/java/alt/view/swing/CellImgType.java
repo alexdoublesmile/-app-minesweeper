@@ -17,7 +17,7 @@ public enum CellImgType {
     BOMB("bomb"),
     CLOSED("closed"),
     FLAGGED("flagged"),
-    BOMBED("bobed"),
+    BOMBED("bombed"),
     FALSE_FLAG("nobomb");
 
     CellImgType(String imgName) {
