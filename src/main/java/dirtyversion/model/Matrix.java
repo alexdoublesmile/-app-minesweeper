@@ -1,6 +1,6 @@
-package model;
+package dirtyversion.model;
 
-import util.Ranges;
+import dirtyversion.util.Ranges;
 
 public class Matrix {
     private Box[][] matrix;

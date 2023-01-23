@@ -1,6 +1,6 @@
-package util;
+package dirtyversion.util;
 
-import model.Coord;
+import dirtyversion.model.Coord;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package view;
+package dirtyversion.view;
 
 import javax.swing.*;
 import java.awt.*;

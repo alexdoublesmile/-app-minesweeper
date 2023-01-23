@@ -1,4 +1,4 @@
-package model;
+package dirtyversion.model;
 
 public enum Box {
     ZERO,

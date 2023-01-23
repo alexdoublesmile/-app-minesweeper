@@ -1,9 +1,7 @@
-package controller;
+package dirtyversion.controller;
 
-import model.*;
-import util.Ranges;
-
-import java.awt.*;
+import dirtyversion.model.*;
+import dirtyversion.util.Ranges;
 
 public class Game {
     private Bomb bomb;

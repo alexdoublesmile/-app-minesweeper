@@ -1,9 +1,11 @@
-import controller.Game;
-import model.Box;
-import model.Coord;
-import util.Ranges;
-import view.Panel;
-import view.Window;
+package dirtyversion;
+
+import dirtyversion.controller.Game;
+import dirtyversion.model.Box;
+import dirtyversion.model.Coord;
+import dirtyversion.util.Ranges;
+import dirtyversion.view.Panel;
+import dirtyversion.view.Window;
 
 import javax.swing.*;
 import java.awt.*;
@@ -100,13 +102,13 @@ public class Start {
     }
 
     private Image getImage(String name) {
-        final String fileName = "img/" + name.toLowerCase() + ".png";
+        final String fileName = "../img/" + name.toLowerCase() + ".png";
         final ImageIcon icon = new ImageIcon(getClass().getResource(fileName));
         return icon.getImage();
     }
 
     private void setImages() {
-        for (Box box : model.Box.values()) {
+        for (Box box : Box.values()) {
             box.image = getImage(box.name().toLowerCase());
         }
     }

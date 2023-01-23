@@ -1,7 +1,6 @@
-package model;
+package dirtyversion.model;
 
-import org.w3c.dom.ranges.Range;
-import util.Ranges;
+import dirtyversion.util.Ranges;
 
 public class Bomb {
     private Matrix bombMap;
