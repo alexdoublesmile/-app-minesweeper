@@ -20,17 +20,5 @@ public class Launcher {
         final View view = new SwingView(game);
 
         view.showWindow();
-        view.activateInteractions();
     }
-
-//    private static void gameLoop(GameController game, View view) {
-//        while (game.isGoing()) {
-//            ViewAction action = view.getAction();
-//            game.makeAction(action);
-//        }
-//        game.restart();
-//        view.updateModel();
-//
-//        gameLoop(game, view);
-//    }
 }

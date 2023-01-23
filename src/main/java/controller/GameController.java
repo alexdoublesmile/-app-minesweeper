@@ -4,7 +4,6 @@ import model.Field;
 import model.Game;
 import service.GameService;
 import lombok.RequiredArgsConstructor;
-import view.ViewAction;
 
 @RequiredArgsConstructor
 public class GameController {
@@ -54,9 +53,5 @@ public class GameController {
 
     private void openCell(int row, int col) {
         fieldService.openCell(row, col);
-    }
-
-    public void makeAction(ViewAction action) {
-        // TODO: 23.01.2023 no need for current implementation
     }
 }

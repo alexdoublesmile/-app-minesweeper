@@ -3,14 +3,12 @@ package view;
 import controller.GameController;
 import view.swing.GamePanel;
 import view.swing.Window;
+import view.swing.listener.PanelListener;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class SwingView implements View {
-
     private final GameController controller;
 
     private Window window;
@@ -23,6 +21,10 @@ public class SwingView implements View {
 
     @Override
     public void showWindow() {
+        SwingUtilities.invokeLater(this::showWindowSeparateThread);
+    }
+
+    private void showWindowSeparateThread() {
         window = new Window();
         panel = new GamePanel(controller.getField());
         label = new JLabel("Welcome");
@@ -30,45 +32,7 @@ public class SwingView implements View {
         window.add(panel);
         window.pack();
         window.setLocationRelativeTo(null);
-    }
 
-    @Override
-    public void activateInteractions() {
-        final int cellSize = controller.getField().getCellSize();
-        panel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                int row = e.getX() / cellSize;
-                int col = e.getY() / cellSize;
-                if (e.getButton() == MouseEvent.BUTTON1) {
-                    if (controller.isGoing()) {
-                        controller.makeChoice(row, col);
-                    } else {
-                        controller.restart();
-                        panel.updateModel(controller.getField());
-                    }
-                }
-                if (e.getButton() == MouseEvent.BUTTON3) {
-                    if (controller.isGoing()) {
-                        controller.makeMark(row, col);
-                    } else {
-                        controller.restart();
-                        panel.updateModel(controller.getField());
-                    }
-                }
-                if (e.getButton() == MouseEvent.BUTTON2) {
-                    controller.restart();
-                    panel.updateModel(controller.getField());
-                }
-                label.setText(controller.getMessage());
-                panel.repaint();
-            }
-        });
-    }
-
-    @Override
-    public void updateModel() {
-        panel.updateModel(controller.getField());
-        panel.repaint();
+        panel.addMouseListener(new PanelListener(controller, panel, label));
     }
 }

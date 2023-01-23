@@ -6,7 +6,6 @@ import java.awt.*;
 public class Window extends JFrame {
     public Window() throws HeadlessException {
         super();
-
         setTitle("Minesweeper");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
