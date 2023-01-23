@@ -34,10 +34,11 @@ public class SwingView implements View {
         panel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
+                final String msg;
                 int row = e.getX() / cellSize;
                 int col = e.getY() / cellSize;
                 if (e.getButton() == MouseEvent.BUTTON1) {
-                    controller.pressLeftButton(row, col);
+                    msg = controller.pressLeftButton(row, col);
                 }
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     controller.pressRightButton(row, col);
