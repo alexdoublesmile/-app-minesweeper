@@ -1,7 +1,7 @@
-package alt.view.swing;
+package view.swing;
 
-import alt.model.Cell;
-import alt.model.Field;
+import model.Cell;
+import model.Field;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package alt.model;
+package model;
 
 public enum CellType {
     EMPTY,

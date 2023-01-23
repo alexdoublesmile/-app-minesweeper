@@ -1,8 +1,8 @@
-package alt.view.swing;
+package view.swing;
 
-import alt.exception.IncorrectCellTypeException;
-import alt.model.Cell;
-import alt.model.CellType;
+import exception.IncorrectCellTypeException;
+import model.Cell;
+import model.CellType;
 
 public enum CellImgType {
     EMPTY("zero"),

@@ -1,10 +1,8 @@
-package alt;
-
-import alt.config.GameSettings;
-import alt.controller.GameController;
-import alt.service.GameService;
-import alt.view.SwingView;
-import alt.view.View;
+import config.GameSettings;
+import controller.GameController;
+import service.GameService;
+import view.SwingView;
+import view.View;
 
 public class Launcher {
 

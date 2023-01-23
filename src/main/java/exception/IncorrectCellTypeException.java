@@ -1,6 +1,6 @@
-package alt.exception;
+package exception;
 
-import alt.model.Cell;
+import model.Cell;
 
 public class IncorrectCellTypeException extends RuntimeException {
     private Cell incorrectCell;

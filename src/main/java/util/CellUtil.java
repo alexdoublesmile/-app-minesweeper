@@ -1,13 +1,11 @@
-package alt.util;
+package util;
 
-import alt.model.Cell;
-import alt.model.CellType;
-import alt.model.Field;
+import model.Cell;
+import model.CellType;
+import model.Field;
 import lombok.experimental.UtilityClass;
 
-import java.util.Arrays;
 import java.util.Random;
-import java.util.stream.Stream;
 
 @UtilityClass
 public class CellUtil {

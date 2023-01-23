@@ -1,9 +1,8 @@
-package alt.controller;
+package controller;
 
-import alt.Launcher;
-import alt.model.Field;
-import alt.model.Game;
-import alt.service.GameService;
+import model.Field;
+import model.Game;
+import service.GameService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

@@ -1,9 +1,9 @@
-package alt.service;
+package service;
 
-import alt.config.GameSettings;
-import alt.model.*;
+import config.GameSettings;
+import model.*;
 
-import static alt.util.FieldFactory.withSettings;
+import static util.FieldFactory.withSettings;
 import static java.util.Objects.nonNull;
 
 public final class GameService {

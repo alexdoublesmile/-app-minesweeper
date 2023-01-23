@@ -1,9 +1,9 @@
-package alt.util;
+package util;
 
-import alt.config.GameSettings;
-import alt.model.Cell;
-import alt.model.CellType;
-import alt.model.Field;
+import config.GameSettings;
+import model.Cell;
+import model.CellType;
+import model.Field;
 
 public final class FieldFactory {
     private static final FieldFactory INSTANCE = new FieldFactory();

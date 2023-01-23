@@ -1,4 +1,4 @@
-package alt.config;
+package config;
 
 import lombok.Builder;
 import lombok.Value;

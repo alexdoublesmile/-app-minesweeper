@@ -1,8 +1,8 @@
-package alt.view;
+package view;
 
-import alt.controller.GameController;
-import alt.view.swing.GamePanel;
-import alt.view.swing.Window;
+import controller.GameController;
+import view.swing.GamePanel;
+import view.swing.Window;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ public class SwingView implements View {
 
     private final GameController controller;
 
-    private Window window;
+    private view.swing.Window window;
     private GamePanel panel;
     private JLabel label;
 

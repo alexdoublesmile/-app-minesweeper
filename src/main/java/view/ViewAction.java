@@ -1,4 +1,4 @@
-package alt.view;
+package view;
 
 public interface ViewAction {
 }

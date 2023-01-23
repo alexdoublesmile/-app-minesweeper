@@ -1,4 +1,4 @@
-package alt.view.swing;
+package view.swing;
 
 import javax.swing.*;
 import java.awt.*;
