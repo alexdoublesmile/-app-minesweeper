@@ -17,6 +17,7 @@ public class Field {
     private int activeBombsNumber;
     private Cell[][] cells;
     private int cellSize;
+    private int closedCellsNumber;
 
     public Cell[][] getCells() {
         return Arrays.copyOf(cells, cells.length);

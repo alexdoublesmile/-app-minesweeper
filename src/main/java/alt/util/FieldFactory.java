@@ -15,10 +15,12 @@ public final class FieldFactory {
     private Field field;
 
     public FieldFactory initEmptyField() {
-        Cell[][] cells = new Cell[settings.getNumberOfRows()][settings.getNumberOfColumns()];
+        final int rowsNumber = settings.getNumberOfRows();
+        final int columnsNumber = settings.getNumberOfColumns();
+        Cell[][] cells = new Cell[rowsNumber][columnsNumber];
 
-        for (int row = 0; row < settings.getNumberOfRows(); row++) {
-            for (int column = 0; column < settings.getNumberOfColumns(); column++) {
+        for (int row = 0; row < rowsNumber; row++) {
+            for (int column = 0; column < columnsNumber; column++) {
                 cells[row][column] = Cell.builder()
                         .row(row)
                         .column(column)
@@ -28,11 +30,12 @@ public final class FieldFactory {
             }
         }
         field = Field.builder()
-                .numberOfRows(settings.getNumberOfRows())
-                .numberOfColumns(settings.getNumberOfColumns())
+                .numberOfRows(rowsNumber)
+                .numberOfColumns(columnsNumber)
                 .activeBombsNumber(settings.getNumberOfBombs())
                 .cells(cells)
                 .cellSize(settings.getCellSize())
+                .closedCellsNumber(rowsNumber * columnsNumber)
                 .build();
 
         return this;
