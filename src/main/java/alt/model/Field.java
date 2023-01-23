@@ -3,6 +3,8 @@ package alt.model;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @Getter
 @Builder
 public class Field {
@@ -13,6 +15,6 @@ public class Field {
     private int cellSize;
 
     public Cell[][] getCells() {
-        return cells;
+        return Arrays.copyOf(cells, cells.length);
     }
 }
