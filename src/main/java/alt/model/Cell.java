@@ -11,6 +11,7 @@ import java.util.List;
 public class Cell {
     private int row;
     private int column;
+    @Setter
     private CellType type;
     private boolean isOpen;
     private boolean isFlagged;
@@ -22,5 +23,9 @@ public class Cell {
 
     public List<Cell> getAroundCells() {
         return new ArrayList<>(aroundCells);
+    }
+
+    public void addAroundCell(Cell aroundCell) {
+        aroundCells.add(aroundCell);
     }
 }

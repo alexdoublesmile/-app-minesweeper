@@ -5,9 +5,6 @@ import alt.model.Cell;
 import alt.model.CellType;
 import alt.model.Field;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public final class FieldFactory {
     private static final FieldFactory INSTANCE = new FieldFactory();
     private GameSettings settings;
@@ -47,15 +44,13 @@ public final class FieldFactory {
             for (int column = 0; column < field.getNumberOfColumns(); column++) {
                 final Cell currentCell = cells[row][column];
 
-                currentCell.setAroundCells(addCellsAround(currentCell));
+                addCellsAround(currentCell);
             }
         }
         return this;
     }
 
-    private List<Cell> addCellsAround(Cell currentCell) {
-        List<Cell> aroundCells = new ArrayList<>();
-
+    private void addCellsAround(Cell currentCell) {
         for (int row = currentCell.getRow() - 1; row <= currentCell.getRow() + 1; row++) {
             for (int column = currentCell.getColumn() - 1; column <= currentCell.getColumn() + 1; column++) {
 
@@ -64,12 +59,11 @@ public final class FieldFactory {
 
                     final Cell aroundCell = field.getCells()[row][column];
                     if (!aroundCell.equals(currentCell)) {
-                        aroundCells.add(aroundCell);
+                        currentCell.addAroundCell(aroundCell);
                     }
                 }
             }
         }
-        return aroundCells;
     }
 
     public FieldFactory addBombs() {
