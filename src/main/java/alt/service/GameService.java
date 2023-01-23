@@ -119,4 +119,13 @@ public final class GameService {
 
         cell.toggleFlag();
     }
+
+    public String getMessageByState() {
+        switch (game.getState()) {
+            case PLAYING: return "Think twice!";
+            case LOSING: return "BOOM!";
+            case WINNING: return "Congratulations!";
+            default: return "Welcome!";
+        }
+    }
 }

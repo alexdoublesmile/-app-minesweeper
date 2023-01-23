@@ -2,6 +2,7 @@ package alt.controller;
 
 import alt.model.Field;
 import alt.model.Game;
+import alt.model.GameState;
 import alt.service.GameService;
 import lombok.RequiredArgsConstructor;
 
@@ -45,5 +46,9 @@ public class GameController {
     public void makeMark(int row, int col) {
         checkGameOver();
         fieldService.toggleFlagged(row, col);
+    }
+
+    public String getMessage() {
+        return fieldService.getMessageByState();
     }
 }
