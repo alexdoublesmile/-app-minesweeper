@@ -1,8 +1,7 @@
 package alt.view;
 
 import alt.controller.GameController;
-import alt.model.Game;
-import alt.view.swing.Panel;
+import alt.view.swing.GamePanel;
 import alt.view.swing.Window;
 
 import java.awt.event.MouseAdapter;
@@ -13,7 +12,7 @@ public class SwingView implements View {
     private final GameController controller;
 
     private Window window;
-    private Panel panel;
+    private GamePanel panel;
 
     public SwingView(GameController controller) {
         this.controller = controller;
@@ -22,7 +21,7 @@ public class SwingView implements View {
     @Override
     public void showWindow() {
         window = new Window();
-        panel = new Panel(controller.getField());
+        panel = new GamePanel(controller.getField());
         window.add(panel);
         window.pack();
         window.setLocationRelativeTo(null);
@@ -50,15 +49,5 @@ public class SwingView implements View {
                 panel.repaint();
             }
         });
-    }
-
-    @Override
-    public ViewAction getAction() {
-        return null;
-    }
-
-    @Override
-    public void showAction(Game model) {
-
     }
 }

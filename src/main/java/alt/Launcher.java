@@ -7,6 +7,7 @@ import alt.view.SwingView;
 import alt.view.View;
 
 public class Launcher {
+
     public static void main(String[] args) {
         final GameSettings settings = GameSettings.builder()
                 .numberOfRows(9)
@@ -15,19 +16,11 @@ public class Launcher {
                 .cellSize(50)
                 .build();
 
-        final GameService fieldService = new GameService(settings);
-        final GameController game = new GameController(fieldService);
+        final GameService gameService = new GameService(settings);
+        final GameController game = new GameController(gameService);
         final View view = new SwingView(game);
 
         view.showWindow();
         view.activateInteractions();
-
-//        while (game.isGoing()) {
-//            ViewAction action = view.getAction();
-//
-//            Game model = game.update(action);
-//
-//            view.showAction(model);
-//        }
     }
 }

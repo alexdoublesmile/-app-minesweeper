@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class GameController {
+
     private final GameService fieldService;
 
     public Game start() {

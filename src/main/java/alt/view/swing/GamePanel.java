@@ -6,11 +6,11 @@ import alt.model.Field;
 import javax.swing.*;
 import java.awt.*;
 
-public class Panel extends JPanel {
+public class GamePanel extends JPanel {
 
     private Field field;
 
-    public Panel(Field field) {
+    public GamePanel(Field field) {
         this.field = field;
 
         setPreferredSize(new Dimension(
