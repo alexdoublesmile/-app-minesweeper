@@ -50,7 +50,7 @@ public final class GameService {
             setOpenedToClosedBoxesAroundNumber(cell);
         }
         if (!cell.isOpen() && cell.getType() == CellType.NUMBER) {
-            cell.makeOpen();
+            game.getField().makeOpen(row, col);
         }
         if (!cell.isOpen() && cell.getType() == CellType.BOMB) {
             openBombs(cell);

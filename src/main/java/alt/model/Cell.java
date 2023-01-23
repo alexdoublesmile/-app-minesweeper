@@ -27,4 +27,8 @@ public class Cell {
     public void addAroundCell(Cell aroundCell) {
         aroundCells.add(aroundCell);
     }
+
+    public void makeOpen() {
+        isOpen = true;
+    }
 }

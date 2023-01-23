@@ -28,4 +28,11 @@ public class Field {
                 .flatMap(Arrays::stream)
                 .collect(toList());
     }
+
+    public void makeOpen(int row, int col) {
+        final Cell cell = cells[row][col];
+        cell.makeOpen();
+
+        closedCellsNumber--;
+    }
 }
