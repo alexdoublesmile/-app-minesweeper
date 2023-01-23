@@ -3,10 +3,11 @@ import controller.GameController;
 import service.GameService;
 import view.SwingView;
 import view.View;
+import view.ViewAction;
 
 public class Launcher {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         final GameSettings settings = GameSettings.builder()
                 .numberOfRows(9)
                 .numberOfColumns(9)
@@ -21,19 +22,16 @@ public class Launcher {
 
         view.showWindow();
         view.activateInteractions();
-
-        gameLoop(game, view);
     }
 
-    private static void gameLoop(GameController game, View view) throws InterruptedException {
-        while (game.isGoing()) {
-//            System.out.println("going...");
-//            Thread.sleep(1000);
-        }
-//        System.out.println("-------- restarting ---------...");
-//        System.out.println("-------- restarting ---------...");
-//        System.out.println("-------- restarting ---------...");
-        view.restartModel();
-        gameLoop(game, view);
-    }
+//    private static void gameLoop(GameController game, View view) {
+//        while (game.isGoing()) {
+//            ViewAction action = view.getAction();
+//            game.makeAction(action);
+//        }
+//        game.restart();
+//        view.updateModel();
+//
+//        gameLoop(game, view);
+//    }
 }

@@ -6,5 +6,9 @@ public interface View {
 
     void activateInteractions();
 
-    void restartModel();
+    void updateModel();
+
+    default ViewAction getAction() {
+        return null;
+    };
 }

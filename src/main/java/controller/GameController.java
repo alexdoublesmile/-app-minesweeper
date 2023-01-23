@@ -4,6 +4,7 @@ import model.Field;
 import model.Game;
 import service.GameService;
 import lombok.RequiredArgsConstructor;
+import view.ViewAction;
 
 @RequiredArgsConstructor
 public class GameController {
@@ -27,24 +28,22 @@ public class GameController {
     }
 
     public void makeChoice(int row, int col) {
-//        checkGameOver();
+        if (!isGoing()) {
+            return;
+        }
         openCell(row, col);
         checkWinner();
     }
 
     public void makeMark(int row, int col) {
-//        checkGameOver();
+        if (!isGoing()) {
+            return;
+        }
         fieldService.toggleFlagged(row, col);
     }
 
     public String getMessage() {
         return fieldService.getMessageByState();
-    }
-
-
-
-    private void checkGameOver() {
-        if (!isGoing()) start();
     }
 
     private void checkWinner() {
@@ -55,5 +54,9 @@ public class GameController {
 
     private void openCell(int row, int col) {
         fieldService.openCell(row, col);
+    }
+
+    public void makeAction(ViewAction action) {
+        // TODO: 23.01.2023 no need for current implementation
     }
 }

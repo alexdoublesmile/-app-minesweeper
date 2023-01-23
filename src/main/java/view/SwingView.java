@@ -17,8 +17,6 @@ public class SwingView implements View {
     private GamePanel panel;
     private JLabel label;
 
-    private boolean needRestart;
-
     public SwingView(GameController controller) {
         this.controller = controller;
     }
@@ -43,23 +41,18 @@ public class SwingView implements View {
                 int row = e.getX() / cellSize;
                 int col = e.getY() / cellSize;
                 if (e.getButton() == MouseEvent.BUTTON1) {
-                    if (needRestart) {
-                        updateModel();
-                        needRestart = false;
-                    } else {
+                    if (controller.isGoing()) {
                         controller.makeChoice(row, col);
                     }
                 }
                 if (e.getButton() == MouseEvent.BUTTON3) {
-                    if (needRestart) {
-                        updateModel();
-                        needRestart = false;
-                    } else {
+                    if (controller.isGoing()) {
                         controller.makeMark(row, col);
                     }
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
-                    panel.updateModel(controller.restart().getField());
+                    controller.restart();
+                    panel.updateModel(controller.getField());
                 }
                 label.setText(controller.getMessage());
                 panel.repaint();
@@ -68,12 +61,8 @@ public class SwingView implements View {
     }
 
     @Override
-    public void restartModel() {
-        needRestart = true;
-    }
-
-    private void updateModel() {
-        panel.updateModel(controller.restart().getField());
-//        panel.repaint();
+    public void updateModel() {
+        panel.updateModel(controller.getField());
+        panel.repaint();
     }
 }
