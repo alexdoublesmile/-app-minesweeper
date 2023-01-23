@@ -6,7 +6,6 @@ import alt.model.Game;
 import alt.view.swing.FieldView;
 import alt.view.swing.ImageHelper;
 import alt.view.swing.Window;
-import model.Coord;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,17 +18,15 @@ public class SwingView implements View {
     private Window window;
     private FieldView fieldView;
 
-    public SwingView(GameController gameController) {
-        controller = gameController;
+    public SwingView(GameController controller) {
+        this.controller = controller;
     }
 
     @Override
-    public void showWindow(Game model) {
-        final Field field = model.getField();
-
+    public void showWindow(Field field) {
         window = new Window("Minesweeper");
 
-        fieldView = new FieldView(model);
+        fieldView = new FieldView(field);
         fieldView.setPreferredSize(new Dimension(
                 field.getNumberOfRows() * field.getCellSize(),
                 field.getNumberOfColumns() * field.getCellSize()));
@@ -45,8 +42,8 @@ public class SwingView implements View {
         fieldView.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                int row = e.getX() / model.getField().getCellSize();
-                int col = e.getY() / model.getField().getCellSize();
+                int row = e.getX() / field.getCellSize();
+                int col = e.getY() / field.getCellSize();
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     controller.pressLeftButton(row, col);
                 }

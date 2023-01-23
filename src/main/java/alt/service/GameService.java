@@ -1,6 +1,7 @@
 package alt.service;
 
 import alt.config.GameSettings;
+import alt.model.Field;
 import alt.model.Game;
 import alt.model.GameState;
 
@@ -31,5 +32,9 @@ public final class GameService {
 
     public boolean isGoing() {
         return GameState.PLAYING == game.getState();
+    }
+
+    public Field getField() {
+        return game.getField();
     }
 }

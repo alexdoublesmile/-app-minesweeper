@@ -2,7 +2,7 @@ package alt.view.swing;
 
 import alt.model.Cell;
 import alt.model.CellImgType;
-import alt.model.Game;
+import alt.model.Field;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,15 +14,15 @@ import static java.util.stream.Collectors.toList;
 
 public class FieldView extends JPanel {
 
-    private Game model;
+    private Field field;
 
-    public FieldView(Game model) {
-        this.model = model;
+    public FieldView(Field field) {
+        this.field = field;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        final List<Cell> cells = Stream.of(model.getField().getCells())
+        final List<Cell> cells = Stream.of(field.getCells())
                 .flatMap(Arrays::stream)
                 .collect(toList());
 
@@ -30,8 +30,8 @@ public class FieldView extends JPanel {
         for (Cell cell : cells) {
             g.drawImage(
                     ImageHelper.getImageByType(CellImgType.getByCell(cell)),
-                    cell.getRow() * model.getField().getCellSize(),
-                    cell.getColumn() * model.getField().getCellSize(),
+                    cell.getRow() * field.getCellSize(),
+                    cell.getColumn() * field.getCellSize(),
                     this
             );
         }

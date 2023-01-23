@@ -18,10 +18,10 @@ public class Launcher {
                 .build();
 
         final GameService fieldService = new GameService(settings);
-        final GameController gameController = new GameController(fieldService);
-        final View view = new SwingView(gameController);
+        final GameController game = new GameController(fieldService);
+        final View view = new SwingView(game);
 
-        view.showWindow(gameController.start());
+        view.showWindow(game.getField());
 
 //        while (game.isGoing()) {
 //            ViewAction action = view.getAction();
