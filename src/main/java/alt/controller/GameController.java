@@ -3,10 +3,7 @@ package alt.controller;
 import alt.model.Field;
 import alt.model.Game;
 import alt.service.GameService;
-import alt.view.ViewAction;
 import lombok.RequiredArgsConstructor;
-import model.Coord;
-import model.GameState;
 
 @RequiredArgsConstructor
 public class GameController {
@@ -14,10 +11,6 @@ public class GameController {
 
     public Game start() {
         return fieldService.initStartField();
-    }
-
-    public Game update(ViewAction action) {
-        return null;
     }
 
     public boolean isGoing() {
@@ -28,48 +21,28 @@ public class GameController {
         return isGoing() ? fieldService.getField() : start().getField();
     }
 
-    public String pressLeftButton(int row, int col) {
-        if (!gameOver()) {
-            openBox(row, col);
-            checkWinner();
-        }
+    public String makeChoice(int row, int col) {
+        checkGameOver();
+        openCell(row, col);
+        checkWinner();
     }
 
-    private boolean gameOver() {
-        if (state == GameState.PLAYED) {
-            return false;
-        }
-        start();
-        return true;
+    private void checkGameOver() {
+        if (!isGoing()) start();
     }
 
-    private void openBox(int row, int col) {
-        switch (flag.get(coord)) {
-            case OPENED: setOpenedToClosedBoxesAroundNumber(coord);
-            case FLAGGED: return;
-            case CLOSED:
-                switch (bomb.get(coord)) {
-                    case ZERO: openBoxesAround(coord);
-                        break;
-                    case BOMB: openBombs(coord);
-                        break;
-                    default: flag.setOpenedToBox(coord);
-                }
-        }
+    private void openCell(int row, int col) {
+        fieldService.openCell(row, col);
     }
 
     private void checkWinner() {
-        if (state == GameState.PLAYED) {
-            if (flag.getCountOfClosedBoxes() == bomb.getTotalBombs()) {
-                state = GameState.WINNER;
-            }
+        if (isGoing() && fieldService.isOver()) {
+            fieldService.setWinner();
         }
     }
 
-    public void pressRightButton(int row, int col) {
-        if (gameOver()) {
-            return;
-        }
-        flag.toggleFlaggedToBox(coord);
+    public void makeMark(int row, int col) {
+        checkGameOver();
+        fieldService.toggleFlagged(row, col);
     }
 }

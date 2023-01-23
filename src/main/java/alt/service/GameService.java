@@ -1,9 +1,7 @@
 package alt.service;
 
 import alt.config.GameSettings;
-import alt.model.Field;
-import alt.model.Game;
-import alt.model.GameState;
+import alt.model.*;
 
 import static alt.util.FieldFactory.withSettings;
 import static java.util.Objects.nonNull;
@@ -37,5 +35,28 @@ public final class GameService {
 
     public Field getField() {
         return game.getField();
+    }
+
+    public boolean isOver() {
+        return getField().getClosedCellsNumber() == getField().getActiveBombsNumber();
+    }
+
+    public void openCell(int row, int col) {
+        final Cell cell = game.getField().getCells()[row][col];
+        if (cell.isFlagged()) {
+            return;
+        }
+        if (cell.isOpen()) {
+            setOpenedToClosedBoxesAroundNumber(cell);
+        }
+        if (!cell.isOpen() && cell.getType() == CellType.NUMBER) {
+            cell.makeOpen();
+        }
+        if (!cell.isOpen() && cell.getType() == CellType.BOMB) {
+            openBombs(cell);
+        }
+        if (!cell.isOpen() && cell.getType() == CellType.EMPTY) {
+            openBoxesAround(cell);
+        }
     }
 }

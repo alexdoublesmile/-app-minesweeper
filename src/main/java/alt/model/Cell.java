@@ -11,7 +11,6 @@ import java.util.List;
 public class Cell {
     private int row;
     private int column;
-    @Setter
     private CellType type;
     private boolean isOpen;
     private boolean isFlagged;

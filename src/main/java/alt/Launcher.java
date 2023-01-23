@@ -2,11 +2,9 @@ package alt;
 
 import alt.config.GameSettings;
 import alt.controller.GameController;
-import alt.model.Game;
 import alt.service.GameService;
 import alt.view.SwingView;
 import alt.view.View;
-import alt.view.ViewAction;
 
 public class Launcher {
     public static void main(String[] args) {
