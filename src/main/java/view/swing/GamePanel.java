@@ -13,8 +13,8 @@ public class GamePanel extends JPanel {
         this.field = field;
 
         setPreferredSize(new Dimension(
-                field.getNumberOfRows() * field.getCellSize(),
-                field.getNumberOfColumns() * field.getCellSize()));
+                field.getRowsNumber() * field.getCellSize(),
+                field.getColumnsNumber() * field.getCellSize()));
     }
 
     @Override

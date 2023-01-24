@@ -4,10 +4,8 @@ import config.GameSettings;
 import model.Field;
 import model.Game;
 import model.cell.Cell;
-import util.FieldFactory;
 
 import static java.util.Objects.nonNull;
-import static model.GameState.LOSING;
 import static model.GameState.PLAYING;
 import static util.FieldFactory.withSettings;
 
@@ -34,90 +32,21 @@ public final class GameService {
         return game;
     }
 
-    public boolean isGoing() {
-        return nonNull(game) && PLAYING == game.getState();
-    }
-
     public void openCell(int row, int col) {
         final Cell cell = game.getCell(row, col);
         if (cell.isNotFlagged()) {
 
             cell.openCell(row, col, getField());
-            if (game.isOver() && game.getState() != LOSING) {
-                game.makeWinning();
-            }
+            game.setWinIfNeeds();
         }
-
-//        if (!cell.isFlagged()) {
-//            if (cell.isOpen()) {
-//                setOpenedToClosedBoxesAroundNumber(cell);
-//            }
-//            if (cell.isClosed() && cell.isNumber()) {
-//                game.getField().makeOpen(row, col);
-//            }
-//            if (cell.isClosed() && cell.isBomb()) {
-//                openBombs(cell);
-//            }
-//            if (cell.isClosed() && cell.isEmpty()) {
-//                game.getField().makeOpen(row, col);
-//                cell.getAroundCells().forEach(this::openCell);
-//            }
-//        }
-
-
     }
-
-//    public void openCell(Cell cell) {
-//        int row = cell.getRow();
-//        int col = cell.getColumn();
-//
-//        if (cell.isFlagged()) {
-//            return;
-//        }
-//        if (cell.isOpen()) {
-//            setOpenedToClosedBoxesAroundNumber(cell);
-//        }
-//        if (!cell.isOpen() && cell.isNumber()) {
-//            game.getField().makeOpen(row, col);
-//        }
-//        if (!cell.isOpen() && cell.isBomb()) {
-//            openBombs(cell);
-//        }
-//        if (!cell.isOpen() && cell.isEmpty()) {
-//            game.getField().makeOpen(row, col);
-//            cell.getAroundCells().forEach(this::openCell);
-//        }
-//    }
-
-//    private void setOpenedToClosedBoxesAroundNumber(Cell numberCell) {
-//        final long flaggedCellsNumber = numberCell.getAroundCells()
-//                .stream()
-//                .filter(cell -> cell.isFlagged())
-//                .count();
-//
-//        final long bombsNumber = numberCell.getAroundCells()
-//                .stream()
-//                .filter(cell -> CellType.BOMB == cell.getType())
-//                .count();
-//
-//        if (flaggedCellsNumber == bombsNumber) {
-//            numberCell.getAroundCells()
-//                    .stream()
-//                    .filter(cell -> !cell.isOpen())
-//                    .forEach(this::openCell);
-//        }
-//    }
-
-//    private void openBombs(Cell losingCell) {
-//        game.makeLosing(losingCell);
-//        game.getField().getCellList()
-//                .stream()
-//                .filter(cell -> CellType.BOMB == cell.getType() && !cell.isFlagged() || cell.isFlagged() && CellType.BOMB != cell.getType())
-//                .forEach(Cell::makeOpen);
-//    }
 
     public void toggleFlag(int row, int col) {
         game.getField().getCells()[row][col].toggleFlag();
+    }
+
+    public Field getField() {
+        return game.getField();
     }
 
     public String getMessageByState() {
@@ -129,7 +58,7 @@ public final class GameService {
         }
     }
 
-    public Field getField() {
-        return game.getField();
+    public boolean isGoing() {
+        return nonNull(game) && PLAYING == game.getState();
     }
 }

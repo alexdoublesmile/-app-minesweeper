@@ -2,7 +2,6 @@ package view.swing;
 
 import exception.IncorrectCellTypeException;
 import model.cell.Cell;
-import model.cell.CellType;
 
 public enum ImageType {
     EMPTY("zero"),
@@ -69,7 +68,7 @@ public enum ImageType {
     private static int countBombsAround(Cell cell) {
         return (int) cell.getAroundCells()
                 .stream()
-                .filter(aroundCell -> CellType.BOMB == aroundCell.getType())
+                .filter(Cell::isBomb)
                 .count();
     }
 }

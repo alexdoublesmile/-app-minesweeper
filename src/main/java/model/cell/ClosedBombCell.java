@@ -21,7 +21,7 @@ public class ClosedBombCell extends Cell {
         field.makeLosing(row, col);
 
         CellUtil.getCellList(field.getCells()).stream()
-                .filter(cell -> cell.isBomb() && !cell.isFlagged() || cell.isFlagged() && !cell.isBomb())
+                .filter(cell -> cell.isBomb() && cell.isNotFlagged() || cell.isFlagged() && !cell.isBomb())
                 .forEach(cell -> field.makeOpen(cell.row, cell.column));
     }
 }

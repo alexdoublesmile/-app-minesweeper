@@ -1,9 +1,8 @@
 package util;
 
-import model.cell.Cell;
-import model.cell.CellType;
-import model.Field;
 import lombok.experimental.UtilityClass;
+import model.Field;
+import model.cell.Cell;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,31 +15,25 @@ import static java.util.stream.Collectors.toList;
 public class CellUtil {
     final Random RANDOM = new Random();
 
-//    public static boolean isValidCoords(Cell cell, Cell[][] cells) {
-//        return Stream.of(cells)
-//                .flatMap(Arrays::stream)
-//                .anyMatch(cell::equals);
-//    }
-
     public static Cell getNoBombRandomCell(Field field) {
         Cell randomCell;
         do {
             randomCell = getRandomCell(field);
-        } while (randomCell.getType() == CellType.BOMB);
+        } while (randomCell.isBomb());
 
         return randomCell;
     }
 
     private static Cell getRandomCell(Field field) {
-        int randomRow = RANDOM.nextInt(field.getNumberOfRows());
-        int randomColumn = RANDOM.nextInt(field.getNumberOfColumns());
+        int randomRow = RANDOM.nextInt(field.getRowsNumber());
+        int randomColumn = RANDOM.nextInt(field.getColumnsNumber());
 
         return field.getCells()[randomRow][randomColumn];
     }
 
     public static boolean isValidCoords(int row, int column, Field field) {
-        return row >= 0 && row < field.getNumberOfRows()
-                && column >= 0 && column < field.getNumberOfColumns();
+        return row >= 0 && row < field.getRowsNumber()
+                && column >= 0 && column < field.getColumnsNumber();
     }
 
     public List<Cell> getCellList(Cell[][] cells) {

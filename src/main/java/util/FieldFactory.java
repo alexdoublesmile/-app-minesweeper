@@ -24,9 +24,9 @@ public final class FieldFactory {
             }
         }
         field = Field.builder()
-                .numberOfRows(rowsNumber)
-                .numberOfColumns(columnsNumber)
-                .activeBombsNumber(settings.getNumberOfBombs())
+                .rowsNumber(rowsNumber)
+                .columnsNumber(columnsNumber)
+                .bombsNumber(settings.getNumberOfBombs())
                 .cells(cells)
                 .cellSize(settings.getCellSize())
                 .closedCellsNumber(rowsNumber * columnsNumber)
@@ -36,7 +36,7 @@ public final class FieldFactory {
     }
 
     public FieldFactory addBombs() {
-        for (int i = 0; i < field.getActiveBombsNumber(); i++) {
+        for (int i = 0; i < field.getBombsNumber(); i++) {
 
             Cell randomCell = CellUtil.getNoBombRandomCell(field);
 
@@ -48,8 +48,8 @@ public final class FieldFactory {
 
     public FieldFactory addCellsAround() {
         final Cell[][] cells = field.getCells();
-        for (int row = 0; row < field.getNumberOfRows(); row++) {
-            for (int column = 0; column < field.getNumberOfColumns(); column++) {
+        for (int row = 0; row < field.getRowsNumber(); row++) {
+            for (int column = 0; column < field.getColumnsNumber(); column++) {
                 final Cell currentCell = cells[row][column];
 
                 addCellsAround(currentCell);
@@ -76,8 +76,8 @@ public final class FieldFactory {
 
     public FieldFactory addNumbers() {
         final Cell[][] cells = field.getCells();
-        for (int row = 0; row < field.getNumberOfRows(); row++) {
-            for (int column = 0; column < field.getNumberOfColumns(); column++) {
+        for (int row = 0; row < field.getRowsNumber(); row++) {
+            for (int column = 0; column < field.getColumnsNumber(); column++) {
                 final Cell currentCell = cells[row][column];
 
                 if (CellType.BOMB == currentCell.getType()) {

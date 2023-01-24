@@ -2,8 +2,6 @@ package model.cell;
 
 import model.Field;
 
-import java.util.List;
-
 
 public class ClosedEmptyCell extends Cell {
     public ClosedEmptyCell(int row, int column) {

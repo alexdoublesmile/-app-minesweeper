@@ -19,8 +19,6 @@ public class OpenCell extends Cell {
 
     @Override
     public void openCell(int row, int col, Field field) {
-        // TODO: 24.01.2023 no click action for open cells
-
         final Cell openCell = field.getCells()[row][col];
 
         final List<Cell> aroundCells = openCell.getAroundCells();

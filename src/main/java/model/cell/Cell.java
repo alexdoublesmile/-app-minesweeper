@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-//@Builder
 @EqualsAndHashCode(of = {"row", "column"})
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,7 +20,6 @@ public class Cell implements Openable {
     protected Field field;
 
     @ToString.Exclude
-//    @Builder.Default
     protected List<Cell> aroundCells = new ArrayList<>();
 
     public Cell(int row, int column, CellType type, boolean isOpen) {
@@ -39,31 +37,13 @@ public class Cell implements Openable {
         aroundCells.add(aroundCell);
     }
 
-//    public void makeOpen() {
-//        isOpen = true;
-//    }
+    protected void addAroundCells(List<Cell> cells) {
+        cells.forEach(cell -> aroundCells.add(field.getCells()[cell.getRow()][cell.getColumn()]));
+    }
 
     public void makeLosing() {
         isLosing = true;
     }
-
-//    public void toggleFlag() {
-//        if (!isOpen) {
-//            if (isFlagged) {
-//                isFlagged = false;
-//            } else {
-//                isFlagged = true;
-//            }
-//        }
-//    }
-
-//    public void makeBomb() {
-//        type = CellType.BOMB;
-//    }
-//
-//    public void makeNumber() {
-//        type = CellType.NUMBER;
-//    }
 
     public boolean isClosed() {
         return !isOpen;
@@ -83,10 +63,6 @@ public class Cell implements Openable {
 
     public boolean isNumber() {
         return CellType.NUMBER == type;
-    }
-
-    protected void addAroundCells(List<Cell> cells) {
-        cells.forEach(cell -> aroundCells.add(field.getCells()[cell.getRow()][cell.getColumn()]));
     }
 
     public void setField(Field field) {
