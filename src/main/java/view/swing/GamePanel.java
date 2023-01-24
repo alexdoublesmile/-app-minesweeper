@@ -23,8 +23,9 @@ public class GamePanel extends JPanel {
         CellUtil.getCellList(field.getCells()).forEach(cell ->
                 g.drawImage(
                         ImageHelper.getImageByType(ImageType.getByCell(cell)),
+                        cell.getColumn() * field.getCellSize(),
                         cell.getRow() * field.getCellSize(),
-                        cell.getColumn() * field.getCellSize(), this));
+                        this));
     }
 
     public void updateModel(Field field) {
