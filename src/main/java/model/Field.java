@@ -39,10 +39,13 @@ public class Field {
 
     public void makeOpen(int row, int col) {
         final Cell cell = cells[row][col];
-//        cell.makeOpen();
 
         if (cell.isNotFlagged()) {
-            cells[row][col] = new OpenCell(cell);
+            if (cell.isBomb() & !cell.isLosing()) {
+                cell.openCell(row, col, this);
+            } else {
+                cells[row][col] = new OpenCell(cell);
+            }
         }
 
 
