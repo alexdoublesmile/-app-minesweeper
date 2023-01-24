@@ -3,7 +3,6 @@ package util;
 import lombok.experimental.UtilityClass;
 import model.Field;
 import model.cell.Cell;
-import model.cell.CellType;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,11 +10,12 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
+import static model.cell.CellType.EMPTY;
 
 @UtilityClass
 public class CellUtil {
     public static Cell getNoBombRandomCell(Field field, int row, int column) {
-        Cell safeCell = new Cell(row, column, CellType.EMPTY, false);
+        Cell safeCell = new Cell(row, column, EMPTY, false);
         Cell randomCell;
         do {
             randomCell = getRandomCell(field);

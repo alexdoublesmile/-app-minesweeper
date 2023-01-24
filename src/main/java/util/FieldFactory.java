@@ -6,11 +6,8 @@ import model.Field;
 
 public final class FieldFactory {
     private static final FieldFactory INSTANCE = new FieldFactory();
+
     private GameSettings settings;
-
-    private FieldFactory() {
-    }
-
     private Field field;
 
     public FieldFactory initEmptyField() {
@@ -80,13 +77,11 @@ public final class FieldFactory {
             for (int column = 0; column < field.getColumnsNumber(); column++) {
                 final Cell currentCell = cells[row][column];
 
-                if (CellType.BOMB == currentCell.getType()) {
+                if (currentCell.isBomb()) {
                     currentCell.getAroundCells()
                             .stream()
-                            .filter(cell -> CellType.BOMB != cell.getType())
-                            .forEach(cell -> {
-                                field.getCells()[cell.getRow()][cell.getColumn()] = new ClosedNumberCell(cell);
-                            });
+                            .filter(cell -> !cell.isBomb())
+                            .forEach(cell -> field.getCells()[cell.getRow()][cell.getColumn()] = new ClosedNumberCell(cell));
                 }
             }
         }

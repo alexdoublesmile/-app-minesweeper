@@ -13,19 +13,17 @@ import static util.FieldFactory.withSettings;
 public final class GameService {
     private final GameSettings settings;
 
-    private Game game = new Game();
+    private Game game;
 
     public GameService(GameSettings settings) {
         this.settings = settings;
     }
 
     public Game start() {
+        game = new Game();
         game.setState(NOT_INITIALIZED);
         Field field = withSettings(settings)
                 .initEmptyField()
-//                .addBombs()
-//                .addCellsAround()
-//                .addNumbers()
                 .build();
 
         game.setField(field);
@@ -70,16 +68,8 @@ public final class GameService {
         }
     }
 
-    public boolean isGoing() {
-        return game.isGoing();
-    }
-
     public boolean isOver() {
         return game.isOver();
-    }
-
-    public boolean areBombsFounded() {
-        return game.areBombsFounded();
     }
 
     public boolean isNotInitialized() {

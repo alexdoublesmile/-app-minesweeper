@@ -37,16 +37,8 @@ public final class GameController {
         return fieldService.getMessageByState();
     }
 
-    public boolean isGoing() {
-        return fieldService.isGoing();
-    }
-
     public boolean isOver() {
         return fieldService.isOver();
-    }
-
-    public boolean areBombsFounded() {
-        return fieldService.areBombsFounded();
     }
 
     public boolean isNotInitialized() {
