@@ -10,11 +10,15 @@ public final class GameController {
     private final GameService fieldService;
 
     public Game start() {
-        return fieldService.initModel();
+        return fieldService.start();
     }
 
     public Game restart() {
         return start();
+    }
+
+    public Game initialize(int row, int col) {
+        return fieldService.initialize(row, col);
     }
 
     public void makeChoice(int row, int col) {
@@ -35,5 +39,17 @@ public final class GameController {
 
     public boolean isGoing() {
         return fieldService.isGoing();
+    }
+
+    public boolean isOver() {
+        return fieldService.isOver();
+    }
+
+    public boolean areBombsFounded() {
+        return fieldService.areBombsFounded();
+    }
+
+    public boolean isNotInitialized() {
+        return fieldService.isNotInitialized();
     }
 }

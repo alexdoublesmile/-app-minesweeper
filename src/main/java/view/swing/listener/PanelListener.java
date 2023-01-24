@@ -31,7 +31,11 @@ public class PanelListener extends MouseAdapter {
         int col = click.getX() / cellSize;
 
         switch(getPressedType(click)) {
-            case CHOICE: controller.makeChoice(row, col);
+            case CHOICE:
+                if (controller.isNotInitialized()) {
+                    controller.initialize(row, col);
+                }
+                controller.makeChoice(row, col);
                 break;
             case MARK: controller.makeMark(row, col);
                 break;
@@ -55,8 +59,8 @@ public class PanelListener extends MouseAdapter {
     }
 
     private boolean needRestart(MouseEvent e) {
-        return e.getButton() == LEFT_CLICK && !controller.isGoing()
-                || e.getButton() == RIGHT_CLICK && !controller.isGoing()
+        return e.getButton() == LEFT_CLICK && controller.isOver()
+                || e.getButton() == RIGHT_CLICK && controller.isOver()
                 || e.getButton() == MIDDLE_CLICK;
     }
 }

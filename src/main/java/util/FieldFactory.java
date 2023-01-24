@@ -35,10 +35,10 @@ public final class FieldFactory {
         return this;
     }
 
-    public FieldFactory addBombs() {
+    public FieldFactory addBombs(int row, int column) {
         for (int i = 0; i < field.getBombsNumber(); i++) {
 
-            Cell randomCell = CellUtil.getNoBombRandomCell(field);
+            Cell randomCell = CellUtil.getNoBombRandomCell(field, row, column);
 
             final Cell emptyCell = field.getCells()[randomCell.getRow()][randomCell.getColumn()];
             field.getCells()[randomCell.getRow()][randomCell.getColumn()] = new ClosedBombCell(emptyCell);
@@ -103,6 +103,14 @@ public final class FieldFactory {
 
     private FieldFactory getInstanceWithSettings(GameSettings settings) {
         this.settings = settings;
+        return this;
+    }
+
+    public static FieldFactory started() {
+        return INSTANCE.getInstanceWithField();
+    }
+
+    private FieldFactory getInstanceWithField() {
         return this;
     }
 }

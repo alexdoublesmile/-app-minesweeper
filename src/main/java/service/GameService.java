@@ -4,26 +4,38 @@ import config.GameSettings;
 import model.Field;
 import model.Game;
 import model.cell.Cell;
+import util.FieldFactory;
 
-import static java.util.Objects.nonNull;
+import static model.GameState.NOT_INITIALIZED;
 import static model.GameState.PLAYING;
 import static util.FieldFactory.withSettings;
 
 public final class GameService {
     private final GameSettings settings;
 
-    private Game game;
+    private Game game = new Game();
 
     public GameService(GameSettings settings) {
         this.settings = settings;
     }
 
-    public Game initModel() {
-        game = new Game();
-        game.setState(PLAYING);
+    public Game start() {
+        game.setState(NOT_INITIALIZED);
         Field field = withSettings(settings)
                 .initEmptyField()
-                .addBombs()
+//                .addBombs()
+//                .addCellsAround()
+//                .addNumbers()
+                .build();
+
+        game.setField(field);
+        return game;
+    }
+
+    public Game initialize(int row, int col) {
+        game.setState(PLAYING);
+        Field field = FieldFactory.started()
+                .addBombs(row, col)
                 .addCellsAround()
                 .addNumbers()
                 .build();
@@ -59,6 +71,18 @@ public final class GameService {
     }
 
     public boolean isGoing() {
-        return nonNull(game) && PLAYING == game.getState();
+        return game.isGoing();
+    }
+
+    public boolean isOver() {
+        return game.isOver();
+    }
+
+    public boolean areBombsFounded() {
+        return game.areBombsFounded();
+    }
+
+    public boolean isNotInitialized() {
+        return game.isNotInitialized();
     }
 }

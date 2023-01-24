@@ -3,6 +3,7 @@ package util;
 import lombok.experimental.UtilityClass;
 import model.Field;
 import model.cell.Cell;
+import model.cell.CellType;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,11 +14,12 @@ import static java.util.stream.Collectors.toList;
 
 @UtilityClass
 public class CellUtil {
-    public static Cell getNoBombRandomCell(Field field) {
+    public static Cell getNoBombRandomCell(Field field, int row, int column) {
+        Cell safeCell = new Cell(row, column, CellType.EMPTY, false);
         Cell randomCell;
         do {
             randomCell = getRandomCell(field);
-        } while (randomCell.isBomb());
+        } while (randomCell.isBomb() || randomCell.equals(safeCell));
 
         return randomCell;
     }
