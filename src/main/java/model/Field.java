@@ -48,6 +48,8 @@ public class Field {
             }
         }
 
+        cells[row][col] = new OpenCell(cell);
+
 
         if (cell.isClosed()) {
             closedCellsNumber--;
