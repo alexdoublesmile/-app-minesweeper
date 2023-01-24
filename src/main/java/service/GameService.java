@@ -40,7 +40,13 @@ public final class GameService {
 
     public void openCell(int row, int col) {
         final Cell cell = game.getCell(row, col);
-        cell.openCell(row, col, getField());
+        if (cell.isNotFlagged()) {
+
+            cell.openCell(row, col, getField());
+            if (game.isOver() && game.getState() != LOSING) {
+                game.makeWinning();
+            }
+        }
 
 //        if (!cell.isFlagged()) {
 //            if (cell.isOpen()) {
@@ -58,9 +64,7 @@ public final class GameService {
 //            }
 //        }
 
-        if (game.isOver() && game.getState() != LOSING) {
-            game.makeWinning();
-        }
+
     }
 
 //    public void openCell(Cell cell) {
