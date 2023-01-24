@@ -11,6 +11,8 @@ public class OpenCell extends Cell {
         this.column = cell.column;
         this.type = cell.type;
         this.isOpen = true;
+        this.isFlagged = cell.isFlagged;
+        this.isLosing = cell.isLosing;
         this.field = cell.field;
         addAroundCells(cell.aroundCells);
     }
