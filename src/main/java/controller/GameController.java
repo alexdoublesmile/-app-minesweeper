@@ -6,8 +6,7 @@ import service.GameService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class GameController {
-
+public final class GameController {
     private final GameService fieldService;
 
     public Game start() {
@@ -18,40 +17,23 @@ public class GameController {
         return start();
     }
 
-    public boolean isGoing() {
-        return fieldService.isGoing();
+    public void makeChoice(int row, int col) {
+        fieldService.openCell(row, col);
+    }
+
+    public void makeMark(int row, int col) {
+        fieldService.toggleFlagged(row, col);
     }
 
     public Field getField() {
         return fieldService.getField();
     }
 
-    public void makeChoice(int row, int col) {
-        if (!isGoing()) {
-            return;
-        }
-        openCell(row, col);
-        checkWinner();
-    }
-
-    public void makeMark(int row, int col) {
-        if (!isGoing()) {
-            return;
-        }
-        fieldService.toggleFlagged(row, col);
-    }
-
     public String getMessage() {
         return fieldService.getMessageByState();
     }
 
-    private void checkWinner() {
-        if (isGoing() && fieldService.isOver()) {
-            fieldService.setWinning();
-        }
-    }
-
-    private void openCell(int row, int col) {
-        fieldService.openCell(row, col);
+    public boolean isGoing() {
+        return fieldService.isGoing();
     }
 }

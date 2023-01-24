@@ -7,7 +7,6 @@ import static util.FieldFactory.withSettings;
 import static java.util.Objects.nonNull;
 
 public final class GameService {
-
     private final GameSettings settings;
 
     private Game game;
@@ -59,6 +58,9 @@ public final class GameService {
             game.getField().makeOpen(row, col);
             cell.getAroundCells().forEach(this::openCell);
         }
+        if (isOver()) {
+            game.makeWinning();
+        }
     }
 
     public void openCell(Cell cell) {
@@ -108,10 +110,6 @@ public final class GameService {
                 .stream()
                 .filter(cell -> CellType.BOMB == cell.getType() && !cell.isFlagged() || cell.isFlagged() && CellType.BOMB != cell.getType())
                 .forEach(Cell::makeOpen);
-    }
-
-    public void setWinning() {
-        game.makeWinning();
     }
 
     public void toggleFlagged(int row, int col) {
