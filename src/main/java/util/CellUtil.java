@@ -1,11 +1,16 @@
 package util;
 
-import model.Cell;
-import model.CellType;
+import model.cell.Cell;
+import model.cell.CellType;
 import model.Field;
 import lombok.experimental.UtilityClass;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 @UtilityClass
 public class CellUtil {
@@ -36,5 +41,11 @@ public class CellUtil {
     public static boolean isValidCoords(int row, int column, Field field) {
         return row >= 0 && row < field.getNumberOfRows()
                 && column >= 0 && column < field.getNumberOfColumns();
+    }
+
+    public List<Cell> getCellList(Cell[][] cells) {
+        return Stream.of(cells)
+                .flatMap(Arrays::stream)
+                .collect(toList());
     }
 }

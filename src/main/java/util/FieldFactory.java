@@ -1,8 +1,7 @@
 package util;
 
 import config.GameSettings;
-import model.Cell;
-import model.CellType;
+import model.cell.*;
 import model.Field;
 
 public final class FieldFactory {
@@ -21,11 +20,7 @@ public final class FieldFactory {
 
         for (int row = 0; row < rowsNumber; row++) {
             for (int column = 0; column < columnsNumber; column++) {
-                cells[row][column] = Cell.builder()
-                        .row(row)
-                        .column(column)
-                        .type(CellType.EMPTY)
-                        .build();
+                cells[row][column] = new ClosedEmptyCell(row, column, CellType.EMPTY, false);
             }
         }
         field = Field.builder()
@@ -37,6 +32,17 @@ public final class FieldFactory {
                 .closedCellsNumber(rowsNumber * columnsNumber)
                 .build();
 
+        return this;
+    }
+
+    public FieldFactory addBombs() {
+        for (int i = 0; i < field.getActiveBombsNumber(); i++) {
+
+            Cell randomCell = CellUtil.getNoBombRandomCell(field);
+
+            final Cell emptyCell = field.getCells()[randomCell.getRow()][randomCell.getColumn()];
+            field.getCells()[randomCell.getRow()][randomCell.getColumn()] = new ClosedBombCell(emptyCell);
+        }
         return this;
     }
 
@@ -68,16 +74,6 @@ public final class FieldFactory {
         }
     }
 
-    public FieldFactory addBombs() {
-        for (int i = 0; i < field.getActiveBombsNumber(); i++) {
-
-            Cell randomCell = CellUtil.getNoBombRandomCell(field);
-
-            field.getCells()[randomCell.getRow()][randomCell.getColumn()].makeBomb();
-        }
-        return this;
-    }
-
     public FieldFactory addNumbers() {
         final Cell[][] cells = field.getCells();
         for (int row = 0; row < field.getNumberOfRows(); row++) {
@@ -88,14 +84,16 @@ public final class FieldFactory {
                     currentCell.getAroundCells()
                             .stream()
                             .filter(cell -> CellType.BOMB != cell.getType())
-                            .forEach(cell -> cell.makeNumber());
+                            .forEach(cell -> {
+                                field.getCells()[cell.getRow()][cell.getColumn()] = new ClosedNumberCell(cell);
+                            });
                 }
             }
         }
         return this;
     }
 
-    public Field buildField() {
+    public Field build() {
         return field;
     }
 

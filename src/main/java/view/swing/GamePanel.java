@@ -1,6 +1,7 @@
 package view.swing;
 
 import model.Field;
+import util.CellUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,7 @@ public class GamePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        field.getCellList().forEach(cell ->
+        CellUtil.getCellList(field.getCells()).forEach(cell ->
                 g.drawImage(
                         ImageHelper.getImageByType(ImageType.getByCell(cell)),
                         cell.getRow() * field.getCellSize(),

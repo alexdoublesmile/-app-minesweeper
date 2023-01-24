@@ -10,7 +10,7 @@ public final class GameController {
     private final GameService fieldService;
 
     public Game start() {
-        return fieldService.initStartField();
+        return fieldService.initModel();
     }
 
     public Game restart() {
@@ -22,7 +22,7 @@ public final class GameController {
     }
 
     public void makeMark(int row, int col) {
-        fieldService.toggleFlagged(row, col);
+        fieldService.toggleFlag(row, col);
     }
 
     public Field getField() {

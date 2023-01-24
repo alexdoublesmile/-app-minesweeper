@@ -1,6 +1,6 @@
 package exception;
 
-import model.Cell;
+import model.cell.Cell;
 
 public class IncorrectCellTypeException extends RuntimeException {
     private Cell incorrectCell;

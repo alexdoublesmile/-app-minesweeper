@@ -1,8 +1,8 @@
 package view.swing;
 
 import exception.IncorrectCellTypeException;
-import model.Cell;
-import model.CellType;
+import model.cell.Cell;
+import model.cell.CellType;
 
 public enum ImageType {
     EMPTY("zero"),
