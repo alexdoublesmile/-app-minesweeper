@@ -40,7 +40,10 @@ public class Field {
     public void makeOpen(int row, int col) {
         final Cell cell = cells[row][col];
 //        cell.makeOpen();
-        cells[row][col] = new OpenCell(cell);
+
+        if (cell.isNotFlagged()) {
+            cells[row][col] = new OpenCell(cell);
+        }
 
 
         if (cell.isClosed()) {
