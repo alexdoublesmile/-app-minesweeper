@@ -6,8 +6,8 @@ import java.util.List;
 
 
 public class ClosedEmptyCell extends Cell {
-    public ClosedEmptyCell(int row, int column, CellType type, boolean isOpen) {
-        super(row, column, type, isOpen);
+    public ClosedEmptyCell(int row, int column) {
+        super(row, column, CellType.EMPTY, false);
     }
 
     @Override

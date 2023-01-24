@@ -20,7 +20,7 @@ public final class FieldFactory {
 
         for (int row = 0; row < rowsNumber; row++) {
             for (int column = 0; column < columnsNumber; column++) {
-                cells[row][column] = new ClosedEmptyCell(row, column, CellType.EMPTY, false);
+                cells[row][column] = new ClosedEmptyCell(row, column);
             }
         }
         field = Field.builder()
