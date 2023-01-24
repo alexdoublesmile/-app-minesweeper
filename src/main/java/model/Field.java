@@ -3,15 +3,10 @@ package model;
 import lombok.Builder;
 import lombok.Getter;
 import model.cell.Cell;
-import model.cell.FlaggedCell;
 import model.cell.OpenCell;
 import util.CellUtil;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
 
 @Getter
 @Builder
@@ -55,7 +50,12 @@ public class Field {
 
     public void toggleFlag(int row, int col) {
         final Cell cell = cells[row][col];
-        cells[row][col] = new FlaggedCell(cell);
+
+        if (cell.isFlagged()) {
+
+        } else {
+
+        }
 
     }
 

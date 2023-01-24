@@ -88,4 +88,8 @@ public class Cell implements Openable {
     public void setField(Field field) {
         this.field = field;
     }
+
+    public void toggleFlag() {
+        isFlagged = !isFlagged;
+    }
 }

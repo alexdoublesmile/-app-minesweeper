@@ -113,7 +113,7 @@ public final class GameService {
 //    }
 
     public void toggleFlag(int row, int col) {
-        game.getField().toggleFlag(row, col);
+        game.getField().getCells()[row][col].toggleFlag();
     }
 
     public String getMessageByState() {
