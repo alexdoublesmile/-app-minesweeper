@@ -27,8 +27,8 @@ public class PanelListener extends MouseAdapter {
     @Override
     public void mousePressed(MouseEvent click) {
         final int cellSize = controller.getField().getCellSize();
-        int row = click.getX() / cellSize;
-        int col = click.getY() / cellSize;
+        int row = click.getY() / cellSize;
+        int col = click.getX() / cellSize;
 
         switch(getPressedType(click)) {
             case CHOICE: controller.makeChoice(row, col);
