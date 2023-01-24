@@ -6,15 +6,13 @@ import model.cell.Cell;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
 @UtilityClass
 public class CellUtil {
-    final Random RANDOM = new Random();
-
     public static Cell getNoBombRandomCell(Field field) {
         Cell randomCell;
         do {
@@ -25,8 +23,8 @@ public class CellUtil {
     }
 
     private static Cell getRandomCell(Field field) {
-        int randomRow = RANDOM.nextInt(field.getRowsNumber());
-        int randomColumn = RANDOM.nextInt(field.getColumnsNumber());
+        int randomRow = ThreadLocalRandom.current().nextInt(field.getRowsNumber());
+        int randomColumn = ThreadLocalRandom.current().nextInt(field.getColumnsNumber());
 
         return field.getCells()[randomRow][randomColumn];
     }
