@@ -48,7 +48,9 @@ public class Field {
         cells[row][col] = new OpenCell(cell);
 
 
-        closedCellsNumber--;
+        if (cell.isClosed()) {
+            closedCellsNumber--;
+        }
     }
 
     public void toggleFlag(int row, int col) {
