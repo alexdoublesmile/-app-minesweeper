@@ -9,6 +9,8 @@ public class ClosedNumberCell extends Cell {
         this.column = cell.column;
         this.type = CellType.NUMBER;
         this.isOpen = cell.isOpen;
+        this.isFlagged = cell.isFlagged;
+        this.isLosing = cell.isLosing;
         this.field = cell.field;
         addAroundCells(cell.aroundCells);
     }

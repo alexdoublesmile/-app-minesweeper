@@ -5,12 +5,15 @@ import util.CellUtil;
 
 public class ClosedBombCell extends Cell {
 
-    public ClosedBombCell(Cell emptyCell) {
-        this.row = emptyCell.row;
-        this.column = emptyCell.column;
+    public ClosedBombCell(Cell cell) {
+        this.row = cell.row;
+        this.column = cell.column;
         this.type = CellType.BOMB;
-        this.isOpen = emptyCell.isOpen;
-        this.field = emptyCell.field;
+        this.isOpen = cell.isOpen;
+        this.isFlagged = cell.isFlagged;
+        this.isLosing = cell.isLosing;
+        this.field = cell.field;
+        addAroundCells(cell.aroundCells);
     }
 
     @Override
