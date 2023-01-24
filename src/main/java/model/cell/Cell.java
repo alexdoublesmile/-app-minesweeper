@@ -94,6 +94,8 @@ public class Cell implements Openable {
     }
 
     public void toggleFlag() {
-        isFlagged = !isFlagged;
+        if (isClosed()) {
+            isFlagged = !isFlagged;
+        }
     }
 }
