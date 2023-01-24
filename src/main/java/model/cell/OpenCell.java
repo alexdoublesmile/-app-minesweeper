@@ -21,21 +21,21 @@ public class OpenCell extends Cell {
     public void openCell(int row, int col, Field field) {
         // TODO: 24.01.2023 no click action for open cells
 
-//        final Cell openCell = field.getCells()[row][col];
-//
-//        final List<Cell> aroundCells = openCell.getAroundCells();
-//        final long flagsNumber = aroundCells.stream()
-//                .filter(Cell::isFlagged)
-//                .count();
-//
-//        final long bombsNumber = aroundCells.stream()
-//                .filter(Cell::isBomb)
-//                .count();
-//
-//        if (flagsNumber == bombsNumber) {
-//            aroundCells.stream()
-//                    .filter(Cell::isClosed)
-//                    .forEach(cell -> cell.openCell(cell.getRow(), cell.getColumn(), field));
-//        }
+        final Cell openCell = field.getCells()[row][col];
+
+        final List<Cell> aroundCells = openCell.getAroundCells();
+        final long flagsNumber = aroundCells.stream()
+                .filter(Cell::isFlagged)
+                .count();
+
+        final long bombsNumber = aroundCells.stream()
+                .filter(Cell::isBomb)
+                .count();
+
+        if (flagsNumber == bombsNumber) {
+            aroundCells.stream()
+                    .filter(Cell::isNotFlagged)
+                    .forEach(cell -> field.makeOpen(cell.getRow(), cell.getColumn()));
+        }
     }
 }

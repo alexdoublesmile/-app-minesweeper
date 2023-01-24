@@ -10,7 +10,7 @@ public class Launcher {
         final GameSettings settings = GameSettings.builder()
                 .numberOfRows(9)
                 .numberOfColumns(9)
-                .numberOfBombs(3)
+                .numberOfBombs(10)
                 .cellSize(50)
                 .build();
 

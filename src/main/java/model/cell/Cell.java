@@ -69,6 +69,10 @@ public class Cell implements Openable {
         return !isOpen;
     }
 
+    public boolean isNotFlagged() {
+        return !isFlagged;
+    }
+
     public boolean isBomb() {
         return CellType.BOMB == type;
     }

@@ -15,8 +15,8 @@ public class ClosedEmptyCell extends Cell {
         field.makeOpen(row, col);
 
         field.getCells()[row][col].getAroundCells()
-//                .stream()
-//                .filter(Cell::isClosed)
+                .stream()
+                .filter(Cell::isClosed)
                 .forEach(cell -> cell.openCell(cell.getRow(), cell.getColumn(), field));
     }
 }
