@@ -38,12 +38,13 @@ public class Field {
         return Arrays.copyOf(cells, cells.length);
     }
 
-    public void makeOpen(int row, int col) {
+    public void makeOpen(int row, int col, boolean byOpenCell) {
         final Cell cell = cells[row][col];
 
-        if (cell.isBomb() & !cell.isLosing()) {
+        if (byOpenCell && cell.isBomb()) {
             cell.openCell(row, col, this);
         }
+
         cells[row][col] = new OpenCell(cell);
 
         if (cell.isClosed()) {

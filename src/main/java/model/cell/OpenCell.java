@@ -33,7 +33,7 @@ public class OpenCell extends Cell {
         if (flagsNumber == bombsNumber) {
             aroundCells.stream()
                     .filter(Cell::isNotFlagged)
-                    .forEach(cell -> field.makeOpen(cell.getRow(), cell.getColumn()));
+                    .forEach(cell -> field.makeOpen(cell.getRow(), cell.getColumn(), true));
         }
     }
 }

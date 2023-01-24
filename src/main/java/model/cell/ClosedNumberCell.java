@@ -17,6 +17,6 @@ public class ClosedNumberCell extends Cell {
 
     @Override
     public void openCell(int row, int col, Field field) {
-        field.makeOpen(row, col);
+        field.makeOpen(row, col, false);
     }
 }

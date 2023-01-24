@@ -18,10 +18,10 @@ public class ClosedBombCell extends Cell {
 
     @Override
     public void openCell(int row, int col, Field field) {
-        field.makeLosing(row, col);
-
         CellUtil.getCellList(field.getCells()).stream()
                 .filter(cell -> cell.isBomb() && cell.isNotFlagged() || cell.isFlagged() && !cell.isBomb())
-                .forEach(cell -> field.makeOpen(cell.row, cell.column));
+                .forEach(cell -> field.makeOpen(cell.row, cell.column, false));
+
+        field.makeLosing(row, col);
     }
 }

@@ -10,7 +10,7 @@ public class ClosedEmptyCell extends Cell {
 
     @Override
     public void openCell(int row, int col, Field field) {
-        field.makeOpen(row, col);
+        field.makeOpen(row, col, false);
 
         field.getCells()[row][col].getAroundCells()
                 .stream()
