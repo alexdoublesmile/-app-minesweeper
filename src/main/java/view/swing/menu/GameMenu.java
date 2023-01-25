@@ -19,10 +19,14 @@ public class GameMenu extends JMenuBar {
         final JMenuItem saveGame = new JMenuItem("Save... ");
 //        saveGame.addActionListener(new SaveAction());// TODO: 25.01.2023  
         final JMenuItem loadGame = new JMenuItem("Load... ");
-//        loadGame.addActionListener(new LoadAction());// TODO: 25.01.2023  
+//        loadGame.addActionListener(new LoadAction());// TODO: 25.01.2023
+        final JMenuItem endGame = new JMenuItem("Exit");
+        endGame.addActionListener(new EndAction());
         gameMenu.add(newGame);
         gameMenu.add(saveGame);
         gameMenu.add(loadGame);
+        gameMenu.add(new JSeparator());
+        gameMenu.add(endGame);
 
         final JMenu optionsMenu = new JMenu("Options");
         final ButtonGroup buttonGroup = new ButtonGroup();
@@ -38,7 +42,7 @@ public class GameMenu extends JMenuBar {
         JCheckBoxMenuItem autoOpen = new AutoOpenCheckBox("Enable auto-open by click", this);
 
         final JMenuItem topGame = new JMenuItem("TOP List");
-//        topGame.addActionListener(new ToplistAction());// TODO: 25.01.2023  
+//        topGame.addActionListener(new ToplistAction());// TODO: 25.01.2023
         optionsMenu.add(easy);
         optionsMenu.add(medium);
         optionsMenu.add(hard);
