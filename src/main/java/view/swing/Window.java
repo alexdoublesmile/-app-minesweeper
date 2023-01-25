@@ -1,6 +1,7 @@
 package view.swing;
 
 import view.util.ImageConstants;
+import view.util.ImageHelper;
 import view.util.ViewConstants;
 
 import javax.swing.*;

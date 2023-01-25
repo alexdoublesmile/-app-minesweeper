@@ -1,4 +1,4 @@
-package view.swing;
+package view.util;
 
 import exception.IncorrectCellTypeException;
 import model.cell.Cell;

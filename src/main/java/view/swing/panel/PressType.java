@@ -1,4 +1,4 @@
-package view.swing.listener;
+package view.swing.panel;
 
 public enum PressType {
     CHOICE,

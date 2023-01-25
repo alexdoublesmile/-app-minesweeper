@@ -1,9 +1,10 @@
 package view;
 
 import controller.GameController;
-import view.swing.GamePanel;
+import view.swing.menu.GameMenu;
+import view.swing.panel.GamePanel;
 import view.swing.Window;
-import view.swing.listener.PanelListener;
+import view.swing.panel.PanelListener;
 import view.util.ViewConstants;
 
 import javax.swing.*;

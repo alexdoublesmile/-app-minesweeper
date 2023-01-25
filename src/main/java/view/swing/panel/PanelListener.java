@@ -1,13 +1,12 @@
-package view.swing.listener;
+package view.swing.panel;
 
 import controller.GameController;
-import view.swing.GamePanel;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import static view.swing.listener.PressType.*;
+import static view.swing.panel.PressType.*;
 
 public class PanelListener extends MouseAdapter {
     private static final int LEFT_CLICK = MouseEvent.BUTTON1;

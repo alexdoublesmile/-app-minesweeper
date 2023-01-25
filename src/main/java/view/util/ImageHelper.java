@@ -1,6 +1,4 @@
-package view.swing;
-
-import view.util.ImageConstants;
+package view.util;
 
 import javax.swing.*;
 import java.awt.*;

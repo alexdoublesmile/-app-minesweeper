@@ -1,7 +1,9 @@
-package view.swing;
+package view.swing.panel;
 
 import model.Field;
 import util.CellUtil;
+import view.util.ImageHelper;
+import view.util.ImageType;
 
 import javax.swing.*;
 import java.awt.*;
