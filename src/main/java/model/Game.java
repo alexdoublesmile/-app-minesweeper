@@ -20,7 +20,6 @@ public class Game {
 
     public void setField(Field field) {
         this.field = field;
-        field.setGame(this);
     }
 
     public void setState(GameState state) {

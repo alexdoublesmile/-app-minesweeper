@@ -1,6 +1,7 @@
 package util;
 
 import config.GameSettings;
+import model.Game;
 import model.cell.*;
 import model.Field;
 
@@ -10,7 +11,7 @@ public final class FieldFactory {
     private GameSettings settings;
     private Field field;
 
-    public FieldFactory initEmptyField() {
+    public FieldFactory initEmptyField(Game game) {
         final int rowsNumber = settings.getNumberOfRows();
         final int columnsNumber = settings.getNumberOfColumns();
         Cell[][] cells = new Cell[rowsNumber][columnsNumber];
@@ -27,6 +28,8 @@ public final class FieldFactory {
                 .cells(cells)
                 .cellSize(settings.getCellSize())
                 .closedCellsNumber(rowsNumber * columnsNumber)
+                .enabledAutoOpen(settings.isEnabledAutoOpen())
+                .game(game)
                 .build();
 
         return this;

@@ -21,13 +21,24 @@ public class Field {
     private Cell[][] cells;
     private Game game;
 
-    public Field(int rowsNumber, int columnsNumber, int bombsNumber, int cellSize, int closedCellsNumber, Cell[][] cells, Game game) {
+    public Field(
+            int rowsNumber,
+            int columnsNumber,
+            int bombsNumber,
+            int cellSize,
+            int closedCellsNumber,
+            boolean enabledAutoOpen,
+            Cell[][] cells,
+            Game game
+    ) {
         this.rowsNumber = rowsNumber;
         this.columnsNumber = columnsNumber;
         this.bombsNumber = bombsNumber;
         this.cellSize = cellSize;
         this.closedCellsNumber = closedCellsNumber;
+        this.enabledAutoOpen = enabledAutoOpen;
         addCells(cells);
+        this.game = game;
     }
 
     private void addCells(Cell[][] cells) {
@@ -56,10 +67,6 @@ public class Field {
     public void makeLosing(int row, int col) {
         cells[row][col].makeLosing();
         game.setState(GameState.LOSING);
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
     }
 
     public boolean isEnabledAutoOpen() {

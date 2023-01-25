@@ -23,7 +23,7 @@ public final class GameService {
         game = new Game();
         game.setState(NOT_INITIALIZED);
         Field field = withSettings(settings)
-                .initEmptyField()
+                .initEmptyField(game)
                 .build();
 
         game.setField(field);
