@@ -29,6 +29,11 @@ public class SwingView implements View {
         SwingUtilities.invokeLater(this::showWindowSeparateThread);
     }
 
+    @Override
+    public void restart() {
+        window = new Window();
+    }
+
     private void showWindowSeparateThread() {
         window = new Window();
         panel = new GamePanel(controller.getField());

@@ -1,10 +1,9 @@
 package controller;
 
+import lombok.RequiredArgsConstructor;
 import model.Field;
 import model.Game;
 import service.GameService;
-import lombok.RequiredArgsConstructor;
-import util.ConfigConstants;
 
 import static java.lang.Integer.parseInt;
 import static util.ConfigConstants.*;

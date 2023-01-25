@@ -11,18 +11,12 @@ import static model.GameState.PLAYING;
 import static util.FieldFactory.withSettings;
 
 public final class GameService {
-    private final GameSettings settings;
-
     private Game game;
-
-    public GameService(GameSettings settings) {
-        this.settings = settings;
-    }
 
     public Game start() {
         game = new Game();
         game.setState(NOT_INITIALIZED);
-        Field field = withSettings(settings)
+        Field field = withSettings(new GameSettings())
                 .initEmptyField(game)
                 .build();
 

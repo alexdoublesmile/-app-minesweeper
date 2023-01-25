@@ -1,5 +1,7 @@
 package view.swing.menu;
 
+import view.SwingView;
+
 import javax.swing.*;
 
 import static util.ConfigConstants.*;
@@ -16,6 +18,11 @@ public class HardComplexityButton extends JRadioButtonMenuItem {
             updateConfig(ROWS_NUMBER_PROPERTY_NAME, ROWS_NUMBER_HARD_VALUE);
             updateConfig(COLUMNS_NUMBER_PROPERTY_NAME, COLUMNS_NUMBER_HARD_VALUE);
             updateConfig(BOMBS_NUMBER_PROPERTY_NAME, BOMBS_NUMBER_HARD_VALUE);
+
+            final SwingView view = menuBar.getView();
+            view.getPanel().updateModelInView(view.getController().restart().getField());
+            view.getWindow().setVisible(false);
+            view.showWindow();
         });
     }
 }

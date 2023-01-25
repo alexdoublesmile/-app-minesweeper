@@ -71,4 +71,9 @@ public class PropertyHelper {
     private static void loadConfig() {
         loadProperties(CONFIG_FILE_NAME, configuration);
     }
+
+    public static void reload() {
+        loadConfig();
+        loadAppProperties();
+    }
 }
