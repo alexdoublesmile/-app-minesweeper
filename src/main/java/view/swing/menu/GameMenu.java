@@ -3,6 +3,8 @@ package view.swing.menu;
 import javax.swing.*;
 
 public class GameMenu extends JMenuBar {
+    private AutoOpenCheckBox autoOpen;
+
     public GameMenu() {
         final JMenu gameMenu = new JMenu("Game");
         final JMenuItem newGame = new JMenuItem("Restart");
@@ -27,9 +29,12 @@ public class GameMenu extends JMenuBar {
         buttonGroup.add(medium);
         buttonGroup.add(hard);
         final JMenuItem custom = new JMenuItem("Custom...");
-//        custom.addActionListener(new CustomAction());// TODO: 25.01.2023  
-        final JCheckBoxMenuItem autoOpen = new JCheckBoxMenuItem("Enable auto open by click", true);
-//        autoOpen.addActionListener(new AutoOpenAction());// TODO: 25.01.2023  
+//        custom.addActionListener(new CustomAction());// TODO: 25.01.2023
+
+        autoOpen = new AutoOpenCheckBox("Enable auto-open by click", true);
+        // TODO: 25.01.2023 add boolean to model
+        // TODO: 25.01.2023 save to config file before exit
+
         final JMenuItem topGame = new JMenuItem("TOP List");
 //        topGame.addActionListener(new ToplistAction());// TODO: 25.01.2023  
         optionsMenu.add(easy);
@@ -45,8 +50,13 @@ public class GameMenu extends JMenuBar {
         final JMenuItem about = new JMenuItem("About");
         about.addActionListener(new AboutAction());
         helpMenu.add(about);
+
         add(gameMenu);
         add(optionsMenu);
         add(helpMenu);
+    }
+
+    public boolean isEnabledAutoOpen() {
+        return autoOpen.isEnabledAutoOpen();
     }
 }
