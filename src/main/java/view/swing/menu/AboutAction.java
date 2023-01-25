@@ -14,6 +14,6 @@ public class AboutAction implements ActionListener {
                 null,
                 VERSION_MESSAGE_TEXT,
                 VERSION_MESSAGE_TITLE,
-                JOptionPane.INFORMATION_MESSAGE)
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }
