@@ -1,5 +1,7 @@
 package view.swing.menu;
 
+import util.ConfigConstants;
+import util.PropertyHelper;
 import view.SwingView;
 
 import javax.swing.*;
@@ -30,6 +32,9 @@ public class CustomComplexityButton extends JMenuItem {
 
             constraints.gridx = 1;
             final JTextField rowsNumber = new JTextField(3);
+            rowsNumber.setFocusable(true);
+            // TODO: 25.01.2023
+//            rowsNumber.setText(PropertyHelper.getProperty(ROWS_NUMBER_PROPERTY_NAME));
             customModePanel.add(rowsNumber, constraints);
 
             constraints.gridx = 0;
@@ -38,6 +43,8 @@ public class CustomComplexityButton extends JMenuItem {
 
             constraints.gridx = 1;
             final JTextField columnsNumber = new JTextField(3);
+            // TODO: 25.01.2023
+//            columnsNumber.setText(PropertyHelper.getProperty(COLUMNS_NUMBER_PROPERTY_NAME));
             customModePanel.add(columnsNumber, constraints);
 
             constraints.gridx = 0;
@@ -46,10 +53,12 @@ public class CustomComplexityButton extends JMenuItem {
 
             constraints.gridx = 1;
             final JTextField bombsNumber = new JTextField(3);
+            // TODO: 25.01.2023
+//            bombsNumber.setText(PropertyHelper.getProperty(BOMBS_NUMBER_PROPERTY_NAME));
             customModePanel.add(bombsNumber, constraints);
 
-            setBorder(BorderFactory.createTitledBorder(
-                    BorderFactory.createEtchedBorder(), "Custom mode"));
+//            setBorder(BorderFactory.createTitledBorder(
+//                    BorderFactory.createEtchedBorder(), "Custom mode"));
 
             final int result = JOptionPane.showConfirmDialog(null, customModePanel, "Custom Mode", JOptionPane.YES_NO_OPTION);
 
