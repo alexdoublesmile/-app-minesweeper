@@ -36,9 +36,8 @@ public class GameMenu extends JMenuBar {
         buttonGroup.add(easy);
         buttonGroup.add(medium);
         buttonGroup.add(hard);
-        final JMenuItem custom = new JMenuItem("Custom...");
-//        custom.addActionListener(new CustomAction());// TODO: 25.01.2023
 
+        final JMenuItem custom = new CustomComplexityButton("Custom...", this);
         JCheckBoxMenuItem autoOpen = new AutoOpenCheckBox("Enable auto-open by click", this);
 
         final JMenuItem topGame = new JMenuItem("TOP List");
