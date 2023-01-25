@@ -16,7 +16,7 @@ public class AutoOpenCheckBox extends JCheckBoxMenuItem {
         addActionListener(e -> {
             isEnabledAutoOpen = ((AbstractButton) e.getSource()).getModel().isSelected();
             updateModel(isEnabledAutoOpen);
-            saveToConfig(isEnabledAutoOpen);
+            updateConfig(isEnabledAutoOpen);
         });
     }
 
@@ -24,7 +24,7 @@ public class AutoOpenCheckBox extends JCheckBoxMenuItem {
         menuBar.getController().updateAutoOpen(isEnabledAutoOpen);
     }
 
-    private void saveToConfig(boolean isEnabledAutoOpen) {
+    private void updateConfig(boolean isEnabledAutoOpen) {
         PropertyHelper.updateConfig("auto.open", String.valueOf(isEnabledAutoOpen));
     }
 

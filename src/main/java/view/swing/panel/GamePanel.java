@@ -30,7 +30,7 @@ public class GamePanel extends JPanel {
                         this));
     }
 
-    public void updateModel(Field field) {
+    public void updateModelInView(Field field) {
         this.field = field;
     }
 }

@@ -36,7 +36,7 @@ public class PanelListener extends MouseAdapter {
                 break;
             case MARK: controller.makeMark(row, col);
                 break;
-            case RESET: panel.updateModel(controller.restart().getField());
+            case RESET: panel.updateModelInView(controller.restart().getField());
                 break;
             default:
         }
