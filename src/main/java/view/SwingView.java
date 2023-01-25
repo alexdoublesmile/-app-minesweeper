@@ -1,6 +1,7 @@
 package view;
 
 import controller.GameController;
+import lombok.Getter;
 import view.swing.menu.GameMenu;
 import view.swing.panel.GamePanel;
 import view.swing.Window;
@@ -10,6 +11,7 @@ import view.util.ViewConstants;
 import javax.swing.*;
 import java.awt.*;
 
+@Getter
 public class SwingView implements View {
     private final GameController controller;
 
@@ -31,7 +33,7 @@ public class SwingView implements View {
         window = new Window();
         panel = new GamePanel(controller.getField());
         label = new JLabel(ViewConstants.GREETING_LABEL);
-        menu = new GameMenu(controller);
+        menu = new GameMenu(this);
 
         window.add(menu, BorderLayout.NORTH);
         window.add(label, BorderLayout.SOUTH);

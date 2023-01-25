@@ -6,10 +6,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
+import static util.ConfigConstants.*;
+
 public class PropertyHelper {
-    private static final String PROPERTIES_FILE_NAME = "application.properties";
-    private static final String CONFIG_FILE_NAME = "config.txt";
-    private static final String CONFIG_PATH = "src/main/resources/";
     private static Properties properties = new Properties();
     private static Properties configuration = new Properties();
 

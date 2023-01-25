@@ -6,7 +6,7 @@
 
     <groupId>app.jouful</groupId>
     <artifactId>minesweeper</artifactId>
-    <version>5.5.1</version>
+    <version>5.6.1</version>
 
     <properties>
         <!-- Source -->

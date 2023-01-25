@@ -4,13 +4,15 @@ import util.PropertyHelper;
 
 import javax.swing.*;
 
+import static util.ConfigConstants.AUTO_OPEN_PROPERTY_NAME;
+
 public class AutoOpenCheckBox extends JCheckBoxMenuItem {
     private final GameMenu menuBar;
 
     private boolean isEnabledAutoOpen;
 
     public AutoOpenCheckBox(String name, GameMenu menuBar) {
-        super(name, menuBar.getController().getField().isEnabledAutoOpen());
+        super(name, menuBar.getView().getController().getField().isEnabledAutoOpen());
         this.menuBar = menuBar;
 
         addActionListener(e -> {
@@ -21,14 +23,11 @@ public class AutoOpenCheckBox extends JCheckBoxMenuItem {
     }
 
     private void updateModel(boolean isEnabledAutoOpen) {
-        menuBar.getController().updateAutoOpen(isEnabledAutoOpen);
+        menuBar.getView().getController()
+                .updateAutoOpen(isEnabledAutoOpen);
     }
 
     private void updateConfig(boolean isEnabledAutoOpen) {
-        PropertyHelper.updateConfig("auto.open", String.valueOf(isEnabledAutoOpen));
-    }
-
-    public boolean isEnabledAutoOpen() {
-        return isEnabledAutoOpen;
+        PropertyHelper.updateConfig(AUTO_OPEN_PROPERTY_NAME, String.valueOf(isEnabledAutoOpen));
     }
 }

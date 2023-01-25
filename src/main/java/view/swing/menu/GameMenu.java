@@ -1,18 +1,20 @@
 package view.swing.menu;
 
-import controller.GameController;
+import lombok.Getter;
+import view.SwingView;
 
 import javax.swing.*;
 
+@Getter
 public class GameMenu extends JMenuBar {
-    private final GameController controller;
-    
-    public GameMenu(GameController controller) {
-        this.controller = controller;
+    private final SwingView view;
+
+    public GameMenu(SwingView view) {
+        this.view = view;
 
         final JMenu gameMenu = new JMenu("Game");
         final JMenuItem newGame = new JMenuItem("Restart");
-        newGame.addActionListener(new RestartAction());
+        newGame.addActionListener(new RestartAction(this));
 
         final JMenuItem saveGame = new JMenuItem("Save... ");
 //        saveGame.addActionListener(new SaveAction());// TODO: 25.01.2023  
@@ -57,9 +59,5 @@ public class GameMenu extends JMenuBar {
         add(gameMenu);
         add(optionsMenu);
         add(helpMenu);
-    }
-
-    public GameController getController() {
-        return controller;
     }
 }
