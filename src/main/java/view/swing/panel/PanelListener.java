@@ -1,8 +1,8 @@
 package view.swing.panel;
 
 import controller.GameController;
+import view.SwingView;
 
-import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -13,18 +13,17 @@ public class PanelListener extends MouseAdapter {
     private static final int RIGHT_CLICK = MouseEvent.BUTTON3;
     private static final int MIDDLE_CLICK = MouseEvent.BUTTON2;
 
-    private GameController controller;
-    private GamePanel panel;
-    private JLabel label;
+    private final SwingView view;
 
-    public PanelListener(GameController controller, GamePanel panel, JLabel label) {
-        this.controller = controller;
-        this.panel = panel;
-        this.label = label;
+    public PanelListener(SwingView view) {
+        this.view = view;
+
     }
 
     @Override
     public void mousePressed(MouseEvent click) {
+        final GameController controller = view.getController();
+        final GamePanel panel = view.getPanel();
         final int cellSize = controller.getField().getCellSize();
         int row = click.getY() / cellSize;
         int col = click.getX() / cellSize;
@@ -40,13 +39,13 @@ public class PanelListener extends MouseAdapter {
                 break;
             default:
         }
-        label.setText(controller.getMessage());
+        view.getLabel().setText(controller.getMessage());
         panel.repaint();
     }
 
     private void initializeIfNeeds(int row, int col) {
-        if (controller.isNotInitialized()) {
-            controller.initialize(row, col);
+        if (view.getController().isNotInitialized()) {
+            view.getController().initialize(row, col);
         }
     }
 
@@ -62,8 +61,8 @@ public class PanelListener extends MouseAdapter {
     }
 
     private boolean needRestart(MouseEvent e) {
-        return e.getButton() == LEFT_CLICK && controller.isOver()
-                || e.getButton() == RIGHT_CLICK && controller.isOver()
+        return e.getButton() == LEFT_CLICK && view.getController().isOver()
+                || e.getButton() == RIGHT_CLICK && view.getController().isOver()
                 || e.getButton() == MIDDLE_CLICK;
     }
 }

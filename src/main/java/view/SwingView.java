@@ -17,8 +17,8 @@ public class SwingView implements View {
 
     private Window window;
     private GamePanel panel;
+    private GameMenu menu;
     private JLabel label;
-    private JMenuBar menu;
 
     public SwingView(GameController controller) {
         this.controller = controller;
@@ -32,8 +32,8 @@ public class SwingView implements View {
     private void showWindowSeparateThread() {
         window = new Window();
         panel = new GamePanel(controller.getField());
-        label = new JLabel(ViewConstants.GREETING_LABEL);
         menu = new GameMenu(this);
+        label = new JLabel(ViewConstants.GREETING_LABEL);
 
         window.add(menu, BorderLayout.NORTH);
         window.add(label, BorderLayout.SOUTH);
@@ -41,6 +41,6 @@ public class SwingView implements View {
         window.pack();
         window.setLocationRelativeTo(null);
 
-        panel.addMouseListener(new PanelListener(controller, panel, label));
+        panel.addMouseListener(new PanelListener(this));
     }
 }
