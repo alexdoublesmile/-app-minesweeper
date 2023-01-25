@@ -17,6 +17,7 @@ public class Field {
     private final int cellSize;
 
     private int closedCellsNumber;
+    private boolean enabledAutoOpen;
     private Cell[][] cells;
     private Game game;
 
@@ -59,5 +60,9 @@ public class Field {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public boolean isEnabledAutoOpen() {
+        return enabledAutoOpen;
     }
 }

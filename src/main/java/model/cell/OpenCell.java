@@ -19,21 +19,23 @@ public class OpenCell extends Cell {
 
     @Override
     public void openCell(int row, int col, Field field) {
-        final Cell openCell = field.getCells()[row][col];
+        if (field.isEnabledAutoOpen()) {
+            final Cell openCell = field.getCells()[row][col];
 
-        final List<Cell> aroundCells = openCell.getAroundCells();
-        final long flagsNumber = aroundCells.stream()
-                .filter(Cell::isFlagged)
-                .count();
+            final List<Cell> aroundCells = openCell.getAroundCells();
+            final long flagsNumber = aroundCells.stream()
+                    .filter(Cell::isFlagged)
+                    .count();
 
-        final long bombsNumber = aroundCells.stream()
-                .filter(Cell::isBomb)
-                .count();
+            final long bombsNumber = aroundCells.stream()
+                    .filter(Cell::isBomb)
+                    .count();
 
-        if (flagsNumber == bombsNumber) {
-            aroundCells.stream()
-                    .filter(Cell::isNotFlagged)
-                    .forEach(cell -> field.makeOpen(cell.getRow(), cell.getColumn(), true));
+            if (flagsNumber == bombsNumber) {
+                aroundCells.stream()
+                        .filter(Cell::isNotFlagged)
+                        .forEach(cell -> field.makeOpen(cell.getRow(), cell.getColumn(), true));
+            }
         }
     }
 }
