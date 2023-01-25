@@ -1,5 +1,7 @@
 package view.swing.menu;
 
+import util.PropertyHelper;
+
 import javax.swing.*;
 
 public class AutoOpenCheckBox extends JCheckBoxMenuItem {
@@ -12,10 +14,18 @@ public class AutoOpenCheckBox extends JCheckBoxMenuItem {
         this.menuBar = menuBar;
 
         addActionListener(e -> {
-            final AbstractButton checkbox = (AbstractButton) e.getSource();
-            isEnabledAutoOpen = checkbox.getModel().isSelected();
-            menuBar.getController().updateAutoOpen(isEnabledAutoOpen);
+            isEnabledAutoOpen = ((AbstractButton) e.getSource()).getModel().isSelected();
+            updateModel(isEnabledAutoOpen);
+            saveToConfig(isEnabledAutoOpen);
         });
+    }
+
+    private void updateModel(boolean isEnabledAutoOpen) {
+        menuBar.getController().updateAutoOpen(isEnabledAutoOpen);
+    }
+
+    private void saveToConfig(boolean isEnabledAutoOpen) {
+        PropertyHelper.updateConfig("auto.open", String.valueOf(isEnabledAutoOpen));
     }
 
     public boolean isEnabledAutoOpen() {

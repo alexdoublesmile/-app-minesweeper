@@ -1,6 +1,6 @@
 package view.util;
 
-import config.PropertyConfig;
+import util.PropertyHelper;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -9,9 +9,9 @@ public class ViewConstants {
     public static final String GREETING_LABEL = "Welcome!";
     public static final String VERSION_MESSAGE_TITLE = "Minesweeper Pro version";
 
-    public static final String VERSION = PropertyConfig.getProperty("version.number");
-    public static final String VERSION_DATE = PropertyConfig.getProperty("version.date");
-    public static final String PROGRAM_CREATOR = PropertyConfig.getProperty("creator");
+    public static final String VERSION = PropertyHelper.getProperty("version.number");
+    public static final String VERSION_DATE = PropertyHelper.getProperty("version.date");
+    public static final String PROGRAM_CREATOR = PropertyHelper.getProperty("creator");
     public static final String VERSION_MESSAGE_TEXT =
             String.format("<html>" +
                             "<p>Minesweeper Pro v.%s</p>" +

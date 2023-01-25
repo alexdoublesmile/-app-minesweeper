@@ -31,9 +31,7 @@ public class PanelListener extends MouseAdapter {
 
         switch(getPressedType(click)) {
             case CHOICE:
-                if (controller.isNotInitialized()) {
-                    controller.initialize(row, col);
-                }
+                initializeIfNeeds(row, col);
                 controller.makeChoice(row, col);
                 break;
             case MARK: controller.makeMark(row, col);
@@ -44,6 +42,12 @@ public class PanelListener extends MouseAdapter {
         }
         label.setText(controller.getMessage());
         panel.repaint();
+    }
+
+    private void initializeIfNeeds(int row, int col) {
+        if (controller.isNotInitialized()) {
+            controller.initialize(row, col);
+        }
     }
 
     private PressType getPressedType(MouseEvent e) {
