@@ -13,7 +13,7 @@ public class GameMenu extends JMenuBar {
         this.view = view;
 
         final JMenu gameMenu = new JMenu("Game");
-        final JMenuItem newGame = new JMenuItem("Restart");
+        final JMenuItem newGame = new JMenuItem("New Game");
         newGame.addActionListener(new RestartAction(this));
 
         final JMenuItem saveGame = new JMenuItem("Save... ");

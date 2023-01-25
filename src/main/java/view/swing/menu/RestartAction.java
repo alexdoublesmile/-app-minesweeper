@@ -17,7 +17,6 @@ public class RestartAction implements ActionListener {
         final SwingView view = menu.getView();
         view.getPanel().updateModelInView(view.getController().restart().getField());
 
-        view.getWindow().setVisible(false);
-        view.showWindow();
+        view.getPanel().repaint();
     }
 }
