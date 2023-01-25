@@ -1,4 +1,4 @@
-#Wed Jan 25 15:50:51 EET 2023
+#Wed Jan 25 15:57:08 EET 2023
 rows.number=8
 bombs.number=10
 auto.open=true
