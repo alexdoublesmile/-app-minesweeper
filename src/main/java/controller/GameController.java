@@ -44,4 +44,8 @@ public final class GameController {
     public boolean isNotInitialized() {
         return fieldService.isNotInitialized();
     }
+
+    public void updateAutoOpen(boolean enabledAutoOpen) {
+        fieldService.updateAutoOpen(enabledAutoOpen);
+    }
 }

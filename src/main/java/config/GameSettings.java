@@ -5,7 +5,6 @@ import lombok.Getter;
 @Getter
 public final class GameSettings {
     private static final GameSettings INSTANCE = new GameSettings();
-    // TODO: 25.01.2023 take from config files
     // TODO: 25.01.2023 add size changing
     int cellSize = 50;
     int numberOfColumns = Integer.parseInt(PropertyConfig.getProperty("columns.number", "20"));

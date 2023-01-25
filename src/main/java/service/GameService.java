@@ -75,4 +75,8 @@ public final class GameService {
     public boolean isNotInitialized() {
         return game.isNotInitialized();
     }
+
+    public void updateAutoOpen(boolean enabledAutoOpen) {
+        game.getField().setAutoOpen(enabledAutoOpen);
+    }
 }

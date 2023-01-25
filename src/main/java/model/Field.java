@@ -72,4 +72,8 @@ public class Field {
     public boolean isEnabledAutoOpen() {
         return enabledAutoOpen;
     }
+
+    public void setAutoOpen(boolean enabledAutoOpen) {
+        this.enabledAutoOpen = enabledAutoOpen;
+    }
 }

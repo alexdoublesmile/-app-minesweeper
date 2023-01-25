@@ -31,7 +31,7 @@ public class SwingView implements View {
         window = new Window();
         panel = new GamePanel(controller.getField());
         label = new JLabel(ViewConstants.GREETING_LABEL);
-        menu = new GameMenu();
+        menu = new GameMenu(controller);
 
         window.add(menu, BorderLayout.NORTH);
         window.add(label, BorderLayout.SOUTH);

@@ -1,11 +1,18 @@
 package view.swing.menu;
 
+import controller.GameController;
+import model.Field;
+
 import javax.swing.*;
 
 public class GameMenu extends JMenuBar {
+    private final GameController controller;
+
     private AutoOpenCheckBox autoOpen;
 
-    public GameMenu() {
+    public GameMenu(GameController controller) {
+        this.controller = controller;
+
         final JMenu gameMenu = new JMenu("Game");
         final JMenuItem newGame = new JMenuItem("Restart");
 //        newGame.addActionListener(new RestartAction());// TODO: 25.01.2023  
@@ -31,7 +38,7 @@ public class GameMenu extends JMenuBar {
         final JMenuItem custom = new JMenuItem("Custom...");
 //        custom.addActionListener(new CustomAction());// TODO: 25.01.2023
 
-        autoOpen = new AutoOpenCheckBox("Enable auto-open by click", true);
+        autoOpen = new AutoOpenCheckBox("Enable auto-open by click", this);
         // TODO: 25.01.2023 add boolean to model
         // TODO: 25.01.2023 save to config file before exit
 
@@ -56,7 +63,7 @@ public class GameMenu extends JMenuBar {
         add(helpMenu);
     }
 
-    public boolean isEnabledAutoOpen() {
-        return autoOpen.isEnabledAutoOpen();
+    public GameController getController() {
+        return controller;
     }
 }
