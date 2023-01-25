@@ -26,12 +26,9 @@ public class GameMenu extends JMenuBar {
 
         final JMenu optionsMenu = new JMenu("Options");
         final ButtonGroup buttonGroup = new ButtonGroup();
-        final JRadioButtonMenuItem easy = new JRadioButtonMenuItem("Easy", true);
-//        easy.addActionListener(new EasyAction());// TODO: 25.01.2023  
-        final JRadioButtonMenuItem medium = new JRadioButtonMenuItem("Medium", false);
-//        medium.addActionListener(new MediumAction());// TODO: 25.01.2023  
-        final JRadioButtonMenuItem hard = new JRadioButtonMenuItem("Hard", false);
-//        hard.addActionListener(new HardAction());// TODO: 25.01.2023  
+        final JRadioButtonMenuItem easy = new EasyComplexityButton("Easy", this);
+        final JRadioButtonMenuItem medium = new NormalComplexityButton("Normal", this);
+        final JRadioButtonMenuItem hard = new HardComplexityButton("Hard", this);
         buttonGroup.add(easy);
         buttonGroup.add(medium);
         buttonGroup.add(hard);

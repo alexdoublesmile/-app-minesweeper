@@ -8,9 +8,18 @@ public class ConfigConstants {
     public static final String AUTO_OPEN_DEFAULT_VALUE = "true";
     public static final String COLUMNS_NUMBER_PROPERTY_NAME = "columns.number";
     public static final String COLUMNS_NUMBER_DEFAULT_VALUE = "10";
+    public static final String COLUMNS_NUMBER_EASY_VALUE = "8";
+    public static final String COLUMNS_NUMBER_NORMAL_VALUE = "16";
+    public static final String COLUMNS_NUMBER_HARD_VALUE = "30";
     public static final String ROWS_NUMBER_PROPERTY_NAME = "rows.number";
     public static final String ROWS_NUMBER_DEFAULT_VALUE = "10";
+    public static final String ROWS_NUMBER_EASY_VALUE = "8";
+    public static final String ROWS_NUMBER_NORMAL_VALUE = "16";
+    public static final String ROWS_NUMBER_HARD_VALUE = "16";
     public static final String BOMBS_NUMBER_PROPERTY_NAME = "bombs.number";
     public static final String BOMBS_NUMBER_DEFAULT_VALUE = "30";
+    public static final String BOMBS_NUMBER_EASY_VALUE = "10";
+    public static final String BOMBS_NUMBER_NORMAL_VALUE = "40";
+    public static final String BOMBS_NUMBER_HARD_VALUE = "100";
     public static final int CELL_SIZE_DEFAULT_VALUE = 50;
 }

@@ -79,4 +79,12 @@ public final class GameService {
     public void updateAutoOpen(boolean enabledAutoOpen) {
         game.getField().setAutoOpen(enabledAutoOpen);
     }
+
+    public boolean checkComplexity(int checkRows, int checkColumns, int checkBombs) {
+        final Field field = game.getField();
+        int rows = field.getRowsNumber();
+        int columns = field.getColumnsNumber();
+        int bombs = field.getBombsNumber();
+        return rows == checkRows && columns == checkColumns && bombs == checkBombs;
+    }
 }
