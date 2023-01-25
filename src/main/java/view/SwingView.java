@@ -30,25 +30,8 @@ public class SwingView implements View {
         window = new Window();
         panel = new GamePanel(controller.getField());
         label = new JLabel(ViewConstants.GREETING_LABEL);
-        menu = new JMenuBar();
-        final JMenu gameMenu = new JMenu("Game");
-        final JMenuItem newGame = new JMenuItem("New.. Game");
-        final JMenuItem saveGame = new JMenuItem("Save.. Game");
-        final JMenuItem loadGame = new JMenuItem("Load.. Game");
-        gameMenu.add(newGame);
-        gameMenu.add(saveGame);
-        gameMenu.add(loadGame);
+        menu = new GameMenu();
 
-        final JMenu optionsMenu = new JMenu("Options");
-        final JMenuItem topGame = new JMenuItem("TOP List");
-        optionsMenu.add(topGame);
-
-        final JMenu helpMenu = new JMenu("Help");
-        final JMenuItem about = new JMenuItem("About");
-        helpMenu.add(about);
-        menu.add(gameMenu);
-        menu.add(optionsMenu);
-        menu.add(helpMenu);
         window.add(menu, BorderLayout.NORTH);
         window.add(label, BorderLayout.SOUTH);
         window.add(panel);
