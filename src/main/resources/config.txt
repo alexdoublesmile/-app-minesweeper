@@ -1,5 +1,5 @@
-#Wed Jan 25 17:37:12 EET 2023
-rows.number=8
-bombs.number=10
+#Wed Jan 25 17:48:53 EET 2023
+rows.number=16
+bombs.number=100
 auto.open=true
-columns.number=8
+columns.number=30
