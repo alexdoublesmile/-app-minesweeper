@@ -5,6 +5,7 @@ import view.SwingView;
 import javax.swing.*;
 import java.awt.*;
 
+import static java.lang.Integer.parseInt;
 import static util.ConfigConstants.*;
 import static util.ConfigConstants.BOMBS_NUMBER_EASY_VALUE;
 import static util.PropertyHelper.updateConfig;
@@ -53,11 +54,15 @@ public class CustomComplexityButton extends JMenuItem {
             final int result = JOptionPane.showConfirmDialog(null, customModePanel, "Custom Mode", JOptionPane.YES_NO_OPTION);
 
             if (result == JOptionPane.OK_OPTION) {
+                final CustomParams customParams = CustomParams.builder()
+                        .rows(parseInt(rowsNumber.getText()))
+                        .columns(parseInt(columnsNumber.getText()))
+                        .bombs(parseInt(bombsNumber.getText()))
+                        .build();
 
-
-                updateConfig(ROWS_NUMBER_PROPERTY_NAME, rowsNumber.getText());
-                updateConfig(COLUMNS_NUMBER_PROPERTY_NAME, columnsNumber.getText());
-                updateConfig(BOMBS_NUMBER_PROPERTY_NAME, bombsNumber.getText());
+                updateConfig(ROWS_NUMBER_PROPERTY_NAME, customParams.normalizedRows());
+                updateConfig(COLUMNS_NUMBER_PROPERTY_NAME, customParams.normalizedColumns());
+                updateConfig(BOMBS_NUMBER_PROPERTY_NAME, customParams.normalizedBombs());
 
                 final SwingView view = menuBar.getView();
                 view.getPanel().updateModelInView(view.getController().restart().getField());
