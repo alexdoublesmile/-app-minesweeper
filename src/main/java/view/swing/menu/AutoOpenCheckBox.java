@@ -12,7 +12,7 @@ public class AutoOpenCheckBox extends JCheckBoxMenuItem {
     private boolean isEnabledAutoOpen;
 
     public AutoOpenCheckBox(String name, GameMenu menuBar) {
-        super(name, menuBar.getView().getController().getField().isEnabledAutoOpen());
+        super(name, menuBar.getView().getController().getModelInfo().isEnabledAutoOpen());
         this.menuBar = menuBar;
 
         addActionListener(e -> {

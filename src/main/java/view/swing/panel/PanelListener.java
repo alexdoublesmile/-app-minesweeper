@@ -24,7 +24,7 @@ public class PanelListener extends MouseAdapter {
     public void mousePressed(MouseEvent click) {
         final GameController controller = view.getController();
         final GamePanel panel = view.getPanel();
-        final int cellSize = controller.getField().getCellSize();
+        final int cellSize = controller.getModelInfo().getCellSize();
         int row = click.getY() / cellSize;
         int col = click.getX() / cellSize;
 
@@ -35,11 +35,12 @@ public class PanelListener extends MouseAdapter {
                 break;
             case MARK: controller.makeMark(row, col);
                 break;
-            case RESET: panel.updateModelInView(controller.restart().getField());
+            case RESET:
+                controller.restart();
+//                panel.updateModelInView();
                 break;
             default:
         }
-        view.getLabel().setText(controller.getMessage());
         panel.repaint();
     }
 

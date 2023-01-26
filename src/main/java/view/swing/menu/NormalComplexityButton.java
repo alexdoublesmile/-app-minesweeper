@@ -11,7 +11,7 @@ public class NormalComplexityButton extends JRadioButtonMenuItem {
     private final GameMenu menuBar;
 
     public NormalComplexityButton(String name, GameMenu menuBar) {
-        super(name, menuBar.getView().getController().isNormalComplexity());
+        super(name, menuBar.getView().getController().isNormalMode());
         this.menuBar = menuBar;
 
         addActionListener(e -> {
@@ -20,7 +20,8 @@ public class NormalComplexityButton extends JRadioButtonMenuItem {
             updateConfig(BOMBS_NUMBER_PROPERTY_NAME, BOMBS_NUMBER_NORMAL_VALUE);
 
             final SwingView view = menuBar.getView();
-            view.getPanel().updateModelInView(view.getController().restart().getField());
+            view.getController().restart();
+//            view.getPanel().updateModelInView();
             view.getWindow().setVisible(false);
             view.showWindow();
         });

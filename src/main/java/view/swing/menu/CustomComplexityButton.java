@@ -62,7 +62,8 @@ public class CustomComplexityButton extends JMenuItem {
                 updateConfig(BOMBS_NUMBER_PROPERTY_NAME, String.valueOf(customParams.normalizedBombs()));
 
                 final SwingView view = menuBar.getView();
-                view.getPanel().updateModelInView(view.getController().restart().getField());
+                view.getController().restart();
+//                view.getPanel().updateModelInView();
                 view.getWindow().setVisible(false);
                 view.showWindow();
             }

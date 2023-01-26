@@ -14,6 +14,7 @@ public class Field {
     private final int rowsNumber;
     private final int columnsNumber;
     private final int bombsNumber;
+    private final int flagsNumber;
     private final int cellSize;
 
     private int closedCellsNumber;
@@ -25,6 +26,7 @@ public class Field {
             int rowsNumber,
             int columnsNumber,
             int bombsNumber,
+            int flagsNumber,
             int cellSize,
             int closedCellsNumber,
             boolean enabledAutoOpen,
@@ -34,6 +36,7 @@ public class Field {
         this.rowsNumber = rowsNumber;
         this.columnsNumber = columnsNumber;
         this.bombsNumber = bombsNumber;
+        this.flagsNumber = flagsNumber;
         this.cellSize = cellSize;
         this.closedCellsNumber = closedCellsNumber;
         this.enabledAutoOpen = enabledAutoOpen;

@@ -3,6 +3,7 @@ package controller;
 import lombok.RequiredArgsConstructor;
 import model.Field;
 import model.Game;
+import model.ModelInfo;
 import service.GameService;
 
 import static java.lang.Integer.parseInt;
@@ -32,13 +33,9 @@ public final class GameController {
         fieldService.toggleFlag(row, col);
     }
 
-    public Field getField() {
-        return fieldService.getField();
-    }
-
-    public String getMessage() {
-        return fieldService.getMessageByState();
-    }
+//    public Field getField() {
+//        return fieldService.getField();
+//    }
 
     public boolean isOver() {
         return fieldService.isOver();
@@ -52,24 +49,32 @@ public final class GameController {
         fieldService.updateAutoOpen(enabledAutoOpen);
     }
 
-    public boolean isEasyComplexity() {
-        return fieldService.checkComplexity(
+    public boolean isEasyMode() {
+        return fieldService.checkMode(
                 parseInt(ROWS_NUMBER_EASY_VALUE),
                 parseInt(COLUMNS_NUMBER_EASY_VALUE),
                 parseInt(BOMBS_NUMBER_EASY_VALUE));
     }
 
-    public boolean isNormalComplexity() {
-        return fieldService.checkComplexity(
+    public boolean isNormalMode() {
+        return fieldService.checkMode(
                 parseInt(ROWS_NUMBER_NORMAL_VALUE),
                 parseInt(COLUMNS_NUMBER_NORMAL_VALUE),
                 parseInt(BOMBS_NUMBER_NORMAL_VALUE));
     }
 
-    public boolean isHardComplexity() {
-        return fieldService.checkComplexity(
+    public boolean isHardMode() {
+        return fieldService.checkMode(
                 parseInt(ROWS_NUMBER_HARD_VALUE),
                 parseInt(COLUMNS_NUMBER_HARD_VALUE),
                 parseInt(BOMBS_NUMBER_HARD_VALUE));
+    }
+
+    public String getBombsNumber() {
+        return fieldService.getBombsNumber();
+    }
+
+    public ModelInfo getModelInfo() {
+        return fieldService.getModelInfo();
     }
 }

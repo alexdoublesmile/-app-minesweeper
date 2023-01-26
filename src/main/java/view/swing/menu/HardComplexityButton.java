@@ -11,7 +11,7 @@ public class HardComplexityButton extends JRadioButtonMenuItem {
     private final GameMenu menuBar;
 
     public HardComplexityButton(String name, GameMenu menuBar) {
-        super(name, menuBar.getView().getController().isHardComplexity());
+        super(name, menuBar.getView().getController().isHardMode());
         this.menuBar = menuBar;
 
         addActionListener(e -> {
@@ -20,7 +20,8 @@ public class HardComplexityButton extends JRadioButtonMenuItem {
             updateConfig(BOMBS_NUMBER_PROPERTY_NAME, BOMBS_NUMBER_HARD_VALUE);
 
             final SwingView view = menuBar.getView();
-            view.getPanel().updateModelInView(view.getController().restart().getField());
+            view.getController().restart();
+//            view.getPanel().updateModelInView();
             view.getWindow().setVisible(false);
             view.showWindow();
         });

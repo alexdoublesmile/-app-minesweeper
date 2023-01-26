@@ -11,7 +11,7 @@ public class EasyComplexityButton extends JRadioButtonMenuItem {
     private final GameMenu menuBar;
 
     public EasyComplexityButton(String name, GameMenu menuBar) {
-        super(name, menuBar.getView().getController().isEasyComplexity());
+        super(name, menuBar.getView().getController().isEasyMode());
         this.menuBar = menuBar;
 
         addActionListener(e -> {
@@ -20,7 +20,8 @@ public class EasyComplexityButton extends JRadioButtonMenuItem {
             updateConfig(BOMBS_NUMBER_PROPERTY_NAME, BOMBS_NUMBER_EASY_VALUE);
 
             final SwingView view = menuBar.getView();
-            view.getPanel().updateModelInView(view.getController().restart().getField());
+            view.getController().restart();
+//            view.getPanel().updateModelInView();
             view.getWindow().setVisible(false);
             view.showWindow();
         });
