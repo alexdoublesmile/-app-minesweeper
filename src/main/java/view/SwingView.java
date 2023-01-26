@@ -38,7 +38,7 @@ public class SwingView implements View {
         window = new Window();
         panel = new GamePanel(controller.getField());
         menu = new GameMenu(this);
-        // TODO: 25.01.2023 add bombs number online here 
+        // TODO: 25.01.2023 add bombs number online here
         label = new JLabel(ViewConstants.GREETING_LABEL);
 
         window.add(menu, BorderLayout.NORTH);
