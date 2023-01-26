@@ -16,6 +16,6 @@ public class RestartAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         final SwingView view = menu.getView();
         view.getController().restart();
-        view.getPanel().repaint();
+        view.getGamePanel().repaint();
     }
 }

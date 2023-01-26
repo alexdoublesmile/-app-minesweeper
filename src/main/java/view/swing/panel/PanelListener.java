@@ -17,13 +17,12 @@ public class PanelListener extends MouseAdapter {
 
     public PanelListener(SwingView view) {
         this.view = view;
-
     }
 
     @Override
     public void mousePressed(MouseEvent click) {
         final GameController controller = view.getController();
-        final GamePanel panel = view.getPanel();
+        final GamePanel panel = view.getGamePanel();
         final int cellSize = controller.getModelInfo().getCellSize();
         int row = click.getY() / cellSize;
         int col = click.getX() / cellSize;

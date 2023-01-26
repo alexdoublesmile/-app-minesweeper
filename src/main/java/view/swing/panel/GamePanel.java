@@ -28,7 +28,7 @@ public class GamePanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         modelInfo = controller.getModelInfo();
-        bombLabel.setText(String.valueOf(modelInfo.getBombsNumber() - modelInfo.getFlagsNumber()));
+//        bombLabel.setText(String.valueOf(modelInfo.getBombsNumber() - modelInfo.getFlagsNumber()));
 
         modelInfo.getCellList().forEach(cell ->
                 g.drawImage(
