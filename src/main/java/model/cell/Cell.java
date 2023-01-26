@@ -1,15 +1,11 @@
 package model.cell;
 
-import lombok.*;
 import model.Field;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-@Getter
-@EqualsAndHashCode(of = {"row", "column"})
-@NoArgsConstructor
-@AllArgsConstructor
 public class Cell implements Openable {
     protected int row;
     protected int column;
@@ -19,7 +15,6 @@ public class Cell implements Openable {
     protected boolean isLosing;
     protected Field field;
 
-    @ToString.Exclude
     protected List<Cell> aroundCells = new ArrayList<>();
 
     public Cell(int row, int column, CellType type, boolean isOpen) {
@@ -27,6 +22,20 @@ public class Cell implements Openable {
         this.column = column;
         this.type = type;
         this.isOpen = isOpen;
+    }
+
+    public Cell(int row, int column, CellType type, boolean isOpen, boolean isFlagged, boolean isLosing, Field field, List<Cell> aroundCells) {
+        this.row = row;
+        this.column = column;
+        this.type = type;
+        this.isOpen = isOpen;
+        this.isFlagged = isFlagged;
+        this.isLosing = isLosing;
+        this.field = field;
+        this.aroundCells = aroundCells;
+    }
+
+    public Cell() {
     }
 
     public List<Cell> getAroundCells() {
@@ -71,5 +80,47 @@ public class Cell implements Openable {
 
     public void toggleFlag(boolean isFlagged) {
         this.isFlagged = isFlagged;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cell cell = (Cell) o;
+        return row == cell.row &&
+                column == cell.column;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, column);
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public CellType getType() {
+        return type;
+    }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public boolean isFlagged() {
+        return isFlagged;
+    }
+
+    public boolean isLosing() {
+        return isLosing;
+    }
+
+    public Field getField() {
+        return field;
     }
 }

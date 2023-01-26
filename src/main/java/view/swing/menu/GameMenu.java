@@ -1,6 +1,5 @@
 package view.swing.menu;
 
-import lombok.Getter;
 import view.SwingView;
 
 import javax.swing.*;
@@ -8,7 +7,6 @@ import javax.swing.*;
 import static util.ConfigConstants.*;
 import static util.PropertyHelper.getConfig;
 
-@Getter
 public class GameMenu extends JMenuBar {
     private final SwingView view;
 
@@ -69,5 +67,9 @@ public class GameMenu extends JMenuBar {
         add(gameMenu);
         add(optionsMenu);
         add(helpMenu);
+    }
+
+    public SwingView getView() {
+        return view;
     }
 }

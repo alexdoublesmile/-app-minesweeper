@@ -3,7 +3,6 @@ package model.cell;
 import model.Field;
 
 public class ClosedNumberCell extends Cell {
-
     public ClosedNumberCell(Cell cell) {
         this.row = cell.row;
         this.column = cell.column;

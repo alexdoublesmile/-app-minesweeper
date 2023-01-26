@@ -1,6 +1,5 @@
 package util;
 
-import lombok.experimental.UtilityClass;
 import model.Field;
 import model.cell.Cell;
 
@@ -12,8 +11,19 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
 import static model.cell.CellType.EMPTY;
 
-@UtilityClass
-public class CellUtil {
+public final class CellUtil {
+
+    public static boolean isValidCoords(int row, int column, Field field) {
+        return row >= 0 && row < field.getRowsNumber()
+                && column >= 0 && column < field.getColumnsNumber();
+    }
+
+    public static List<Cell> getCellList(Cell[][] cells) {
+        return Stream.of(cells)
+                .flatMap(Arrays::stream)
+                .collect(toList());
+    }
+
     public static Cell getNoBombRandomCell(Field field, int row, int column) {
         Cell safeCell = new Cell(row, column, EMPTY, false);
         Cell randomCell;
@@ -29,16 +39,5 @@ public class CellUtil {
         int randomColumn = ThreadLocalRandom.current().nextInt(field.getColumnsNumber());
 
         return field.getCells()[randomRow][randomColumn];
-    }
-
-    public static boolean isValidCoords(int row, int column, Field field) {
-        return row >= 0 && row < field.getRowsNumber()
-                && column >= 0 && column < field.getColumnsNumber();
-    }
-
-    public List<Cell> getCellList(Cell[][] cells) {
-        return Stream.of(cells)
-                .flatMap(Arrays::stream)
-                .collect(toList());
     }
 }

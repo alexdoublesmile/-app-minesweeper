@@ -1,18 +1,20 @@
 package model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import model.cell.Cell;
 
 import static model.GameState.*;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Game {
     private Field field;
     private GameState state;
+
+    public Game(Field field, GameState state) {
+        this.field = field;
+        this.state = state;
+    }
+
+    public Game() {
+    }
 
     public Cell getCell(int row, int col) {
         return getField().getCells()[row][col];
@@ -42,5 +44,13 @@ public class Game {
 
     public boolean isNotInitialized() {
         return NOT_INITIALIZED == state;
+    }
+
+    public Field getField() {
+        return field;
+    }
+
+    public GameState getState() {
+        return state;
     }
 }

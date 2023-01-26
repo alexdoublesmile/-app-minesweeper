@@ -1,6 +1,5 @@
 package controller;
 
-import lombok.RequiredArgsConstructor;
 import model.Game;
 import model.ModelInfo;
 import service.GameService;
@@ -8,9 +7,12 @@ import service.GameService;
 import static java.lang.Integer.parseInt;
 import static util.ConfigConstants.*;
 
-@RequiredArgsConstructor
 public final class GameController {
     private final GameService fieldService;
+
+    public GameController(GameService fieldService) {
+        this.fieldService = fieldService;
+    }
 
     public Game start() {
         return fieldService.start();

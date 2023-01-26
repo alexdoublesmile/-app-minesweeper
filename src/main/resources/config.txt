@@ -1,4 +1,4 @@
-#Thu Jan 26 16:02:01 EET 2023
-rows.number=10
+#Thu Jan 26 19:26:51 EET 2023
+rows.number=11
 bombs.number=7
 columns.number=15

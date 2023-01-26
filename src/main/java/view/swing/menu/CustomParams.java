@@ -1,8 +1,5 @@
 package view.swing.menu;
 
-import lombok.Builder;
-
-@Builder
 public class CustomParams {
     private final static int MIN_ROWS_NUMBER = 3;
     private final static int MAX_ROWS_NUMBER = 19;
@@ -13,6 +10,12 @@ public class CustomParams {
     private final int rows;
     private final int columns;
     private final int bombs;
+
+    private CustomParams(int rows, int columns, int bombs) {
+        this.rows = rows;
+        this.columns = columns;
+        this.bombs = bombs;
+    }
 
     public int normalizedRows() {
         if (rows < MIN_ROWS_NUMBER) {
@@ -33,5 +36,34 @@ public class CustomParams {
             return MIN_BOMBS_NUMBER;
         }
         return Math.min(bombs, normalizedRows() * normalizedColumns() - 2);
+    }
+
+    public static CustomParamsBuilder builder() {
+        return new CustomParamsBuilder();
+    }
+
+    public static class CustomParamsBuilder {
+        private int rows;
+        private int columns;
+        private int bombs;
+
+        public CustomParamsBuilder rows(int rows) {
+            this.rows = rows;
+            return this;
+        }
+
+        public CustomParamsBuilder columns(int columns) {
+            this.columns = columns;
+            return this;
+        }
+
+        public CustomParamsBuilder bombs(int bombs) {
+            this.bombs = bombs;
+            return this;
+        }
+
+        public CustomParams build() {
+            return new CustomParams(rows, columns, bombs);
+        }
     }
 }

@@ -4,7 +4,6 @@ import model.Field;
 import util.CellUtil;
 
 public class ClosedBombCell extends Cell {
-
     public ClosedBombCell(Cell cell) {
         this.row = cell.row;
         this.column = cell.column;

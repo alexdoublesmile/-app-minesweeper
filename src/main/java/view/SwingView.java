@@ -1,7 +1,6 @@
 package view;
 
 import controller.GameController;
-import lombok.Getter;
 import view.swing.Window;
 import view.swing.menu.GameMenu;
 import view.swing.panel.BombLabel;
@@ -11,7 +10,6 @@ import view.swing.panel.PanelListener;
 import javax.swing.*;
 import java.awt.*;
 
-@Getter
 public class SwingView implements View {
     private final GameController controller;
 
@@ -40,5 +38,25 @@ public class SwingView implements View {
         window.setLocationRelativeTo(null);
 
         gamePanel.addMouseListener(new PanelListener(this));
+    }
+
+    public GameController getController() {
+        return controller;
+    }
+
+    public Window getWindow() {
+        return window;
+    }
+
+    public GameMenu getMenu() {
+        return menu;
+    }
+
+    public GamePanel getGamePanel() {
+        return gamePanel;
+    }
+
+    public BombLabel getBombLabel() {
+        return bombLabel;
     }
 }

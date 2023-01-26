@@ -1,21 +1,17 @@
 package model;
 
-import lombok.Builder;
-import lombok.Getter;
 import model.cell.Cell;
 import model.cell.OpenCell;
 import util.CellUtil;
+import view.swing.menu.CustomParams;
 
 import java.util.Arrays;
 
-@Getter
-@Builder
 public class Field {
     private final int cellSize;
     private final int rowsNumber;
     private final int columnsNumber;
     private final int bombsNumber;
-
     private int flagsNumber;
     private int closedCellsNumber;
     private boolean enabledAutoOpen;
@@ -88,6 +84,95 @@ public class Field {
         } else {
             cells[row][col].toggleFlag(false);
             flagsNumber--;
+        }
+    }
+
+    public int getCellSize() {
+        return cellSize;
+    }
+
+    public int getRowsNumber() {
+        return rowsNumber;
+    }
+
+    public int getColumnsNumber() {
+        return columnsNumber;
+    }
+
+    public int getBombsNumber() {
+        return bombsNumber;
+    }
+
+    public int getFlagsNumber() {
+        return flagsNumber;
+    }
+
+    public int getClosedCellsNumber() {
+        return closedCellsNumber;
+    }
+
+    public static FieldBuilder builder() {
+        return new FieldBuilder();
+    }
+
+    public static class FieldBuilder {
+        private int cellSize;
+        private int rowsNumber;
+        private int columnsNumber;
+        private int bombsNumber;
+        private int flagsNumber;
+        private int closedCellsNumber;
+        private boolean enabledAutoOpen;
+        private Cell[][] cells;
+        private Game game;
+
+        public FieldBuilder cellSize(int cellSize) {
+            this.cellSize = cellSize;
+            return this;
+        }
+
+        public FieldBuilder rowsNumber(int rowsNumber) {
+            this.rowsNumber = rowsNumber;
+            return this;
+        }
+
+        public FieldBuilder columnsNumber(int columnsNumber) {
+            this.columnsNumber = columnsNumber;
+            return this;
+        }
+
+        public FieldBuilder bombsNumber(int bombsNumber) {
+            this.bombsNumber = bombsNumber;
+            return this;
+        }
+
+        public FieldBuilder flagsNumber(int flagsNumber) {
+            this.flagsNumber = flagsNumber;
+            return this;
+        }
+
+        public FieldBuilder closedCellsNumber(int closedCellsNumber) {
+            this.closedCellsNumber = closedCellsNumber;
+            return this;
+        }
+
+        public FieldBuilder enabledAutoOpen(boolean enabledAutoOpen) {
+            this.enabledAutoOpen = enabledAutoOpen;
+            return this;
+        }
+
+        public FieldBuilder cells(Cell[][] cells) {
+            this.cells = cells;
+            return this;
+        }
+
+        public FieldBuilder game(Game game) {
+            this.game = game;
+            return this;
+        }
+
+        public Field build() {
+            return new Field(cellSize, rowsNumber, columnsNumber, bombsNumber, flagsNumber, closedCellsNumber, enabledAutoOpen, cells, game);
         }
     }
 }

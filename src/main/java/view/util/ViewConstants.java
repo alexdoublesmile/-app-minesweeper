@@ -1,10 +1,8 @@
 package view.util;
 
 import util.PropertyHelper;
-import lombok.experimental.UtilityClass;
 
-@UtilityClass
-public class ViewConstants {
+public final class ViewConstants {
     public static final String VIEW_TITLE = "Minesweeper Pro";
     public static final String GREETING_LABEL = "Welcome!";
     public static final String VERSION_MESSAGE_TITLE = "Minesweeper Pro version";

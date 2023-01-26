@@ -3,7 +3,7 @@ package view.util;
 import javax.swing.*;
 import java.awt.*;
 
-public class ImageHelper {
+public final class ImageHelper {
 
     public static Image getImageByType(ImageType imageType) {
         return getImageByName(imageType.getImageName());
