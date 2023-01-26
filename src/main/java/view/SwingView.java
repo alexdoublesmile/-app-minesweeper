@@ -3,11 +3,10 @@ package view;
 import controller.GameController;
 import lombok.Getter;
 import view.swing.menu.GameMenu;
-import view.swing.panel.ClockLabel;
+import view.swing.panel.BombLabel;
 import view.swing.panel.GamePanel;
 import view.swing.Window;
 import view.swing.panel.PanelListener;
-import view.util.ViewConstants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +18,8 @@ public class SwingView implements View {
     private Window window;
     private GamePanel panel;
     private GameMenu menu;
-    private ClockLabel clockLabel;
-    private JLabel label;
+    private BombLabel bombLabel;
+//    private JLabel label;
 
     public SwingView(GameController controller) {
         this.controller = controller;
@@ -38,15 +37,13 @@ public class SwingView implements View {
 
     private void showWindowSeparateThread() {
         window = new Window();
-        panel = new GamePanel(controller);
         menu = new GameMenu(this);
-        // TODO: 25.01.2023 add bombs number online here
-        label = new JLabel(ViewConstants.GREETING_LABEL);
-        clockLabel = new ClockLabel(this);
+        bombLabel = new BombLabel(this);
+        panel = new GamePanel(controller, bombLabel);
 
         window.add(menu, BorderLayout.NORTH);
-        window.add(clockLabel, BorderLayout.SOUTH);
         window.add(panel);
+        window.add(bombLabel, BorderLayout.SOUTH);
 
         window.pack();
         window.setLocationRelativeTo(null);

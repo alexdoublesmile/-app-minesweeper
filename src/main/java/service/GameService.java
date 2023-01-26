@@ -50,7 +50,7 @@ public final class GameService {
     }
 
     public void toggleFlag(int row, int col) {
-        game.getField().getCells()[row][col].toggleFlag();
+        game.getField().toggleFlag(row, col);
     }
 
     public boolean isOver() {

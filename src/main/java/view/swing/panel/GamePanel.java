@@ -11,9 +11,11 @@ import java.awt.*;
 public class GamePanel extends JPanel {
     private GameController controller;
     private ModelInfo modelInfo;
+    private BombLabel bombLabel;
 
-    public GamePanel(GameController controller) {
+    public GamePanel(GameController controller, BombLabel bombLabel) {
         this.controller = controller;
+        this.bombLabel = bombLabel;
 
         modelInfo = controller.getModelInfo();
 
@@ -26,6 +28,8 @@ public class GamePanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         modelInfo = controller.getModelInfo();
+        bombLabel.setText(String.valueOf(modelInfo.getBombsNumber() - modelInfo.getFlagsNumber()));
+
         modelInfo.getCellList().forEach(cell ->
                 g.drawImage(
                         ImageHelper.getImageByType(ImageType.getByCell(cell)),

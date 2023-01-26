@@ -11,23 +11,23 @@ import java.util.Arrays;
 @Getter
 @Builder
 public class Field {
+    private final int cellSize;
     private final int rowsNumber;
     private final int columnsNumber;
     private final int bombsNumber;
-    private final int flagsNumber;
-    private final int cellSize;
 
+    private int flagsNumber;
     private int closedCellsNumber;
     private boolean enabledAutoOpen;
     private Cell[][] cells;
     private Game game;
 
     public Field(
+            int cellSize,
             int rowsNumber,
             int columnsNumber,
             int bombsNumber,
             int flagsNumber,
-            int cellSize,
             int closedCellsNumber,
             boolean enabledAutoOpen,
             Cell[][] cells,
@@ -78,5 +78,16 @@ public class Field {
 
     public void setAutoOpen(boolean enabledAutoOpen) {
         this.enabledAutoOpen = enabledAutoOpen;
+    }
+
+    public void toggleFlag(int row, int col) {
+        final Cell cell = cells[row][col];
+        if (cell.isNotFlagged()) {
+            cells[row][col].toggleFlag(true);
+            flagsNumber++;
+        } else {
+            cells[row][col].toggleFlag(false);
+            flagsNumber--;
+        }
     }
 }

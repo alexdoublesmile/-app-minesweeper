@@ -69,9 +69,7 @@ public class Cell implements Openable {
         this.field = field;
     }
 
-    public void toggleFlag() {
-        if (isClosed()) {
-            isFlagged = !isFlagged;
-        }
+    public void toggleFlag(boolean isFlagged) {
+        this.isFlagged = isFlagged;
     }
 }
