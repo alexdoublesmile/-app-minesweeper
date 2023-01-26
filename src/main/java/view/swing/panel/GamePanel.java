@@ -33,8 +33,4 @@ public class GamePanel extends JPanel {
                         cell.getRow() * modelInfo.getCellSize(),
                         this));
     }
-
-//    public void updateModelInView() {
-//        this.modelInfo = controller.getModelInfo();
-//    }
 }

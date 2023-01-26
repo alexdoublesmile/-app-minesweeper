@@ -1,7 +1,6 @@
 package controller;
 
 import lombok.RequiredArgsConstructor;
-import model.Field;
 import model.Game;
 import model.ModelInfo;
 import service.GameService;
@@ -32,10 +31,6 @@ public final class GameController {
     public void makeMark(int row, int col) {
         fieldService.toggleFlag(row, col);
     }
-
-//    public Field getField() {
-//        return fieldService.getField();
-//    }
 
     public boolean isOver() {
         return fieldService.isOver();
@@ -68,10 +63,6 @@ public final class GameController {
                 parseInt(ROWS_NUMBER_HARD_VALUE),
                 parseInt(COLUMNS_NUMBER_HARD_VALUE),
                 parseInt(BOMBS_NUMBER_HARD_VALUE));
-    }
-
-    public String getBombsNumber() {
-        return fieldService.getBombsNumber();
     }
 
     public ModelInfo getModelInfo() {

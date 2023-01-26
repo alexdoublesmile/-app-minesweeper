@@ -9,7 +9,6 @@ import util.CellUtil;
 import util.FieldFactory;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static model.GameState.NOT_INITIALIZED;
 import static model.GameState.PLAYING;
@@ -54,19 +53,6 @@ public final class GameService {
         game.getField().getCells()[row][col].toggleFlag();
     }
 
-//    public Field getField() {
-//        return game.getField();
-//    }
-
-//    public String getMessageByState() {
-//        switch (game.getState()) {
-//            case PLAYING: return "Think twice!";
-//            case LOSING: return "BOOM!";
-//            case WINNING: return "Congratulations!";
-//            default: return "Welcome!";
-//        }
-//    }
-
     public boolean isOver() {
         return game.isOver();
     }
@@ -85,10 +71,6 @@ public final class GameService {
         int columns = field.getColumnsNumber();
         int bombs = field.getBombsNumber();
         return rows == checkRows && columns == checkColumns && bombs == checkBombs;
-    }
-
-    public String getBombsNumber() {
-        return String.valueOf(game.getField().getBombsNumber());
     }
 
     public ModelInfo getModelInfo() {

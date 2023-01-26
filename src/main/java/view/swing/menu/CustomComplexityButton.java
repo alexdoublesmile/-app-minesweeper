@@ -63,7 +63,6 @@ public class CustomComplexityButton extends JMenuItem {
 
                 final SwingView view = menuBar.getView();
                 view.getController().restart();
-//                view.getPanel().updateModelInView();
                 view.getWindow().setVisible(false);
                 view.showWindow();
             }

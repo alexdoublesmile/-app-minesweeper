@@ -13,7 +13,7 @@ public class ClockLabel extends JLabel {
         public ClockLabel(SwingView view) {
             this.view = view;
 
-            setText(view.getController().getBombsNumber() + "");
+            setText(view.getController().getModelInfo().getBombsNumber() + "");
 //            setForeground(Color.BLACK);
 //            setFont(new Font("sans-serif", Font.ROMAN_BASELINE, 24));
             setHorizontalAlignment(SwingConstants.LEFT);
