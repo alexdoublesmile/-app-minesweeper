@@ -32,7 +32,10 @@ public class PanelListener extends MouseAdapter {
                 initializeIfNeeds(row, col);
                 controller.makeChoice(row, col);
                 break;
-            case MARK: controller.makeMark(row, col);
+            case MARK:
+                if (controller.isClosed(row, col)) {
+                    controller.makeMark(row, col);
+                }
                 break;
             case RESET: controller.restart();
                 break;

@@ -86,4 +86,8 @@ public final class GameService {
                 .cellList(new ArrayList<>(CellUtil.getCellList(field.getCells())))
                 .build();
     }
+
+    public boolean isClosed(int row, int col) {
+        return game.getField().getCells()[row][col].isClosed();
+    }
 }

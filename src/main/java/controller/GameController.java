@@ -70,4 +70,8 @@ public final class GameController {
     public ModelInfo getModelInfo() {
         return fieldService.getModelInfo();
     }
+
+    public boolean isClosed(int row, int col) {
+        return fieldService.isClosed(row, col);
+    }
 }
